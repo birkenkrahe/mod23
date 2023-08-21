@@ -550,7 +550,7 @@ which part of the diagram? ([[https://github.com/birkenkrahe/mod23/blob/main/img
    plotted alongside the prediction.
 #+end_quote
 
-An alternative model: discuss the differences! (link)
+An alternative model: discuss the differences! ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling1.png][link]])
 #+attr_latex: :width 400px
 #+caption: Source: Giordano et al. (2014)
 [[../img/modeling1.png]]
