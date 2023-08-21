@@ -8,7 +8,7 @@
 - Course overview
 - Getting started (infrastructure: GMail, DataCamp, Canvas, GitHub)
 - DataCamp workspace practice
-- Modeling framework
+- Modeling and simulation frameworks
 - Testing the falling Penny myth
 - Pint Python library for unit computations
 
@@ -154,7 +154,7 @@ Colaboratory, Kaggle, replit.com, etc.
 - If you do leave a comment, I will be notified via GMail and will
   respond as soon as I see the email and find the time.
 
-* Dashboard
+** Dashboard
 
 - Our target data is the "unicorn company" dataset - we're going
   to analyse the data of companies with a valuation > USD 1 bn.
@@ -196,7 +196,7 @@ Colaboratory, Kaggle, replit.com, etc.
   e.g. download and use a free, offline version of "[[https://jupyter.org/][Jupyter Lab]]" to
   your PC or work in another online environment.
 
-* Code along notebook
+** Code along notebook
 
 - To begin, you should have an editable copy of my workspace in
   your personal workspace: [[https://tinyurl.com/WorkspaceDemoPython][tinyurl.com/WorkspaceDemoPython]].
@@ -222,7 +222,7 @@ Colaboratory, Kaggle, replit.com, etc.
   [[https://tinyurl.com/WorkspaceDemoPythonSolution][tinyurl.com/WorkspaceDemoPythonSolution]]. The published notebook is
   available, too: [[https://tinyurl.com/WorkspaceDemoPublic][tinyurl.com/WorkspaceDemoPublic]].
 
-* Understanding the sidebar
+** Understanding the sidebar
 
 - Open the ~Files~ menu in the sidebar: you see the notebook (open)
   and the CSV file.
@@ -249,7 +249,7 @@ Colaboratory, Kaggle, replit.com, etc.
   separated by commas. The first line is special: it contains the
   headers, the names for the different columns.
 
-* Importing a CSV file as a pandas ~DataFrame~
+** Importing a CSV file as a pandas ~DataFrame~
 
 - Get back to your notebook. Next to the CSV file, select ~Copy
   path to clipboard~. Click on ~Files~ to close the menu. Now all you see
@@ -274,7 +274,7 @@ Colaboratory, Kaggle, replit.com, etc.
 - Though the data look quite clean and appealing, a table view is
   not the best way to get an overview - there are many records.
 
-* Viewing ~unique~ column (~pd.Series~) data
+** Viewing ~unique~ column (~pd.Series~) data
 
 - For investment purposes, the ~Category~ column or feature is most
   interesting: this is the type of company. How many of these types
@@ -294,7 +294,7 @@ Colaboratory, Kaggle, replit.com, etc.
     help(pd.unique)
   #+end_example
 
-* Testing the AI coding assistant
+** Testing the AI coding assistant
 
 - This is a good place to show off your ~AI~ assistant: you may not
   know how to look for help for ~unique~. Entering ~help(unique)~ or
@@ -354,7 +354,7 @@ Colaboratory, Kaggle, replit.com, etc.
   or mixed elements."
   #+end_quote
 
-* Back to viewing the unique ~'Category'~ values
+** Back to viewing the unique ~'Category'~ values
 
 - To remove the extraneous information about data types in the
   printout (~array~) and print the list one item per line, you can also
@@ -375,7 +375,7 @@ Colaboratory, Kaggle, replit.com, etc.
   (~Finttech~) and capitalization (~Artificial Intelligence~). Let's
   remove the ambiguities.
 
-* Clean data frame column ~Category~
+** Clean data frame column ~Category~
 
 - We can use ~df.replace~ to replace one value by another value
   inside our dataframe. We do not need to repeat the command but we
@@ -387,7 +387,7 @@ Colaboratory, Kaggle, replit.com, etc.
                           value='Fintech')
   #+end_example
 
-* Share editing rights
+** Share editing rights
 
 - One of the neater properties of DataCamp Workspace is the ability to
   share your notebook and edit synchronously like in GoogleDocs.
@@ -407,7 +407,7 @@ Colaboratory, Kaggle, replit.com, etc.
 - Once this is done, ~Remove~ access from your workspace for the other
   person.
 
-* Grouping data by column values
+** Grouping data by column values
 
 -  To find out how many unicorn companies are there in each
   ~Category~ (aka industry), we group the corresponding records using
@@ -458,7 +458,7 @@ Colaboratory, Kaggle, replit.com, etc.
     print(category_counts.shape)
   #+end_example
 
-* Plotting data
+** Plotting data
 
 - The result, ~category_counts~, is a pandas data frame with two
   columns sorted by size of group rather than alphabetically. When you
@@ -521,52 +521,61 @@ Colaboratory, Kaggle, replit.com, etc.
 - WS notebooks can be shared with other [DataCamp] users
 - WS notebooks can be [[https://app.datacamp.com/workspace/w/673a5c14-1777-45e0-ac25-6b882ce06fc5][published]] to [DataCamp] portfolios
 
-
 * Workspace and modeling (exercise)
-
-If modeling is "defined" by the relationships shown in the diagram
-(from Downey's book p.4), where does coding with interactive notebooks
-fit in? More specifically, which parts of the workspace play a role in
-which part of the diagram? ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling.png][link]])
 #+attr_latex: :width 400px
 #+caption: Source: Downey (2023)
 [[../img/modeling.png]]
-#+begin_quote
-1) The workspace is a software system. It can be subjected to
-   measurements, which generate data (about the workbook),
-   e.g. session time.
-2) The notebook can be used to create a model of a real system:
-   e.g. the unicorn data frame (and data set) is an abstraction
-   because only certain features (columns) are retained.
-3) The model (data frame) can then be subjected to further analysis,
-   e.g. we can build a model to predict the frequency of unicorns in
-   industries based on the collected data (what type of model?)
-4) Sticking to the fact that the workspace itself is a system, we
-   could predict future session time lengths based on previous
-   usage. A lineplot would show the session times over time (that is a
-   time series), and linear extrapolation would predict the evolution
-   of the session times.
-5) To validate the prediction, further measurements can be taken and
-   plotted alongside the prediction.
-#+end_quote
 
-An alternative model: discuss the differences! ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling1.png][link]])
-#+attr_latex: :width 400px
-#+caption: Source: Giordano et al. (2014)
-[[../img/modeling1.png]]
-#+begin_quote
-- "Simulation" (from Model to Prediction) is missing
-- "Validation" (from Prediction to Data) goes both ways while
-  "interpretation" of a mathematical model only goes one way.
-- System is equivalent to Real-world data but instead of
-  "verification" of the predictions or explanations, the first model
-  posits measurements to obtain data which enter a feedback loop with
-  the predictions.
-- The first model is more general, the second one only deals with
-  mathematical modeling of real-world data.
-- Deep learning models for example, which are trained on real-world
-  data and can be validated using test data, are not covered here.
-#+end_quote
+- If modeling is "defined" by the relationships shown in the diagram
+  (from Downey's book p.4), where does coding with interactive
+  notebooks fit in? More specifically, which parts of the workspace
+  play a role in which part of the diagram? ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling.png][link]])
+  #+begin_quote
+  1) The workspace is a software system. It can be subjected to
+     measurements, which generate data (about the workbook),
+     e.g. session time.
+  2) The notebook can be used to create a model of a real system:
+     e.g. the unicorn data frame (and data set) is an abstraction
+     because only certain features (columns) are retained.
+  3) The model (data frame) can then be subjected to further analysis,
+     e.g. we can build a model to predict the frequency of unicorns in
+     industries based on the collected data (what type of model?)
+  4) Sticking to the fact that the workspace itself is a system, we
+     could predict future session time lengths based on previous
+     usage. A lineplot would show the session times over time (that is a
+     time series), and linear extrapolation would predict the evolution
+     of the session times.
+  5) To validate the prediction, further measurements can be taken and
+     plotted alongside the prediction.
+  #+end_quote
+
+- These three results are the three outcomes of analytics:
+  1) descriptive analysis tells us what has already happened;
+  2) predictive analysis shows us what could happen;
+  3) prescriptive analysis informs us what should happen.
+
+- An alternative model: discuss the differences! ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling1.png][link]])
+  #+attr_latex: :width 400px
+  #+caption: Source: Giordano et al. (2014)
+  [[../img/modeling1.png]]
+  #+begin_quote
+  - "Simulation" (from Model to Prediction) is missing
+  - "Validation" (from Prediction to Data) goes both ways while
+    "interpretation" of a mathematical model only goes one way.
+  - System is equivalent to Real-world data but instead of
+    "verification" of the predictions or explanations, the first model
+    posits measurements to obtain data which enter a feedback loop with
+    the predictions.
+  - The first model is more general, the second one only deals with
+    mathematical modeling of real-world data.
+  - Deep learning models for example, which are trained on real-world
+    data and can be validated using test data, are not covered here.
+  #+end_quote
+
+
+* Testing the falling Penny myth
+
+
 
 * References
 
