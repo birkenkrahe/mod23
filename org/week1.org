@@ -3,7 +3,7 @@
 #+property: header-args:R :results output :noweb yes
 #+property: header-args:python :results output :noweb yes
 #+options: toc:1 num:1
-* Week 1:
+* Week 1
 
 - Course overview
 - Getting started (infrastructure: GMail, DataCamp, Canvas, GitHub)
@@ -510,6 +510,7 @@ Colaboratory, Kaggle, replit.com, etc.
   plt.show()
   #+end_example
 
+
 * Workspace - Summary (exercise)
 
 - Workspace offers [[https://jupyter.org/][Jupyter]] notebooks in Python, R and SQL.
@@ -520,16 +521,17 @@ Colaboratory, Kaggle, replit.com, etc.
 - WS notebooks can be shared with other [DataCamp] users
 - WS notebooks can be [[https://app.datacamp.com/workspace/w/673a5c14-1777-45e0-ac25-6b882ce06fc5][published]] to [DataCamp] portfolios
 
+
 * Workspace and modeling (exercise)
 
 If modeling is "defined" by the relationships shown in the diagram
 (from Downey's book p.4), where does coding with interactive notebooks
 fit in? More specifically, which parts of the workspace play a role in
-which part of the diagram? (link)
-
+which part of the diagram? ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling.png][link]])
 #+attr_latex: :width 400px
+#+caption: Source: Downey (2023)
 [[../img/modeling.png]]
-
+#+begin_quote
 1) The workspace is a software system. It can be subjected to
    measurements, which generate data (about the workbook),
    e.g. session time.
@@ -546,6 +548,25 @@ which part of the diagram? (link)
    of the session times.
 5) To validate the prediction, further measurements can be taken and
    plotted alongside the prediction.
+#+end_quote
+
+An alternative model: discuss the differences! (link)
+#+attr_latex: :width 400px
+#+caption: Source: Giordano et al. (2014)
+[[../img/modeling1.png]]
+#+begin_quote
+- "Simulation" (from Model to Prediction) is missing
+- "Validation" (from Prediction to Data) goes both ways while
+  "interpretation" of a mathematical model only goes one way.
+- System is equivalent to Real-world data but instead of
+  "verification" of the predictions or explanations, the first model
+  posits measurements to obtain data which enter a feedback loop with
+  the predictions.
+- The first model is more general, the second one only deals with
+  mathematical modeling of real-world data.
+- Deep learning models for example, which are trained on real-world
+  data and can be validated using test data, are not covered here.
+#+end_quote
 
 * References
 
@@ -555,6 +576,9 @@ Insights. Published 2023. Accessed August
 
 Downey AB. Modeling and Simulation in Python. NoStarch
 Press; 2023. https://allendowney.github.io/ModSimPy/
+
+Giordano FR, Fox WP,Horton SB. A First Course in Mathematical
+Modeling (5e). Cengage Learning 2013.
 
 Google LLC. Google Colaboratory. Accessed August
 19, 2023. https://colab.research.google.com
