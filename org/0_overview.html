@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-22 Tue 14:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modeling - week 1</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Modeling - week 1</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge3cd08b">1. Week 1</a></li>
+<li><a href="#org8ef14ff">2. Getting started</a></li>
+<li><a href="#orge506c6c">3. Course overview</a></li>
+<li><a href="#orgfa25bcf">4. Introducing DataCamp workspace</a></li>
+<li><a href="#org9ebcdfa">5. Workspace demo - setup</a></li>
+<li><a href="#org98964fe">6. Workspace - Summary (exercise)</a></li>
+<li><a href="#org39d07d4">7. Workspace and modeling (exercise)</a></li>
+<li><a href="#org1687aab">8. Testing the falling Penny myth</a></li>
+<li><a href="#orgc1ae24f">9. References</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge3cd08b" class="outline-2">
+<h2 id="orge3cd08b"><span class="section-number-2">1.</span> Week 1</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Course overview</li>
+<li>Getting started (infrastructure: GMail, DataCamp, Canvas, GitHub)</li>
+<li>DataCamp workspace practice</li>
+<li>Modeling and simulation frameworks</li>
+<li>Testing the falling Penny myth</li>
+<li>Pint Python library for unit computations</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8ef14ff" class="outline-2">
+<h2 id="org8ef14ff"><span class="section-number-2">2.</span> Getting started</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Can you see the GMail space "Modeling Chat"?</li>
+
+<li>Did you get my invitation to join datacamp.com? The courses in the
+"assignments" section are optional but you will get bonus points (10
+per completed course - by end of the term).</li>
+
+<li>Can you log into lyon.instructure.com and see Canvas?</li>
+
+<li>Can you see my GitHub repo in github.com/birkenkrahe/mod23?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge506c6c" class="outline-2">
+<h2 id="orge506c6c"><span class="section-number-2">3.</span> Course overview</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Course and instructor overview information. The original version of
+this lecture is on GitHub. There are changes for technical
+details<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
+</p>
+
+<p>
+What has modeling meant to me on my journey?
+</p>
+<ol class="org-ol">
+<li>Theoretical particle physics, especially lattice gauge theory:
+modeling "the universe" on a discrete spacetime-lattice with
+multigrid algorithms (very similar to neural nets).</li>
+<li>Interest in complex and dynamical systems (many variables, many
+degrees of freedom) - domain of 2021 Nobel Prize winner Giorgio
+Parisi (<a href="https://drive.google.com/file/d/1dYxDOjJJM-cyuuDR8dcb4mfSQwi-0EeP/view?usp=sharing">Complex systems - A Physicist's Viewpoint</a>, 2013) -
+against reductionism. Don't suppress but simulate the details of
+living systems (but not by brute force if possible).</li>
+<li>I'm now once more interested in the interface between machine
+learning and physics, e.g. applications of the Renormalization
+Group (Liu, 2017).</li>
+</ol>
+
+<p>
+What are your expectations for this course?
+</p>
+
+<p>
+What will you learn in this course? I am not sure yet.
+</p>
+
+<p>
+What I did in 2021: <a href="https://tinyurl.com/57hv47td">https://tinyurl.com/57hv47td</a> focus on "decision
+intelligence" - quite conceptual, going through different modeling
+methods, graphical/computational/conceptual.
+</p>
+
+<p>
+Python libraries we'll be using:
+</p>
+<ol class="org-ol">
+<li>NumPy for numerical computation (<a href="https://www.numpy.org">https://www.numpy.org</a>)</li>
+<li>SciPy for scientific computation (<a href="https://www.scipy.org">https://www.scipy.org</a>)</li>
+<li>Matplotlib for visualization (<a href="https://matplotlib.org">https://matplotlib.org</a>)</li>
+<li>pandas for working with data (<a href="https://pandas.pydata.org">https://pandas.pydata.org</a>)</li>
+<li>SymPy for symbolic computation (<a href="https://www.sympy.org">https://www.sympy.org</a>)</li>
+<li>Pint for units like kilograms and meters
+(<a href="https://pint.readthedocs.io">https://pint.readthedocs.io</a>)</li>
+<li>Jupyter for reading, running, and developing code
+(<a href="https://jupyter.org">https://jupyter.org</a>)</li>
+</ol>
+
+<p>
+Grading/schedule: see syllabus <a href="https://github.com/birkenkrahe/mod23/blob/main/org/syllabus.org">in GitHub</a> and <a href="https://lyon.instructure.com/courses/1443/assignments/syllabus">in Canvas</a>.
+</p>
+
+<p>
+<b>What will you learn in this course?</b> - Different types of models,
+Python basics, different cases, scientific computing. Discrete
+systems (changes occur at discrete time instants), e.g.  computer
+systems; queuing systems; network protocols. First order systems
+that are described by a first-order differential equation. Examples
+include: electrical circuits (voltage changes in response to a step
+input); thermal systems (temp changes in response to
+heating/cooling); mechanical systems (velocity of mass changes due
+to an applied force - e.g. car suspension system). Epidemiological
+models.
+</p>
+
+<p>
+How will you be evaluated? - 25% each for 15 weekly assignments,
+monthly sprint reviews, weekly tests and one final exam.
+</p>
+
+<p>
+Which tools are we going to use? - Canvas, GitHub, DataCamp
+workspace, bpmn.io for diagrammatic modeling purposes.
+</p>
+
+<p>
+Textbooks? Free online book by Alan Downey accompanied by Colab
+notebooks. Quite densely written and coded (own library), needs
+unpacking. I'll be working through the book with you.
+</p>
+
+<p>
+Infinite skills exercise: come up with at least one model you would
+create if you had infinite programming skills and if you could build
+anything you wanted using any computer and any programming language.
+</p>
+
+<p>
+First assignment: read the article by Parisi (2013) and summarize
+it. Be prepared to present your summary.
+</p>
+
+<p>
+Next: using the DataCamp coding platform.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfa25bcf" class="outline-2">
+<h2 id="orgfa25bcf"><span class="section-number-2">4.</span> Introducing DataCamp workspace</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Our integrated development and interactive notebook environment is
+DataCamp workspace at workspace.datacamp.com. For more Python
+platforms, <a href="https://github.com/birkenkrahe/py/blob/main/org/0_course_practice.org">see the GitHub practice file</a>: Command line, IDLE, Google
+Colaboratory, Kaggle, replit.com, etc.
+</p>
+
+<p>
+DataCamp workspace has a notebook interface with an IPython
+shell, a file manager, text cells with Markdown, auto-completion and
+many pre-installed packages. There is (free, for you) access to a
+Linux terminal, AI-assistance, and co-coding.
+</p>
+
+<p>
+More information about DataCamp workspace: <a href="https://tinyurl.com/bdzfpkzh">tinyurl.com/bdzfpkzh</a>
+</p>
+
+<p>
+Can you think of any reasons not to make it too convenient to
+develop, test and execute your programs? (Sounds crazy, right?) Is
+development and analysis speed the only goal?
+</p>
+<blockquote>
+<p>
+<i>Answer:</i> the notebook and the graphical UI are additional levels
+between you and the machine. This is very convenient for quick
+exploration, but you don't learn much about the internals and the
+infrastructure. The problem with that is that infrastructure changes
+often and has a strong impact on performance - infrastructure
+knowledge is quickly becoming a secret science, and only the
+initiated have access.
+</p>
+</blockquote>
+
+<p>
+How do you feel about AI-assisted coding?
+</p>
+<blockquote>
+<p>
+How I feel about AI-assisted coding: I noticed the dementia-inducing
+effect that it has on me as an expert but I don't know if it might
+help you learn faster or more broadly, or not. When you have access
+to an AI, it is important to know what you can use it for, and to
+resist its allure continuously so that you don't become
+dependent. This could easily be said for any
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org9ebcdfa" class="outline-2">
+<h2 id="org9ebcdfa"><span class="section-number-2">5.</span> Workspace demo - setup</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In DataCamp, open the <code>workspace</code> tab at the top to get to the
+workspace overview. You can also open this link to get directly to
+the workbook: <a href="https://tinyurl.com/WorkspaceDemoPython">tinyurl.com/WorkspaceDemoPython</a>.
+</p>
+
+<p>
+If you're in the overview, take a look around: You have access
+to all shared workspaces, and you can limit the view to your
+own. You can view bookmarked workbooks (favorites). There is also a
+menu for "Code Alongs". Open <code>DataCamp Python Demo (problem)</code>.
+</p>
+
+<p>
+Click on <code>Make Copy</code> to copy the workbook - rename the workspace
+to reflect your ownership, and save it to the <code>Account</code> "Lyon College
+Data Science Fall 2023".
+</p>
+
+<p>
+Go to the <code>Workspace overview</code> by clicking the symbol at the top left
+of your dashboard. You should now see your own workbook there. While
+you could only comment on my workbook , you can edit and run this
+one.
+</p>
+
+<p>
+If you do leave a comment, I will be notified via GMail and will
+respond as soon as I see the email and find the time.
+</p>
+</div>
+
+<div id="outline-container-org4c39ff0" class="outline-3">
+<h3 id="org4c39ff0">Dashboard</h3>
+<div class="outline-text-3" id="text-org4c39ff0">
+<p>
+Our target data is the "unicorn company" dataset - we're going
+to analyse the data of companies with a valuation &gt; USD 1 bn.
+</p>
+
+<p>
+Get the CSV file here: <a href="https://tinyurl.com/unicornCompaniesCSV">tinyurl.com/unicornCompaniesCSV</a>
+</p>
+
+<p>
+The workspace has two main areas:
+</p>
+<ol class="org-ol">
+<li>Left sidebar for work environment</li>
+<li>Text, code and output cells or blocks in the center. Text cells
+can be edited, commented upon, AI-assisted, or deleted. Code
+cells can be run, commented upon, AI-assised, or deleted.</li>
+<li>There are some extra choices at the top:
+<ul class="org-ul">
+<li><code>View</code> &gt; <code>Switch to JupyerLab</code> opens a launcher for a bunch of
+different apps. You'll see a more traditional view of your
+notebook. You can add tabs to get to a console, a notebook, a
+terminal etc.</li>
+<li><code>Run</code> &gt; <code>Open Terminal</code> (CTRL-.) opens a terminal or command line
+interface (CLI) to enter commands for the shell. You can also
+enter some from within the notebook but this is much more
+convenient when you want to muck around with files.</li>
+</ul></li>
+</ol>
+
+<p>
+The purpose of the notebook format is that you can build a data
+report as you go along, including any idea or input, any code (in
+Python), and any output generated by your code.
+</p>
+
+<p>
+Finished notebooks can be published to registered DataCamp users
+only. To publish to a larger audience, you need to use Kaggle or
+Google Colaboratory, or another platform.
+</p>
+
+<p>
+You can always download your workbook = notebook + files to a
+with <code>File</code> &gt; <code>Download</code>. Don't try this on Chromebook.
+</p>
+
+<p>
+Within data science (including AI, machine learning, data
+analysis) this interactive notebook format is the gold standard for
+data storytelling - developing and presenting data-driven
+computational insights to a human audience.
+</p>
+
+<p>
+Jupyter notebook (<code>.ipynb</code> files) are an open source standard so
+there is no lock-in: you can import and export notebooks to and from
+this platform, and if you lose access, no big deal. You can
+e.g. download and use a free, offline version of "<a href="https://jupyter.org/">Jupyter Lab</a>" to
+your PC or work in another online environment.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb9b59d2" class="outline-3">
+<h3 id="orgb9b59d2">Code along notebook</h3>
+<div class="outline-text-3" id="text-orgb9b59d2">
+<p>
+To begin, you should have an editable copy of my workspace in
+your personal workspace: <a href="https://tinyurl.com/WorkspaceDemoPython">tinyurl.com/WorkspaceDemoPython</a>.
+</p>
+
+<p>
+The practice file's text is complete but all code chunks are
+missing and you will have to add them as well as text blocks where
+needed.
+</p>
+
+<p>
+The demo involves:
+</p>
+<ol class="org-ol">
+<li>Explaining how this works</li>
+<li>Explaining the data set</li>
+<li>Importing CSV data as a pandas data frame (a data table)</li>
+<li>Viewing the unique values of company categories</li>
+<li>Cleaning the data frame column for company categories</li>
+<li>Grouping all records (rows) by industry category</li>
+<li>Plotting the number of unicorn companies by industry category</li>
+</ol>
+
+<p>
+The code covers much of what you'll learn in this class. Don't
+get discouraged if you cannot follow in detail. Let it be a lesson
+and a motivation.
+</p>
+
+<p>
+A live solution of the workbook is available here:
+<a href="https://tinyurl.com/WorkspaceDemoPythonSolution">tinyurl.com/WorkspaceDemoPythonSolution</a>. The published notebook is
+available, too: <a href="https://tinyurl.com/WorkspaceDemoPublic">tinyurl.com/WorkspaceDemoPublic</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a508de" class="outline-3">
+<h3 id="org9a508de">Understanding the sidebar</h3>
+<div class="outline-text-3" id="text-org9a508de">
+<p>
+Open the <code>Files</code> menu in the sidebar: you see the notebook (open)
+and the CSV file.
+</p>
+
+<p>
+Click on the three dots next to name of the CSV file to see
+different options.
+</p>
+
+<p>
+The option <code>Query in new SQL cell</code> opens a new code cell (at the
+very end of the notebook) with a SQL query command on all features
+(columns) of the CSV file. To execute this command, the CSV data are
+converted to a dataframe first.
+</p>
+
+<p>
+Create the SQL cell and run it, then press CTRL-Z twice to get
+back to the original notebook. You don't have to test the other
+option, <code>Load as DataFrame</code> because we're going to do this
+explicitly. But if you wanted to, this would create a Python cell
+with the commands to import the CSV data as a DataFrame.
+</p>
+
+<p>
+Click on the CSV file <code>unicorn_companies.csv</code> to open it.
+</p>
+
+<p>
+You see a headline with several features and 917 records of
+these features, one for each unicorn company. This is what is called
+'raw' data: in a Comma-Separated-Values (CSV) file, all values are
+separated by commas. The first line is special: it contains the
+headers, the names for the different columns.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9f39a31" class="outline-3">
+<h3 id="org9f39a31">Importing a CSV file as a pandas <code>DataFrame</code></h3>
+<div class="outline-text-3" id="text-org9f39a31">
+<p>
+Get back to your notebook. Next to the CSV file, select <code>Copy
+path to clipboard</code>. Click on <code>Files</code> to close the menu. Now all you see
+is the (minimized) sidebar and the notebook.
+</p>
+
+<p>
+Get the CSV file here: <a href="https://tinyurl.com/unicornCompaniesCSV">tinyurl.com/unicornCompaniesCSV</a>
+</p>
+
+<pre class="example" id="orgf159cb2">
+# import pandas
+import pandas as pd
+# read CSV file
+df = pd.read_csv('unicorn_companies.csv')
+# show data frame
+df
+</pre>
+
+<p>
+When you run this cell, either with the mouse or by entering
+CTRL-ENTER, the first 10 records of the DataFrame <code>df</code> and the
+headline with the features. You can also download the CSV dataset
+from here, and try to create a chart - better wait with that until
+you understand the data set better.
+</p>
+
+<p>
+Though the data look quite clean and appealing, a table view is
+not the best way to get an overview - there are many records.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcd001de" class="outline-3">
+<h3 id="orgcd001de">Viewing <code>unique</code> column (<code>pd.Series</code>) data</h3>
+<div class="outline-text-3" id="text-orgcd001de">
+<p>
+For investment purposes, the <code>Category</code> column or feature is most
+interesting: this is the type of company. How many of these types
+are there?
+</p>
+
+<p>
+To print out all unique categories, we can use the <code>unique</code>
+function, which will return all unique entries in the <code>Category</code>
+column if we index the data frame accordingly:
+</p>
+<pre class="example" id="orgd1651e6">
+help(pd.unique)
+</pre>
+
+<p>
+There's a lot of information in this helpfile. You can look for
+help using <code>?</code> or the <code>help</code> function:
+</p>
+<pre class="example" id="orgb9490c5">
+?pd.unique
+help(pd.unique)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1fcf7b5" class="outline-3">
+<h3 id="org1fcf7b5">Testing the AI coding assistant</h3>
+<div class="outline-text-3" id="text-org1fcf7b5">
+<p>
+This is a good place to show off your <code>AI</code> assistant: you may not
+know how to look for help for <code>unique</code>. Entering <code>help(unique)</code> or
+<code>?unique</code> will give an useless (to the beginner) error message: <code>Object
+'unique' not found.</code>
+</p>
+
+<p>
+Add an <code>AI</code> code block. The assistant will ask you for a
+prompt. For simple questions like these, almost any prompt will do,
+e.g. <code>I need help for the function `unique`.</code> The marks around <code>unique</code>
+will help the computer understand that you mean a command (these
+marks are also used for coding font markdown in text blocks).
+</p>
+
+<p>
+The information given by the AI is pretty exhausting and does
+not quite fit our problem - the issue is our prompt. Below the block
+you find another input field <code>Tell our AI what to do...</code> - Enter
+another prompt:
+</p>
+<pre class="example" id="orgb069933">
+I need the docstring for the function `pd.unique`.
+</pre>
+<p>
+This time, we get a better but still quite verbose answer in a code
+block that is automatically executed.
+</p>
+
+<p>
+We only want a short explanation that an absolute beginner can
+understand. Let's ask for that directly:
+</p>
+<blockquote>
+<p>
+As an absolute beginner in Python, I need a very short explanation
+of what `pd.unique` does and how I can use it on a column of a data
+frame.
+</p>
+</blockquote>
+
+<p>
+Let's apply this knowledge to the <code>'Category'</code> column but instead
+of using the functional notation <code>pd.unique(series)</code>, let's use the
+dot operator:
+</p>
+<pre class="example" id="orgb529b14">
+df["Category"].unique()
+</pre>
+
+<p>
+To test the AI yet again, remove the parentheses after the
+function call to <code>unique</code>. This yields an error. At the bottom of the
+output, you can click on <code>Fix &amp; explain</code>.
+</p>
+
+<div id="org32ab1d0" class="figure">
+<p><img src="../img/workspace_ai3.png" alt="workspace_ai3.png" />
+</p>
+</div>
+
+<p>
+The first part of the AI response is correct - the parentheses
+are reconstituted. But then a <code>NameError</code> is unnecessarily generated
+because the AI does not have access to the Python environment, which
+includes the user-defined data frame <code>df</code>. To correct this, you need
+to re-run the respective code and re-run this block thereafter!
+</p>
+
+<p>
+These experiments show that we're still quite far away from
+getting fully relieved of our coding burdens. This was (much) more
+work than necessary. A simple <a href="https://www.google.com/search?q=explain+pd.unique+in+Python&amp;sca_esv=558456995&amp;rlz=1C1GCEB_enUS965US965&amp;ei=XVPhZPG1Ce2A0PEP8bmRsAg&amp;ved=0ahUKEwix2KCS8-mAAxVtADQIHfFcBIYQ4dUDCBA&amp;uact=5&amp;oq=explain+pd.unique+in+Python&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiG2V4cGxhaW4gcGQudW5pcXVlIGluIFB5dGhvbjIFEAAYogQyBRAAGKIESL8RUKIHWJAMcAF4AZABAJgBcqABugKqAQMxLjK4AQPIAQD4AQHCAgoQABhHGNYEGLADwgIKECEYoAEYwwQYCuIDBBgAIEGIBgGQBgg&amp;sclient=gws-wiz-serp">Google search</a> ("Explain pd.unique in
+Python") yields a quicker and better answer:
+</p>
+<blockquote>
+<p>
+"The unique function in pandas is used to find the unique values
+from a series. A series is a single column of a data frame. We can
+use the unique function on any possible set of elements in
+Python. It can be used on a series of strings, integers, tuples,
+or mixed elements."
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org8bb9e39" class="outline-3">
+<h3 id="org8bb9e39">Back to viewing the unique <code>'Category'</code> values</h3>
+<div class="outline-text-3" id="text-org8bb9e39">
+<p>
+To remove the extraneous information about data types in the
+printout (<code>array</code>) and print the list one item per line, you can also
+use a for loop or a <i>list comprehension</i>:
+</p>
+<pre class="example" id="orgff3366a">
+# Print out all categories - one per line
+for category in df['Category'].unique():
+  print(category)
+# With a list comprehensionN
+[print(i) for i in df["Category"].unique()];
+</pre>
+
+<p>
+Here, we generate a new line with <code>print</code> for every unique record
+of the column. The semi-colon at the end stops a bunch of <code>None</code>
+values to be printed afterwards (<a href="https://shareg.pt/GRpmKpZ">an IPython artefact</a>).
+</p>
+
+<p>
+You can see that there are duplicates because of typos
+(<code>Finttech</code>) and capitalization (<code>Artificial Intelligence</code>). Let's
+remove the ambiguities.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org072ae79" class="outline-3">
+<h3 id="org072ae79">Clean data frame column <code>Category</code></h3>
+<div class="outline-text-3" id="text-org072ae79">
+<p>
+We can use <code>df.replace</code> to replace one value by another value
+inside our dataframe. We do not need to repeat the command but we
+can append methods to one another:
+</p>
+<pre class="example" id="orga414b82">
+df_clean = df.replace(to_replace='Artificial intelligence',
+                      value='Artificial Intelligence')\
+             .replace(to_replace='Finttech',
+                      value='Fintech')
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9b100be" class="outline-3">
+<h3 id="org9b100be">Share editing rights</h3>
+<div class="outline-text-3" id="text-org9b100be">
+<p>
+One of the neater properties of DataCamp Workspace is the
+ability to share your notebook and edit synchronously like in
+GoogleDocs.
+</p>
+
+<p>
+Click on the sharing sign at the top and share <b>editing</b> access
+with your neighbor by using his/her email. Also, reduce "General
+access" to "Disable access" - now nobody except those you invite via
+email can see your file.
+</p>
+
+<p>
+You have to use the person's email used for DataCamp - make sure
+it's their Lyon College email. Once they've been invited, you can
+let them access to edit, view, comment or remove their access.
+</p>
+
+<p>
+Print the new dataframe <code>df_clean</code> in each other's notebooks by
+adding a new code block with the command <code>df_clean</code>.
+</p>
+
+<p>
+Once this is done, <code>Remove</code> access from your workspace for the
+other person.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec84213" class="outline-3">
+<h3 id="orgec84213">Grouping data by column values</h3>
+<div class="outline-text-3" id="text-orgec84213">
+<p>
+To find out how many unicorn companies are there in each
+<code>Category</code> (aka industry), we group the corresponding records using
+the function <code>pd.DataFrame.groupby</code>. The command in the code cell
+below performs several operations on the <code>df_clean</code> dataframe:
+</p>
+
+<p>
+We use three functions: <code>df.groupby()</code> on the <code>Category</code> column
+(<a href="https://shareg.pt/UlD0wbz">ChatGPT summary</a>), <code>size</code> to extract the number of records in each
+group, and <code>sort_values</code> to sort the result in descending order:
+</p>
+<pre class="example" id="org9097bc5">
+category_counts =\
+    df_clean.groupby(by = 'Category', as_index=False)\
+            .size()\
+            .sort_values(by=['size'])
+</pre>
+
+<p>
+<code>groupby(by = 'Category', as_index = False)</code>: This groups the
+dataframe by the <code>'Category'</code> column. The <code>as_index = False</code> parameter
+ensures that the resulting groups retain <code>'Category'</code> as a column
+rather than using it as an index.
+</p>
+
+<p>
+<code>size()</code>: After grouping, this function is used to compute the
+size of each group. In the context of <code>groupby</code>, the <code>size()</code> function
+returns a <code>pd.Series</code> (a vector or 1-dim array) with the number of
+items in each group. This is essentially a count of rows for each
+<code>'Category'</code>.
+</p>
+
+<p>
+<code>.sort_values(by=['size'])</code>: This sorts the resulting <code>pd.Series</code>
+based on the size/count.
+</p>
+
+<p>
+Now, when you use the <code>size()</code> function with <code>groupby</code>, the
+resulting <code>pd.Series</code> will have the counts of each group as its
+values. When you sort this and convert it back into a dataframe
+(which happens implicitly because of <code>as_index=False</code>), the counts
+become a new column. By default, this column is named <code>size</code> – hence
+the creation of a new column named <code>size</code> in the output.
+</p>
+
+<p>
+The result, <code>category_counts</code>, is a pandas data frame with two
+columns sorted by size of group rather than alphabetically. When you
+let Colab suggest a graph, you get a line plot, a histogram
+(distribution) and a time series. <code>type</code> returns the data structure of
+its argument, and <code>pd.DataFrame.shape</code> is an attribute of the
+dataframe that contains its dimensions.
+</p>
+<pre class="example" id="orgb2f1352">
+# show the data type of category_counts
+print(type(category_counts))
+# show the dimension of category counts
+print(category_counts.shape)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org54a10a9" class="outline-3">
+<h3 id="org54a10a9">Plotting data</h3>
+<div class="outline-text-3" id="text-org54a10a9">
+<p>
+The result, <code>category_counts</code>, is a pandas data frame with two
+columns sorted by size of group rather than alphabetically. When you
+let Colab suggest a graph, you get a line plot, a histogram
+(distribution) and a time series. <code>type</code> returns the data structure
+of its argument, and <code>pd.DataFrame.shape</code> is an attribute of the
+dataframe that contains its dimensions.
+</p>
+
+<p>
+There are many different graphics packages available. The one
+most often mentioned is <code>matplotlib</code>. It is a great package to get a
+quick overview but you usually need to customize the graphs quite a
+bit before they look publishable.
+</p>
+
+<p>
+Instead, we use the <code>plotly</code> package, which has an express module that
+does most of the heavy lifting for us. All it needs is the data and
+the names of the x and y column, and a title:
+</p>
+<pre class="example" id="org8e40946">
+# import plotly.express
+import plotly.express as px
+# Create a bar plot of category group size vs. category
+px.bar(category_counts,
+     x = 'Category',
+     y = 'size',
+     title='Unicorn company distribution across industries')
+</pre>
+
+<p>
+<code>plotly</code> is a plotting library, and <code>plotly.express</code> is a module to
+provide a range of plot types quickly (<a href="https://shareg.pt/4rEGXS1">ChatGPT help</a> and <a href="https://plotly.com/python/plotly-express/">online doc</a>).
+</p>
+
+<p>
+Compare the result when using <code>matplotlib.pyplot</code>: instead of
+one line, we need several lines of code to get a similarly appealing
+result. However, as I said, for quick data exploration, this is the
+way to go.
+</p>
+<pre class="example" id="org1f660c0">
+# import matplotlib.pyplot
+import matplotlib.pyplot as plt
+# plot category group size vs. Category
+plt.bar(category_counts['Category'],
+       category_counts['size'])
+# rotate the x ticks by 90 degrees to make them readable
+plt.xticks(rotation=-90)
+# add a title
+plt.title("Unicorn company distribution across industries")
+# label the y-axis
+plt.ylabel('Frequency')
+# draw a grid to increase readability
+plt.grid()
+# show the final plot
+plt.show()
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org98964fe" class="outline-2">
+<h2 id="org98964fe"><span class="section-number-2">6.</span> Workspace - Summary (exercise)</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Workspace offers <a href="https://jupyter.org/">Jupyter</a> notebooks in Python, R and SQL.</li>
+<li>WS Notebooks contain text, code, output ("<a href="https://en.wikipedia.org/wiki/Literate_programming">literate programming</a>").</li>
+<li>WS Notebooks have pre-installed libraries and sample data</li>
+<li>WS notebooks run an <a href="https://ipython.org/">IPython</a> shell</li>
+<li>WS notebooks can be downloaded/uploaded as <code>.ipynb</code> files</li>
+<li>WS notebooks can be shared with other [DataCamp] users</li>
+<li>WS notebooks can be <a href="https://app.datacamp.com/workspace/w/673a5c14-1777-45e0-ac25-6b882ce06fc5">published</a> to [DataCamp] portfolios</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org39d07d4" class="outline-2">
+<h2 id="org39d07d4"><span class="section-number-2">7.</span> Workspace and modeling (exercise)</h2>
+<div class="outline-text-2" id="text-7">
+
+<div id="orgf12d4ec" class="figure">
+<p><img src="../img/modeling.png" alt="modeling.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Source: Downey (2023)</p>
+</div>
+
+<ul class="org-ul">
+<li><p>
+If modeling is "defined" by the relationships shown in the diagram
+(from Downey's book p.4), where does coding with interactive
+notebooks fit in? More specifically, which parts of the workspace
+play a role in which part of the diagram? (<a href="https://github.com/birkenkrahe/mod23/blob/main/img/modeling.png">link</a>)
+</p>
+<blockquote>
+<ol class="org-ol">
+<li>The workspace is a software system. It can be subjected to
+measurements, which generate data (about the workbook),
+e.g. session time.</li>
+<li>The notebook can be used to create a model of a real system:
+e.g. the unicorn data frame (and data set) is an abstraction
+because only certain features (columns) are retained.</li>
+<li>The model (data frame) can then be subjected to further analysis,
+e.g. we can build a model to predict the frequency of unicorns in
+industries based on the collected data (what type of model?)</li>
+<li>Sticking to the fact that the workspace itself is a system, we
+could predict future session time lengths based on previous
+usage. A lineplot would show the session times over time (that is a
+time series), and linear extrapolation would predict the evolution
+of the session times.</li>
+<li>To validate the prediction, further measurements can be taken and
+plotted alongside the prediction.</li>
+</ol>
+</blockquote></li>
+
+<li>These three results are the three outcomes of analytics:
+<ol class="org-ol">
+<li>descriptive analysis tells us what has already happened;</li>
+<li>predictive analysis shows us what could happen;</li>
+<li>prescriptive analysis informs us what should happen.</li>
+</ol></li>
+
+<li><p>
+An alternative model: discuss the differences! (<a href="https://github.com/birkenkrahe/mod23/blob/main/img/modeling1.png">link</a>)
+</p>
+
+<div id="org6b94830" class="figure">
+<p><img src="../img/modeling1.png" alt="modeling1.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Source: Giordano et al. (2014)</p>
+</div>
+<blockquote>
+<ul class="org-ul">
+<li>"Simulation" (from Model to Prediction) is missing</li>
+<li>"Validation" (from Prediction to Data) goes both ways while
+"interpretation" of a mathematical model only goes one way.</li>
+<li>System is equivalent to Real-world data but instead of
+"verification" of the predictions or explanations, the first model
+posits measurements to obtain data which enter a feedback loop with
+the predictions.</li>
+<li>The first model is more general, the second one only deals with
+mathematical modeling of real-world data.</li>
+<li>Deep learning models for example, which are trained on real-world
+data and can be validated using test data, are not covered here.</li>
+</ul>
+</blockquote></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org1687aab" class="outline-2">
+<h2 id="org1687aab"><span class="section-number-2">8.</span> Testing the falling Penny myth</h2>
+</div>
+
+
+
+<div id="outline-container-orgc1ae24f" class="outline-2">
+<h2 id="orgc1ae24f"><span class="section-number-2">9.</span> References</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+CB Insights. The Complete List of Unicorn Companies. CB
+Insights. Published 2023. Accessed August
+19, 2023. <a href="https://www.cbinsights.com/research-unicorn-companies">https://www.cbinsights.com/research-unicorn-companies</a>
+</p>
+
+<p>
+Downey AB. Modeling and Simulation in Python. NoStarch
+Press; 2023. <a href="https://allendowney.github.io/ModSimPy/">https://allendowney.github.io/ModSimPy/</a>
+</p>
+
+<p>
+Giordano FR, Fox WP,Horton SB. A First Course in Mathematical
+Modeling (5e). Cengage Learning 2013.
+</p>
+
+<p>
+Google LLC. Google Colaboratory. Accessed August
+19, 2023. <a href="https://colab.research.google.com">https://colab.research.google.com</a>
+</p>
+
+<p>
+Liu, Z (2017). Machine Learning and the Renormalization
+Group. <a href="https://tinyurl.com/57nyk3y7">https://tinyurl.com/57nyk3y7</a>
+</p>
+
+<p>
+Parisi G (2013). Complex Systems: A Physicist's
+Viewpoint. <a href="https://arxiv.org/pdf/cond-mat/0205297.pdf">https://arxiv.org/pdf/cond-mat/0205297.pdf</a>
+</p>
+
+<p>
+Pérez F, Granger BE. IPython (Version 8.14.0). IPython Development
+Team. Published 2023. Accessed August 19, 2023. <a href="https://ipython.org">https://ipython.org</a>
+</p>
+
+<p>
+Python Software Foundation. Python (Version 3.8.10). Python Software
+Foundation. Published 2021. Accessed August
+19, 2023. <a href="https://www.python.org">https://www.python.org</a>
+</p>
+
+<p>
+Schouwenaars F, Cotton R. Unicorn
+companies. DataCamp. Published 2022. Accessed August
+19, 2023. <a href="http://bit.ly/ws-unicorn">http://bit.ly/ws-unicorn</a>
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Example: in the summer 2023 course when the material was
+created, we used Google Colaboratory, replit.com and IDLE, while in
+this course we will only use the online DataCamp Workspace platform.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Created: 2023-08-22 Tue 14:21</p>
+</div>
+</body>
+</html>
