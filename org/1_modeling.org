@@ -1,0 +1,125 @@
+#+title: Modeling - Framework and Falling Penny myth
+#+startup: overview hideblocks indent inlineimages
+#+property: header-args:R :results output :noweb yes
+#+property: header-args:python :results output :noweb yes
+#+options: toc:1 num:1
+* Modeling framework
+#+attr_latex: :width 400px
+#+caption: Source: Downey (2023)
+[[../img/modeling.png]]
+
+- If modeling is "defined" by the relationships shown in the diagram
+  (from Downey's book p.4), where does coding with interactive
+  notebooks fit in? More specifically, which parts of the workspace
+  play a role in which part of the diagram? ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling.png][link]])
+  #+begin_quote
+  1) The workspace is a software system. It can be subjected to
+     measurements, which generate data (about the workbook),
+     e.g. session time.
+  2) The notebook can be used to create a model of a real system:
+     e.g. the unicorn data frame (and data set) is an abstraction
+     because only certain features (columns) are retained.
+  3) The model (data frame) can then be subjected to further analysis,
+     e.g. we can build a model to predict the frequency of unicorns in
+     industries based on the collected data (what type of model?)
+  4) Sticking to the fact that the workspace itself is a system, we
+     could predict future session time lengths based on previous
+     usage. A lineplot would show the session times over time (that is a
+     time series), and linear extrapolation would predict the evolution
+     of the session times.
+  5) To validate the prediction, further measurements can be taken and
+     plotted alongside the prediction.
+  #+end_quote
+
+- These three results are the three outcomes of analytics:
+  1) descriptive analysis tells us what has already happened;
+  2) predictive analysis shows us what could happen;
+  3) prescriptive analysis informs us what should happen.
+
+- An alternative model: discuss the differences! ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling1.png][link]])
+  #+attr_latex: :width 400px
+  #+caption: Source: Giordano et al. (2014)
+  [[../img/modeling1.png]]
+  #+begin_quote
+  - "Simulation" (from Model to Prediction) is missing
+  - "Validation" (from Prediction to Data) goes both ways while
+    "interpretation" of a mathematical model only goes one way.
+  - System is equivalent to Real-world data but instead of
+    "verification" of the predictions or explanations, the first model
+    posits measurements to obtain data which enter a feedback loop with
+    the predictions.
+  - The first model is more general, the second one only deals with
+    mathematical modeling of real-world data.
+  - Deep learning models for example, which are trained on real-world
+    data and can be validated using test data, are not covered here.
+  #+end_quote
+
+* Modeling Examples
+
+** Weather forecasting
+
+1. *System:* Earth's atmosphere (layers, temperature gradients,
+   pressure differences, wind patterns).
+2. *Model*: Computational model representing atmospheric interactions
+   (Navier-Stokes PDEs, thermodynamic laws, radiation balance).
+3. *Prediction*: Weather forecast (temperature, humidity, chance of
+   precipitation).
+4. *Data*: Real-time meteorogical data (current temperature, wind speed,
+   satellite images).
+
+** Stock market analysis
+
+1. *System:* Stock market (stocks, indices, traders, economic
+   indicators like interest rates, unemployment).
+2. *Model*: Quantitative models to predict stock prices (Time Series
+   forecasting, sentiment analysis, neural nets).
+3. *Prediction*: Stock prices or trends.
+4. *Data*: Historical stock prices, trading volumes, economic
+   indicators, social media sentiment data.
+
+** Epidemic spread   
+
+1. *System:* Population of infected individuals who are exposed to,
+   infected with, or recovered from a contagious disease.
+2. *Model*: Compartmental SIR model (Susceptible, Infected, Recovered)
+   that uses ODEs to describe how individuals move between
+   compartments over time.
+3. *Prediction*: Project number of individuals in SIR compartments over
+   time.
+4. *Data*: Actual case counts, hospitalization rates, recovery rates,
+   collected from hospitals, labs, public health agencies.
+
+* TODO Testing the falling Penny myth
+
+* References
+
+CB Insights. The Complete List of Unicorn Companies. CB
+Insights. Published 2023. Accessed August
+19, 2023. https://www.cbinsights.com/research-unicorn-companies
+
+Downey AB. Modeling and Simulation in Python. NoStarch
+Press; 2023. https://allendowney.github.io/ModSimPy/
+
+Giordano FR, Fox WP,Horton SB. A First Course in Mathematical
+Modeling (5e). Cengage Learning 2013.
+
+Google LLC. Google Colaboratory. Accessed August
+19, 2023. https://colab.research.google.com
+
+Liu, Z (2017). Machine Learning and the Renormalization
+Group. https://tinyurl.com/57nyk3y7
+
+Parisi G (2013). Complex Systems: A Physicist's
+Viewpoint. https://arxiv.org/pdf/cond-mat/0205297.pdf
+
+Pérez F, Granger BE. IPython (Version 8.14.0). IPython Development
+Team. Published 2023. Accessed August 19, 2023. https://ipython.org
+
+Python Software Foundation. Python (Version 3.8.10). Python Software
+Foundation. Published 2021. Accessed August
+19, 2023. https://www.python.org
+
+Schouwenaars F, Cotton R. Unicorn
+companies. DataCamp. Published 2022. Accessed August
+19, 2023. http://bit.ly/ws-unicorn
+

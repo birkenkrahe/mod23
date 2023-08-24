@@ -1,9 +1,9 @@
-#+title: Modeling - week 1
+#+title: Modeling - Orientation
 #+startup: overview hideblocks indent inlineimages
 #+property: header-args:R :results output :noweb yes
 #+property: header-args:python :results output :noweb yes
 #+options: toc:1 num:1
-* Week 1
+* README
 
 - Course overview
 - Getting started (infrastructure: GMail, DataCamp, Canvas, GitHub)
@@ -28,7 +28,7 @@
 
 Course and instructor overview information. The original version of
 this lecture is on GitHub. There are changes for technical
-details[fn:1].
+details.
 
 What has modeling meant to me on my journey?
 1. Theoretical particle physics, especially lattice gauge theory:
@@ -517,7 +517,6 @@ plt.show()
 #+end_example
 
 
-
 * Workspace - Summary (exercise)
 
 - Workspace offers [[https://jupyter.org/][Jupyter]] notebooks in Python, R and SQL.
@@ -527,62 +526,6 @@ plt.show()
 - WS notebooks can be downloaded/uploaded as ~.ipynb~ files
 - WS notebooks can be shared with other [DataCamp] users
 - WS notebooks can be [[https://app.datacamp.com/workspace/w/673a5c14-1777-45e0-ac25-6b882ce06fc5][published]] to [DataCamp] portfolios
-
-* Workspace and modeling (exercise)
-#+attr_latex: :width 400px
-#+caption: Source: Downey (2023)
-[[../img/modeling.png]]
-
-- If modeling is "defined" by the relationships shown in the diagram
-  (from Downey's book p.4), where does coding with interactive
-  notebooks fit in? More specifically, which parts of the workspace
-  play a role in which part of the diagram? ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling.png][link]])
-  #+begin_quote
-  1) The workspace is a software system. It can be subjected to
-     measurements, which generate data (about the workbook),
-     e.g. session time.
-  2) The notebook can be used to create a model of a real system:
-     e.g. the unicorn data frame (and data set) is an abstraction
-     because only certain features (columns) are retained.
-  3) The model (data frame) can then be subjected to further analysis,
-     e.g. we can build a model to predict the frequency of unicorns in
-     industries based on the collected data (what type of model?)
-  4) Sticking to the fact that the workspace itself is a system, we
-     could predict future session time lengths based on previous
-     usage. A lineplot would show the session times over time (that is a
-     time series), and linear extrapolation would predict the evolution
-     of the session times.
-  5) To validate the prediction, further measurements can be taken and
-     plotted alongside the prediction.
-  #+end_quote
-
-- These three results are the three outcomes of analytics:
-  1) descriptive analysis tells us what has already happened;
-  2) predictive analysis shows us what could happen;
-  3) prescriptive analysis informs us what should happen.
-
-- An alternative model: discuss the differences! ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling1.png][link]])
-  #+attr_latex: :width 400px
-  #+caption: Source: Giordano et al. (2014)
-  [[../img/modeling1.png]]
-  #+begin_quote
-  - "Simulation" (from Model to Prediction) is missing
-  - "Validation" (from Prediction to Data) goes both ways while
-    "interpretation" of a mathematical model only goes one way.
-  - System is equivalent to Real-world data but instead of
-    "verification" of the predictions or explanations, the first model
-    posits measurements to obtain data which enter a feedback loop with
-    the predictions.
-  - The first model is more general, the second one only deals with
-    mathematical modeling of real-world data.
-  - Deep learning models for example, which are trained on real-world
-    data and can be validated using test data, are not covered here.
-  #+end_quote
-
-
-* Testing the falling Penny myth
-
-
 
 * References
 
@@ -616,8 +559,3 @@ Schouwenaars F, Cotton R. Unicorn
 companies. DataCamp. Published 2022. Accessed August
 19, 2023. http://bit.ly/ws-unicorn
 
-* Footnotes
-
-[fn:1]Example: in the summer 2023 course when the material was
-created, we used Google Colaboratory, replit.com and IDLE, while in
-this course we will only use the online DataCamp Workspace platform.
