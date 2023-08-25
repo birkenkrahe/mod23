@@ -4,7 +4,7 @@
 #+property: header-args:python :results output :noweb yes
 #+options: toc:1 num:1
 * Modeling framework
-#+attr_latex: :width 400px
+#+attr_latex: :width 300px
 #+caption: Source: Downey (2023)
 [[../img/modeling.png]]
 
@@ -37,7 +37,7 @@
   3) prescriptive analysis informs us what should happen.
 
 - An alternative model: discuss the differences! ([[https://github.com/birkenkrahe/mod23/blob/main/img/modeling1.png][link]])
-  #+attr_latex: :width 400px
+  #+attr_latex: :width 300px
   #+caption: Source: Giordano et al. (2014)
   [[../img/modeling1.png]]
   #+begin_quote
@@ -55,7 +55,6 @@
   #+end_quote
 
 * Modeling Examples
-
 ** Weather forecasting
 
 1. *System:* Earth's atmosphere (layers, temperature gradients,
@@ -89,7 +88,183 @@
 4. *Data*: Actual case counts, hospitalization rates, recovery rates,
    collected from hospitals, labs, public health agencies.
 
-* TODO Testing the falling Penny myth
+* The Falling Penny Myth
+
+Workspace problem: https://tinyurl.com/FallingPennyMythProblem
+
+*Question:* Would a penny dropped from the top of the Empire State
+Building go so fast that it would be embedded in the concrete; or if
+it hit a person, would it break their skull?
+
+*Solution 1:* strong assumptions.
+#+begin_quote
+$v = at$ is the velocity of an object after $t$ seconds.
+
+The distance travelled is $x = at^2 / 2$.
+
+The time until the penny reaches the sidewalk: $t=\sqrt{2x/a}$
+
+For constant gravity $a = 9.8 m/s^2$ and the height of the Empire State
+Building $x = 381 m$, we get $t = 8.8s$.
+
+The velocity after that time is $v = 86 m/s$ (190 mph).
+#+end_quote
+
+Modeling assumptions: constant gravity (not true, varies with distance
+even in classical mechanics), zero air resistance.
+
+*Solution 2:* downward gravitational force and upward drag (or air
+resistance) force are opposed and will eventually cancel each other
+out so that the object will no longer be accelerated. It has now
+reached /terminal velocity/.
+
+Terminal velocity is reached when:
+\begin{equation}
+ m \cdot g = \frac{1}{2} \cdot C_d \cdot A \cdot \rho \cdot V_t^2 
+\end{equation}
+
+Solving for the velocity, we get:
+\begin{equation}
+ V_t = \sqrt{\frac{2 \cdot m \cdot g}{C_d \cdot A \cdot \rho}}
+\end{equation}
+
+Where $m$ is the mass of the object, $g$ is the acceleration due to
+gravity, $C_d$ is the drag coefficient (empirical dimensionless weight
+depending on the object in relation to the fluid), A is the
+cross-sectional area of the object, and $\rho$ is the density of the
+fluid through which the object is falling.
+
+Substituting for our penny, this comes out to about 17 m/s or 38 mph
+(while a sky diver, for example, will experience 53 m/s or 120 mph).
+
+To see if and how this hurts, watch [[https://youtu.be/sJkdNnHhaoI?si=UBD7pdlJvpdBKIRG][this video]] by MythBusters (Your
+Discovery Science, 2015).
+
+So the first model was wrong and not useful to determine the truth of
+the myth. The second model is still wrong but it's better and good
+enough to refute the myth (via falsification).
+
+Falsification here means: if I make a claim (the myth), and I can find
+one empirical example that it is not true, my claim has lost its
+generality and will no longer be scientifically valid.
+
+** Computation in Python
+
+Create a variable ~a~ to represent acceleration in meters per second
+squared:
+#+begin_src python :results silent
+  a = 9.8
+#+end_src
+Create another variable to represent the time for the penny to drop,
+let's say 3.4 seconds:
+#+begin_src python results silent
+  t = 3.4
+#+end_src
+Now we can compute the velocity ~v~ of the penny after ~t~ seconds
+(ignoring air resistance):
+#+begin_src python
+  v = a * t
+  print(v)
+#+end_src
+
+#+RESULTS:
+: 33.32
+
+What distance ~x~ would the penny travel during that time?
+#+begin_src python
+  x = a * t**2 / 2
+  print(x)
+#+end_src
+
+#+RESULTS:
+: 56.644
+
+How long would it take for the penny to fall 381 m, the height of the
+Empire States building? First, let's store the height in a variable ~h~:
+#+begin_src python :results silent
+  h = 381
+#+end_src
+
+To compute t, we need the square root function. We can import the
+function from the NumPy package:
+#+begin_src python :results silent
+  from numpy import sqrt
+#+end_src
+
+Now we can use it to compute ~t~ in seconds:
+#+begin_src python
+  t = sqrt(2 * h / a)
+  print(t)
+#+end_src
+
+#+RESULTS:
+: 8.817885349720552
+
+Finally, let's calculate the penny's velocity ~v~ in m/s:
+#+begin_src python
+  v = a * t
+  print(v)
+#+end_src
+
+#+RESULTS:
+: 86.41527642726142
+
+*Exercise:* can you compute the terminal velocity for the penny given
+this formula:
+\begin{equation}
+ V_t = \sqrt{\frac{2 \cdot m \cdot g}{C_d \cdot A \cdot \rho}}
+\end{equation}
+
+Where $m$ is the mass of the object ($2.5\times 10^{-3} kg$), $g$ is
+the acceleration due to gravity ($9.8 m/s^2$), $C_d$ is the drag
+coefficient ($0.47$), A is the cross-sectional area of the object
+($2.85\times 10^{-4} m^2$ - a penny has a radius of $9.525 mm$), and
+$\rho$ is the density of the fluid through which the object is falling
+($1.204 kg/m^3$).
+
+Solution:
+#+begin_src python
+  # Assign constants
+  m = 2.5e-3  # kg
+  g = 9.8     # m/s^2
+  c_d = 0.47    
+  A = 2.85e-4 # m^2
+  rho = 1.204
+
+  # Compute terminal velocity
+  v = sqrt((2 * m * g) / (c_d * A * rho))
+  print(v)
+#+end_src
+
+#+RESULTS:
+: 17.430644182450333
+
+*Exercise*: check the penny area computation computationally.
+
+*Solution:* we need the constant value for $\pi$, or we could
+approximate it to 3.14, and the known area formula ($\pi r^2$):
+#+begin_src python
+  r = 9.525e-3
+  A = r**2 * 3.14
+  print(A)
+  print(f'{round(A*1e4,2):.2f}')
+#+end_src
+
+#+RESULTS:
+: 0.0002848784625
+: 2.85
+
+Let's do it with a higher precision ~pi~ using ~NumPy~:
+#+begin_src python
+  from numpy import pi
+  A = r**2 * pi
+  print(A)
+  print(f'{round(A*1e4,2):.2f}')  
+#+end_src
+
+#+RESULTS:
+: 0.0002850229569923425
+: 2.85
 
 * References
 

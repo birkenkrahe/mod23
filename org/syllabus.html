@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-24 Thu 19:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Data And Process Modelling (DSC482.02) Draft Syllabus</title>
+<meta name="author" content="Marcus Birkenkrahe" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Data And Process Modelling (DSC482.02) Draft Syllabus
+<br />
+<span class="subtitle">Data and Process Modeling Draft Syllabus</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org65d42f5">1. General Course Information</a></li>
+<li><a href="#org7dd2e3c">2. Objectives</a></li>
+<li><a href="#org58fa8cd">3. Student Learning Outcomes</a></li>
+<li><a href="#org7df0352">4. Course requirements</a></li>
+<li><a href="#orgf653163">5. Grading</a></li>
+<li><a href="#org0e8e254">6. Dates and class schedule</a></li>
+<li><a href="#org4e4c9fe">7. Textbooks (optional)</a></li>
+<li><a href="#org651cace">8. Learning management system</a></li>
+<li><a href="#orge682751">9. DataCamp</a></li>
+<li><a href="#org72be0a3">10. GitHub</a></li>
+<li><a href="#org7722ae6">11. Lyon College Standard Policies (Fall 2023)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65d42f5" class="outline-2">
+<h2 id="org65d42f5"><span class="section-number-2">1.</span> General Course Information</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Meeting Times: Tuesday &amp; Thursday, 14:30-15:45 hrs</li>
+<li>Meeting place: Derby Science Center computer lab 209</li>
+<li>Professor: Marcus Birkenkrahe</li>
+<li>Office: Derby Science Center room 210</li>
+<li>Phone: (870) 307-7254</li>
+<li>Office hours: MWF 10-10.30am, 2-4pm / TTH 9.30-11am, 12.15-2.15pm</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7dd2e3c" class="outline-2">
+<h2 id="org7dd2e3c"><span class="section-number-2">2.</span> Objectives</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Models are abstractions that explain parts of the real world,
+e.g. to address, if not solve, complex problems like climate
+change, pandemics, or space exploration. Since the real world is
+only accessible to us through observation, observable data are key
+to building, verifying and using models. To support
+decision-making, data and processes are mined and modeled. In this
+course, we will explore model thinking and a wide array of data and
+process modeling tools. This special topic seminar is for everyone
+who is interested in using models and modeling languages to better
+understand the challenges and achievements of modeling.
+</p>
+
+<p>
+Models can be explored mathematically and/or computationally via
+simulations in a computer. We will explore the use of R and/or
+Python to bring models froma variety of backgrounds to life,
+including: epidemiology, the physics of toilet paper, bungee
+jumping, and even Spider-Man.
+</p>
+
+<p>
+Models can help us deal with the increasing complexity of our
+world, and understanding them will help us deal with many claims
+made by scientists and non-scientists about complex issues. Model
+literacy is an essential 21st century skill.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org58fa8cd" class="outline-2">
+<h2 id="org58fa8cd"><span class="section-number-2">3.</span> Student Learning Outcomes</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Students who complete DSC 482.02 are able to:
+</p>
+
+<ul class="org-ul">
+<li>Understand data and process modeling challenges</li>
+<li>Use a variety of modeling languages to create models</li>
+<li>Make use of different modeling software environments</li>
+<li>Understand, and can present current modeling research</li>
+<li>Apply modeling tools to an area of their knowledge</li>
+<li>Present or write a scientific (IMRaD) essay on modern modeling
+methods</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7df0352" class="outline-2">
+<h2 id="org7df0352"><span class="section-number-2">4.</span> Course requirements</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Formal prerequisites: MTH 101 (College Algebra), otherwise no prior
+knowledge required. Experience and knowledge of data or process
+modeling methods (e.g. Entity Relationship Diagrams, or Unified
+Modeling Language) is useful but not critical. Curiosity and active
+participations, especially during classroom presentations and
+discussion, is important. You will gain advanced data and process
+literacy skills by taking this course.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf653163" class="outline-2">
+<h2 id="orgf653163"><span class="section-number-2">5.</span> Grading</h2>
+<div class="outline-text-2" id="text-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">WHEN</th>
+<th scope="col" class="org-left">DESCRIPTION</th>
+<th scope="col" class="org-right">IMPACT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Weekly</td>
+<td class="org-left">Home assignment</td>
+<td class="org-right">25%</td>
+</tr>
+
+<tr>
+<td class="org-left">Weekly</td>
+<td class="org-left">Tests</td>
+<td class="org-right">25%</td>
+</tr>
+
+<tr>
+<td class="org-left">TBD</td>
+<td class="org-left">Sprint review presentations</td>
+<td class="org-right">25%</td>
+</tr>
+
+<tr>
+<td class="org-left">TBD</td>
+<td class="org-left">Final exam</td>
+<td class="org-right">25%</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Notes:</b>
+</p>
+<ul class="org-ul">
+<li>To pass: 60%</li>
+<li>There will be 15 home assignments in the form of interactive Python
+notebooks or reading assignments. Each assignment contributes
+1.6667% (25/15) to your final grade. Late assignments are counted as
+60% complete only.</li>
+<li>Sprint review presentations: a customer-focused single/team effort
+resulting in a project presentation, with 4 Scrum sprint reviews.</li>
+<li>Tests: weekly online quizzes, which are previewed and reviewed in
+class.</li>
+<li>Final exam: selection of the most challenging weekly quiz questions.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0e8e254" class="outline-2">
+<h2 id="org0e8e254"><span class="section-number-2">6.</span> Dates and class schedule</h2>
+<div class="outline-text-2" id="text-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Week</th>
+<th scope="col" class="org-left">Date</th>
+<th scope="col" class="org-left">Assignments</th>
+<th scope="col" class="org-left">Project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Aug 21-Aug 25</td>
+<td class="org-left">Modeling with Python</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">Aug 28-Sep 01</td>
+<td class="org-left">Bike share system</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">Sep 04-Sep 08</td>
+<td class="org-left">Iterative modeling</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">Sep 11-Sep 15</td>
+<td class="org-left">Parameters/metrics</td>
+<td class="org-left">1st sprint rev</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">Sep 18-Sep 22</td>
+<td class="org-left">Population models</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">Sep 25-Sep 29</td>
+<td class="org-left">Iterating population models</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">Oct 02-Oct 06</td>
+<td class="org-left">Limits to Growth</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">Oct 09-Oct 13</td>
+<td class="org-left">Projecting into the future</td>
+<td class="org-left">2nd sprint rev</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">Oct 16-Oct 20</td>
+<td class="org-left">Analysis and computation</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">Oct 23-Oct 27</td>
+<td class="org-left">Case studies part I</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-left">Oct 30-Nov 03</td>
+<td class="org-left">Epidemiology/SIR models</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-left">Nov 06-Nov 10</td>
+<td class="org-left">Quantifying interventions</td>
+<td class="org-left">3rd sprint rev</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-left">Nov 13-Nov 17</td>
+<td class="org-left">Sweeping parameters</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-left">Nov 20-Nov 24</td>
+<td class="org-left">Nondimensionalization</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-left">Nov 27-Dec 01</td>
+<td class="org-left">Thermal systems</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-left">Dec 04-Dec 08</td>
+<td class="org-left">Modeling blood sugar</td>
+<td class="org-left">4th sprint rev</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>NO CLASSES: Aug 21, Oct 10 (Fall break), Oct 19 (Service day), Nov
+23 (Thanksgiving). See <a href="https://catalog.lyon.edu/202324-academic-calendar">2023-2024 academic calendar</a>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4e4c9fe" class="outline-2">
+<h2 id="org4e4c9fe"><span class="section-number-2">7.</span> Textbooks (optional)</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>You do not need to buy any books for this course.</li>
+
+<li>Some textbooks that I used to prepare this course:
+<ol class="org-ol">
+<li><i>Model Thinking: What You Need To Make Data Work For You</i>, by
+Scott E. Page, Basic Books, 2021. URL: <a href="https://sites.lsa.umich.edu/scottepage/home/the-model-thinker/">umich.edu</a>.</li>
+<li><i>Modeling and Simulation in Python</i>, by Allen B. Downey, NoStarch
+Press, 2023. URL: <a href="https://greenteapress.com/wp/modsimpy/">greenteapress.com</a>.</li>
+<li><i>Exploring Modeling with Data and Differential Equations Using
+R</i>, by J.M. Zobitz, Version 3.0.0. URL: <a href="https://jmzobitz.github.io/ModelingWithR/">jmzobitz.github.io</a>.</li>
+<li><i>Modeling and Simulation in Python</i> by J.M. Kinser. CRC Press,
+2022). URL: <a href="https://doi.org/10.1201/9781003226581">doi.org/10.1201/9781003226581</a>.</li>
+<li><i>Modeling Change and Uncertainty</i> by W.P. Fox and R.E. Burks. CRC
+Press, 2022. URL: <a href="https://doi.org/10.1201/9781003298762">doi.org/10.1201/9781003298762</a></li>
+<li><i>An introduction to mathematical modeling</i> by E.A. Bender,
+Wiley, 1978. Online: <a href="https://www.google.com/books/edition/An_Introduction_to_Mathematical_Modeling/adf515kSDOkC?hl=en">books.google.com</a>.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org651cace" class="outline-2">
+<h2 id="org651cace"><span class="section-number-2">8.</span> Learning management system</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>We use Lyon's Canvas installation for this course.</li>
+<li>The home page contains: assignments, grades, pages, people,
+syllabus, quizzes, Google Drive, Course evaluation and Zoom.</li>
+<li>The Zoom page includes cloud recordings of all past sessions.</li>
+<li>Recorded sessions will be deleted after the last class.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge682751" class="outline-2">
+<h2 id="orge682751"><span class="section-number-2">9.</span> DataCamp</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+The course includes a free subscription to the DataCamp classroom at
+<a href="https://datacamp.com/">datacamp.com</a> for further study, and for the opportunity to earn
+certificates for three courses. We will also use the DataCamp
+workspace environment for coding.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org72be0a3" class="outline-2">
+<h2 id="org72be0a3"><span class="section-number-2">10.</span> GitHub</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+All course materials are available in a public GitHub repository
+(<a href="https://github.com/birkenkrahe/mod2">github.com/birkenkrahe/mod2</a>). Registration for students includes a
+free subscription to GitHub codespaces with the AI coding assistant
+Copilot. GitHub is the worldwide largest online platform for software
+development.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7722ae6" class="outline-2">
+<h2 id="org7722ae6"><span class="section-number-2">11.</span> <a href="https://docs.google.com/document/d/1ZaoAIX7rdBOsRntBxPk7TK77Vld9NXECVLvT9_Jovwc/edit?usp=sharing">Lyon College Standard Policies (Fall 2023)</a></h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Online: <a href="https://tinyurl.com/LyonPolicyF23">https://tinyurl.com/LyonPolicyF23</a>, see also <a href="https://catalog.lyon.edu/class-attendance">Class Attendance</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Marcus Birkenkrahe</p>
+<p class="date">Created: 2023-08-24 Thu 19:42</p>
+</div>
+</body>
+</html>

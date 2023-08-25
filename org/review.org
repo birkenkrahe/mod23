@@ -1,0 +1,19 @@
+#+title: Modeling - Review
+#+startup: overview hideblocks indent inlineimages
+#+property: header-args:R :results output :noweb yes
+#+property: header-args:python :results output :noweb yes
+#+options: toc:1 num:1
+#+attr_latex: :width 400px
+[[../img/fallingpenny.jpeg]]
+* Aug-24
+
+- Complex systems: paper by Parisi (2013)
+- Lattice Gauge Theory (discretized particle theory)
+- Infinite skills and resources (what would you do?)
+- Minard's visualization of Napoleon's march on Moscow
+- Sankey diagram (also used for network flow analysis)
+- DataCamp workspace is our coding platform
+
+* Aug-29
+
+

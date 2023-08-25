@@ -61,16 +61,17 @@ literacy skills by taking this course.
 
 | WHEN   | DESCRIPTION                 | IMPACT |
 |--------+-----------------------------+--------|
-| Weekly | Home assignment             |    25% |
+| Weekly | Assignment                  |    25% |
 | Weekly | Tests                       |    25% |
 | TBD    | Sprint review presentations |    25% |
 | TBD    | Final exam                  |    25% |
 
 *Notes:*
 - To pass: 60%
-- There will be 15 home assignments in the form of interactive Python
-  notebooks. Each assignment contributes 1.6667% (25/15) to your final
-  grade. Late assignments are counted as 60% complete only.
+- There will be 15 assignments in the form of interactive Python
+  notebooks or reading assignments. Each assignment contributes
+  1.6667% (25/15) to your final grade. Late assignments are counted as
+  60% complete only.
 - Sprint review presentations: a customer-focused single/team effort
   resulting in a project presentation, with 4 Scrum sprint reviews.
 - Tests: weekly online quizzes, which are previewed and reviewed in
