@@ -67,7 +67,7 @@ literacy skills by taking this course.
 | TBD    | Final exam                  |    25% |
 
 *Notes:*
-- To pass: 60%
+- To pass: 50% of the available points.
 - There will be 15 assignments in the form of interactive Python
   notebooks or reading assignments. Each assignment contributes
   1.6667% (25/15) to your final grade. Late assignments are counted as
