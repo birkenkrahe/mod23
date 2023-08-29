@@ -12,7 +12,9 @@
 - AMA citation style for references
 - Business Process Model and Notation (BPMN) at bpmn.io
 - Literate programming (programs for humans) with Emacs + Org-mode,
-  VSCode + plugins, Google Colaboratory: doc + code + output = story.
+  VSCode + plugins, Google Colaboratory: story + code = (tangled)
+  source code + (woven) documentation
+- Notebooks: doc + code + output = story
   
 * Aug-24
 
@@ -32,6 +34,23 @@
 
 ** 1st sprint review and solo project ([[https://lyon.instructure.com/courses/1443/pages/solo-modeling-project][sign in]])
 
+*Sources for your projects:*
+- Personal pet projects (e.g. political science, language learning)
+- My issues list at GitHub ([[https://github.com/birkenkrahe/mod482/issues][mod482]] or [[https://github.com/birkenkrahe/mod23/issues][mod23]])
+
+*Topics examples*:
+- "Modeling the creative process: benefits, methods and feasibility"
+- "The effects of eliminating gas burning cars in the US"
+- "Introduction to simulation modeling and its application in engineering"
+- "Why Failure?"
+  
+*Format examples:*
+- Essay (minimum 2,500 words - ca. 5 pages, with references).
+- Equivalent Jupyter notebook with an analysis (the Workbook demo has
+  about 2,500 words), fully documented, with code and output.
+  
+See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to Modeling and Simulation]] (Maria, 1997)  
+  
 ** Review
 
 - Which tools does DataCamp workspace offer?
@@ -74,4 +93,13 @@
     pandas.unique
   #+end_example
 
+** Test 1 (open in Canvas now until September 3)
+
 ** Continue the extended DataCamp demo
+
+* References
+
+Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
+Healy KJ, Withers DH, Nelson BL, eds. Proceedings of the 1997 Winter
+Simulation Conference; 1997. [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][dl.acm.org/doi/pdf/10.1145/268437.268440]]
+
