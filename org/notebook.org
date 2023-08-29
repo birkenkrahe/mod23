@@ -31,7 +31,6 @@
 - Using the AI (GPT-4?) to fix errors and suggest coding solutions
 
 * Aug-29
-
 ** 1st sprint review and solo project ([[https://lyon.instructure.com/courses/1443/pages/solo-modeling-project][sign in]])
 
 *Sources for your projects:*
@@ -96,6 +95,81 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
 ** Test 1 (open in Canvas now until September 3)
 
 ** Continue the extended DataCamp demo
+** Discussion: Parisi "Complexity"
+
+1) What caused the "paradigm change" in science?
+   #+begin_quote
+   The distinction between macroscopic and microscopic properties, and
+   the growing interest in large systems (of many objects) over longer
+   periods of time. (Statistical, quantum mechanics, complex systems.)
+   #+end_quote
+
+2) What is the old and the new meaning of "prediction"?
+   #+begin_quote
+   *Classic, deterministic prediction:* given knowledge of the initial
+   state of an object, we can fully determine the final state.
+
+   *Stochastic prediction:* some quantities can be predicted and have
+   always the same value, others vary and can be treated
+   probabilistically (i.e. with distributions instead of equations).
+   #+end_quote
+
+3) What's characteristic for "chaotic" systems?
+   #+begin_quote
+   The trajectory of moving objects cannot be predicted for large
+   times, only for small times (example: two billard balls).
+
+   In many cases, the probability distribution at large times for
+   finding the system in a particular configuration is independent on
+   the initial conditions and can be predicted.
+
+   Statistical mechanics does the same thing for "chaotic" systems
+   that classical mechanics does for non-chaotic systems.
+   #+end_quote
+
+4) What is a "complex" system?
+   #+begin_quote
+   "A system is complex if its behavior crucially depends on the
+   details of the system".
+   #+end_quote
+
+5) What is the meaning of prediction for complex systems?
+   #+begin_quote
+   Predictions are of a probabilistic nature - it does not tell us
+   properties of an individual object but only distributions.
+
+   Experiments with large number of objects (statistically
+   significant) are necessary to verify the accuracy of the
+   prediction.
+   #+end_quote
+
+6) What does it mean that 'physical reasoning' has more applications?
+   #+begin_quote
+   For us it means that modeling and computer simulation become more
+   important as instruments of experimentation and insight.
+
+   For science, it means that more areas of life and the universe
+   can be tackled with the fairly well-understood methods of physics.
+   #+end_quote
+
+7) In which area has the new complexity science made the greatest
+   progress so far?
+   #+begin_quote
+   Neural networks. Generative AI and deep learning AI are
+   applications of that.
+
+    See also (since 2020): Laporte algorithm in particle physics
+    (large scale integration).
+   #+end_quote
+
+8) What is Parisi's final message and verdict? (In your own words)
+   #+begin_quote
+   The new stochastic approach will enable us to address many
+   previously inaccessible biological problems that are related to the
+   properties of whole systems rather than individual objects
+   (e.g. protein folding, or the flight of swarms of birds, or the
+   dynamics of climate change).
+   #+end_quote
 
 * References
 
