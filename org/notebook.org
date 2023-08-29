@@ -5,11 +5,73 @@
 - Notes usually based on whiteboard screenshots ([[https://drive.google.com/drive/folders/1VzxUI_fhy2fXkzjfHHUtEK9NuRYLatij?usp=sharing][GDrive]]).
 - Includes further reading, watching and comments
 
-* Tuesday, 08/22/2023
+* Aug-22
 
-- 
-
-* Thursday, 08/24/2023
-
-- 
+- How to read a paper (objective/subjective/reflective)
+- Version control differences with Git
+- AMA citation style
+- Business Process Model and Notation (BPMN) at bpmn.io
+- Literate programming (programs for humans) with Emacs + Org-mode,
+  VSCode + plugins, Google Colaboratory: doc + code + output = story.
   
+* Aug-24
+
+- Assigned: complex systems: paper by Parisi (2013)
+- Lattice Gauge Theory (discretized particle theory)
+- Infinite skills and resources (what would you do?)
+- Minard's visualization of Napoleon's march on Moscow
+- Sankey diagram (also used for network flow analysis)
+- DataCamp workspace notebook platform: overview and structure
+- IPython shell (in a Python3 shell in a bash shell)
+- IPython magic (OS shell) commands (~%alias~, ~%whos~ etc.)
+- Python packages or libraries: NumPy, SciPy, Matplotlib, pandas,
+  print, Jupyter, modSim
+- Using the AI (GPT-4?) to fix errors and suggest coding solutions
+
+* Aug-29
+
+** 1st sprint review and solo project ([[https://lyon.instructure.com/courses/1443/pages/solo-modeling-project][sign in]])
+
+** Review
+
+- Which tools does DataCamp workspace offer?
+  #+begin_quote
+  1) Interactive notebook with text cells, Python and SQL code cells,
+     AI assistance.
+  2) Jupyter Lab with launcher for: file editor, console, markup file,
+     terminal (shell), notebook.
+  3) File management (upload, convert to data frame, SQL cell).
+  4) Environment settings including notebook kernel, loaded Python
+     packages, and environment variables (for the Linux OS).
+  #+end_quote
+
+- What is IPython?
+  #+begin_quote
+  Command shell for interactive computing originally only in Python,
+  now also allowing notebooks in Julia, Python and R.
+  #+end_quote 
+
+- How can you get help for a Python function?
+  #+begin_quote
+  With the ~help~ function - but you need to know which package the
+  function is from, e.g. ~pd.unique~ in ~pandas~, or ~np.array~ in NumPy.
+  #+end_quote
+  #+begin_src python
+    import pandas as pd
+    print(pd.unique.__module__)
+    help(pd.core.algorithms)
+  #+end_src
+
+- How reliable the AI coding assistance?  
+  
+- Which Python functions did we use? (6)
+  #+begin_example python
+    import
+    as
+    help
+    print
+    pandas.read_csv
+    pandas.unique
+  #+end_example
+
+** Continue the extended DataCamp demo
