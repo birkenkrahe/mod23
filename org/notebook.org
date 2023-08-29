@@ -34,13 +34,14 @@
 ** 1st sprint review and solo project ([[https://lyon.instructure.com/courses/1443/pages/solo-modeling-project][sign in]])
 
 *Sources for your projects:*
-- Personal pet projects (e.g. political science, language learning)
+- Personal pet projects (e.g. political science)
 - My issues list at GitHub ([[https://github.com/birkenkrahe/mod482/issues][mod482]] or [[https://github.com/birkenkrahe/mod23/issues][mod23]])
 
 *Topics examples*:
 - "Modeling the creative process: benefits, methods and feasibility"
 - "The effects of eliminating gas burning cars in the US"
-- "Introduction to simulation modeling and its application in engineering"
+- "Introduction to simulation modeling and its application in
+  engineering"
 - "Why Failure?"
   
 *Format examples:*
@@ -50,6 +51,8 @@
   
 See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to Modeling and Simulation]] (Maria, 1997)  
   
+** Test 1 (open in Canvas now until September 3)
+
 ** Review
 
 - Which tools does DataCamp workspace offer?
@@ -80,7 +83,7 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
     help(pd.core.algorithms)
   #+end_src
 
-- How reliable the AI coding assistance?  
+- How reliable is the AI coding assistance?  
   
 - Which Python functions did we use? (6)
   #+begin_example python
@@ -91,8 +94,6 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
     pandas.read_csv
     pandas.unique
   #+end_example
-
-** Test 1 (open in Canvas now until September 3)
 
 ** Continue the extended DataCamp demo
 ** Discussion: Parisi "Complexity"
@@ -142,7 +143,7 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
    significant) are necessary to verify the accuracy of the
    prediction.
    #+end_quote
-
+   
 6) What does it mean that 'physical reasoning' has more applications?
    #+begin_quote
    For us it means that modeling and computer simulation become more
@@ -158,8 +159,8 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
    Neural networks. Generative AI and deep learning AI are
    applications of that.
 
-    See also (since 2020): Laporte algorithm in particle physics
-    (large scale integration).
+   See also (since 2020): Laporte algorithm in particle physics
+   (large scale integration).
    #+end_quote
 
 8) What is Parisi's final message and verdict? (In your own words)
