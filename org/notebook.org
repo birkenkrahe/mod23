@@ -9,7 +9,7 @@
 
 - How to read a paper (objective/subjective/reflective)
 - Version control differences with Git
-- AMA citation style
+- AMA citation style for references
 - Business Process Model and Notation (BPMN) at bpmn.io
 - Literate programming (programs for humans) with Emacs + Org-mode,
   VSCode + plugins, Google Colaboratory: doc + code + output = story.
