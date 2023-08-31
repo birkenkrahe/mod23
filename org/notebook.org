@@ -196,6 +196,10 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
   of large samples over long periods of time yields insights in the
   properties of the whole system instead of only its constituents.
 
+* TODO Aug-31
+
+
+
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
