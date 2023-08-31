@@ -95,7 +95,6 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
     pandas.unique
   #+end_example
 
-** Continue the extended DataCamp demo
 ** Discussion: Parisi "Complexity"
 
 1) What caused the "paradigm change" in science?
@@ -171,6 +170,31 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
    (e.g. protein folding, or the flight of swarms of birds, or the
    dynamics of climate change).
    #+end_quote
+
+** Summary
+
+- The course project is an independent research effort. Creating the
+  proposal should not take less than 2 hours. You should sign into
+  Canvas with a topic idea.
+- The sprint reviews follow the IMRaD structure of scientific
+  publications. The proposal criteria for the first sprint review are
+  laid out in Canvas.
+- You should pick a topic that you know already or that you have a lot
+  of energy to explore at length. See also GitHub issues for ideas.
+- Parisi's 2013 (actually: 2002) paper has a couple of precursors:
+  Schrödinger's 1944 book "What is life?" (physics and biology) and
+  Kuhn's 1962 "The structure of scientific revolutions" (paradigm
+  change in science).
+- There may be a paradigm change afoot, and the recent AI craze may be
+  a sign or symptom - according to Kuhn, a growing number of anomalies
+  (evidence that cannot be explained with the current paradigm) will
+  herald a new paradigm.
+- Parisi characterises the new paradigm technically as a move from a
+  strong, classical definition of prediction to a weaker,
+  probabilistic definition of prediction.
+- Investigating large complex systems using probability distributions
+  of large samples over long periods of time yields insights in the
+  properties of the whole system instead of only its constituents.
 
 * References
 
