@@ -268,10 +268,6 @@ Let's do it with a higher precision ~pi~ using ~NumPy~:
 
 * References
 
-CB Insights. The Complete List of Unicorn Companies. CB
-Insights. Published 2023. Accessed August
-19, 2023. https://www.cbinsights.com/research-unicorn-companies
-
 Downey AB. Modeling and Simulation in Python. NoStarch
 Press; 2023. https://allendowney.github.io/ModSimPy/
 
@@ -281,20 +277,7 @@ Modeling (5e). Cengage Learning 2013.
 Google LLC. Google Colaboratory. Accessed August
 19, 2023. https://colab.research.google.com
 
-Liu, Z (2017). Machine Learning and the Renormalization
-Group. https://tinyurl.com/57nyk3y7
-
-Parisi G (2013). Complex Systems: A Physicist's
-Viewpoint. https://arxiv.org/pdf/cond-mat/0205297.pdf
-
-Pérez F, Granger BE. IPython (Version 8.14.0). IPython Development
-Team. Published 2023. Accessed August 19, 2023. https://ipython.org
-
 Python Software Foundation. Python (Version 3.8.10). Python Software
 Foundation. Published 2021. Accessed August
 19, 2023. https://www.python.org
-
-Schouwenaars F, Cotton R. Unicorn
-companies. DataCamp. Published 2022. Accessed August
-19, 2023. http://bit.ly/ws-unicorn
 
