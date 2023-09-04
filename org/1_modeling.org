@@ -3,6 +3,28 @@
 #+property: header-args:R :results output :noweb yes
 #+property: header-args:python :results output :noweb yes
 #+options: toc:1 num:1
+* README
+
+- What are models?
+- What are complex systems?
+- What is the modeling framework?
+- First modeling example: Falling Penny Myth
+
+* What are models?
+
+  #+begin_quote
+  "Models are formal structures represented in mathematics and
+  diagrams that help us understand the world [...] practice modeling
+  and you will better understand complex phenomena." (Page, 2021)
+  #+end_quote
+
+* Dietrich Dörner's definition of complexity 
+
+Book recommendation: Logic of Failure.
+
+Article (to read): [[http://links.jstor.org/sici?sici=0080-4622%2819900412%29327%3A1241%3C463%3ATLOF%5BD%3E2.0.CO%3B2-X][The Logic of Failure [and Discussion]​]] (1990)
+
+
 * Modeling framework
 #+attr_latex: :width 300px
 #+caption: Source: Downey (2023)
@@ -268,14 +290,19 @@ Let's do it with a higher precision ~pi~ using ~NumPy~:
 
 * References
 
+Dorner D, Nixon P, Rosen D. The Logic of Failure [and
+Discussion]. Phil Trans Royal Soc 327(1241):463-473.
+
 Downey AB. Modeling and Simulation in Python. NoStarch
 Press; 2023. https://allendowney.github.io/ModSimPy/
 
-Giordano FR, Fox WP,Horton SB. A First Course in Mathematical
+Giordano FR, Fox WP, Horton SB. A First Course in Mathematical
 Modeling (5e). Cengage Learning 2013.
 
 Google LLC. Google Colaboratory. Accessed August
 19, 2023. https://colab.research.google.com
+
+Page S. The Model Thinker. Basic Books: New York. 2021.
 
 Python Software Foundation. Python (Version 3.8.10). Python Software
 Foundation. Published 2021. Accessed August

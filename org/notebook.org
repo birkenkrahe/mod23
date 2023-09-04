@@ -15,7 +15,7 @@
   VSCode + plugins, Google Colaboratory: story + code = (tangled)
   source code + (woven) documentation
 - Notebooks: doc + code + output = story
-  
+
 * Aug-24
 
 - Assigned: complex systems: paper by Parisi (2013)
@@ -43,14 +43,14 @@
 - "Introduction to simulation modeling and its application in
   engineering"
 - "Why Failure?"
-  
+
 *Format examples:*
 - Essay (minimum 2,500 words - ca. 5 pages, with references).
 - Equivalent Jupyter notebook with an analysis (the Workbook demo has
   about 2,500 words), fully documented, with code and output.
-  
-See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to Modeling and Simulation]] (Maria, 1997)  
-  
+
+See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to Modeling and Simulation]] (Maria, 1997)
+
 ** Test 1 (open in Canvas now until September 3)
 
 ** Review
@@ -70,7 +70,7 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
   #+begin_quote
   Command shell for interactive computing originally only in Python,
   now also allowing notebooks in Julia, Python and R.
-  #+end_quote 
+  #+end_quote
 
 - How can you get help for a Python function?
   #+begin_quote
@@ -83,8 +83,8 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
     help(pd.core.algorithms)
   #+end_src
 
-- How reliable is the AI coding assistance?  
-  
+- How reliable is the AI coding assistance?
+
 - Which Python functions did we use? (6)
   #+begin_example python
     import
@@ -142,7 +142,7 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
    significant) are necessary to verify the accuracy of the
    prediction.
    #+end_quote
-   
+
 6) What does it mean that 'physical reasoning' has more applications?
    #+begin_quote
    For us it means that modeling and computer simulation become more
@@ -196,13 +196,65 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
   of large samples over long periods of time yields insights in the
   properties of the whole system instead of only its constituents.
 
-* TODO Aug-31
+* Aug-31
+
+** Summary
+
+- Import CSV data as pandas data frame.
+- Extract values from a data frame column vector, for example
+  in ~df['Category']~.
+- Extracting only unique values: ~df['Category'].unique()~.
+- ~[]~ as ~list~ delimiter, for example ~[1,2,3]~.
+- Dot operator ~.~ to access methods and attributes, for example
+  ~pd.unique~ (method) or ~df.shape~ (attribute).
+- Origin of ~NameError~: name of object is not defined.
+- Replacing values in data frame with ~df.replace(to_replace,value)~
+- Difference between positional and keyword function arguments
+- Creating a barplot with ~plotly.express.bar~.
+- Creating a barplot with ~matplotlib.pyplot.bar~.
+- Customizing ~plt~ barplot with title, labels, gridlines.
+- Accessing all contents of a module with ~dir~, e.g. ~dir(plt.bar)~.
+- Using auto-completion in IPython to see what's available.
+
+[[https://app.datacamp.com/workspace/w/54035cd7-348d-43b9-b951-5a7c94725477][Completed notebook from the class.]]
+
+* Sep-5
+
+** Review of last week:
+
+*** Python / data science
+
+Let's look at the test results (5/7) using Python:
+1) Create a new Python notebook.
+2) Import ~matplotlib.pyplot~ for graphics.
+3) Create a list of test values called ~test~ (using ~[]~).
+4) Plot the list as a histogram (using ~plt.hist~).
+5) Add x and y labels and a title.
+
+The solution notebook is [[https://app.datacamp.com/workspace/w/adcb3d21-4098-4613-8444-2ce29cfaae4e][here]].
+
+The code is here:
+#+begin_src python :results silent
+  import matplotlib.pyplot as plt
+  test = [4.67,7.83,8.5,5.17,7.17]
+  plt.hist(test,bins="auto",edgecolor="black")
+  plt.xlabel("Points")
+  plt.ylabel("Count")
+  plt.title("Histogram of first test results")
+  plt.show()
+#+end_src
 
 
+** Dörner's definition of complexity
+
+** Modeling framework (lecture/discussion)
+
+** Falling Penny Myth (Practice)
+
+** Test 2 will be available shortly
 
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
 Healy KJ, Withers DH, Nelson BL, eds. Proceedings of the 1997 Winter
 Simulation Conference; 1997. [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][dl.acm.org/doi/pdf/10.1145/268437.268440]]
-
