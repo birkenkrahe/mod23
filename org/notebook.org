@@ -322,8 +322,15 @@ The code is here:
   plt.show()
 #+end_src
 
+** Read: Dorner's "Logic of Failure"
 
-** Dorner's Logic of Failure (reading/exercise)
+1. What has Dorner primarily investigated?
+2. How has he carried out his investigations?
+3. What is his definition of a complex system?
+4. How did his subjects deal with complex systems?
+5. What is the psychological background of this behavior?
+6. Which behaviors are successful in the long term?
+7. What is Dorner's final message?
 
 ** Modeling framework (lecture/discussion)
 
