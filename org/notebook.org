@@ -221,11 +221,26 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
 [[https://app.datacamp.com/workspace/w/54035cd7-348d-43b9-b951-5a7c94725477][Completed notebook from the class.]]
 
 * Sep-5
+** Term project: 1st sprint review approaching!
+
+Remember that you can double up with other courses by using projects
+that you must complete there, or vice versa.
+
+1) [[https://lyon.instructure.com/courses/1443/pages/solo-modeling-project][Enter project topic]]
+2) [[https://lyon.instructure.com/courses/1443/assignments/18049][Submit proposal]]
+
+** Read: Dorner's "Logic of Failure"
+
+1. What has Dorner primarily investigated?
+2. How has he carried out his investigations?
+3. What is his definition of a complex system?
+4. How did his subjects deal with complex systems?
+5. What is the psychological background of this behavior?
+6. Which behaviors are successful in the long term?
+7. What is Dorner's final message?
 
 ** Review of last week (practice)/test preview:
-
 *** Test 1
-
 - What is Git?
 - What is Literate Programming
   #+begin_quote
@@ -241,8 +256,9 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
   1) answer general questions (except "what's the meaning of life?")
   2) Propose code and run it (it only proposes, you run it)
   #+end_quote
-
 *** Review
+
+When I read the question, ask yourself if you know the answer.
 
 1. What's the format of your final project?
    #+begin_quote
@@ -282,7 +298,8 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
       #+end_src
    3) ~ValueError~:
       #+begin_src python :results silent
-        int("a")
+        int("42") # not a value error because of standard coercion
+        int("a") # ValueError because Python doesn't know how to
       #+end_src
    4) ~TypeError~: applying a function to the wrong object.
       #+begin_src python :results silent
@@ -300,8 +317,8 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
 
 *** Problem
 
-Let's look at the test results (5/7) using Python:
-1) Create a new Python notebook.
+Let's look at the test results using Python:
+1) Create a new Python notebook ([[https://tinyurl.com/26zup6cm][tinyurl.com/26zup6cm]])
 2) Import ~matplotlib.pyplot~ for graphics.
 3) Create a list of test values called ~test~ (using ~[]~).
 4) Plot the list as a histogram (using ~plt.hist~).
@@ -314,7 +331,7 @@ The solution notebook is [[https://app.datacamp.com/workspace/w/adcb3d21-4098-46
 The code is here:
 #+begin_src python :results silent
   import matplotlib.pyplot as plt
-  test = [4.67,7.83,8.5,5.17,7.17]
+  test = [4.67, 5.17, 5.33, 6.67, 7.17, 7.83, 8.5]
   plt.hist(test,bins="auto",edgecolor="black")
   plt.xlabel("Points")
   plt.ylabel("Count")
@@ -322,20 +339,18 @@ The code is here:
   plt.show()
 #+end_src
 
-** Read: Dorner's "Logic of Failure"
+** Modeling framework (lecture & discussion)
 
-1. What has Dorner primarily investigated?
-2. How has he carried out his investigations?
-3. What is his definition of a complex system?
-4. How did his subjects deal with complex systems?
-5. What is the psychological background of this behavior?
-6. Which behaviors are successful in the long term?
-7. What is Dorner's final message?
+** Falling Penny Myth (practice & exercise)
 
-** Modeling framework (lecture/discussion)
+Question: Would a penny dropped from the top of the Empire State
+Building go so fast that it would be embedded in the concrete; or if
+it hit a person would it break their skull?
 
-** Falling Penny Myth (practice)
+[[https://app.datacamp.com/workspace/w/e58a55dd-9bfb-4490-b357-e237728e036b][Solution notebook (published)]]
 
+Video with experiments (YouTube)
+  
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,

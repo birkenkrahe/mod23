@@ -8,7 +8,8 @@
 - What are models?
 - What are complex systems?
 - What is the modeling framework?
-- First modeling example: Falling Penny Myth
+- First modeling example: Falling Penny Myth (Python)
+- Dorner's Logic of Failure (Reading)
 
 * What are models?
 
@@ -17,99 +18,6 @@
   diagrams that help us understand the world [...] practice modeling
   and you will better understand complex phenomena." (Page, 2021)
   #+end_quote
-
-* Dietrich Dörner's definition of complexity 
-** Sources
-
-Book recommendation: Logic of Failure. Recognizing And Avoiding Error
-In Complex Situations (1997) - [[https://www.amazon.com/Logic-Failure-Recognizing-Avoiding-Situations/dp/0201479486][Amazon]]
-
-Article (to read): [[http://links.jstor.org/sici?sici=0080-4622%2819900412%29327%3A1241%3C463%3ATLOF%5BD%3E2.0.CO%3B2-X][The Logic of Failure [and Discussion]​]] (1990)
-
-[[https://lyon.instructure.com/courses/1443/assignments/18224][Canvas assignment until September 7, 2.30 pm.]]
-
-** ChatGPT summary
-
-The paper titled "The Logic of Failure" by D. Dörner explores how
-humans deal with complex, dynamic, and uncertain systems. The paper
-uses computer-simulated scenarios, such as a small town or a Third
-World country, to study human behavior in uncertain situations.
-
-Key Points:
-
-1. Adaptability to Uncertainty: Unlike other creatures, humans can
-   adapt to uncertainty by forming hypotheses and planning actions.
-2. Case Study - West Africa: The paper discusses a simulated case
-   study in West Africa where a development aid project led to
-   unintended consequences like famine due to overgrazing and other
-   factors.
-3. Complex Systems: The paper defines a complex system as one with a
-   large number of variables that are interdependent. The Moro system
-   in West Africa is used as an example.
-4. Human Behavior in Complex Systems: Humans often fail to understand
-   the interconnectedness of variables in a complex system. They tend
-   to focus on immediate problems and neglect long-term effects.
-5. Success and Failure: The paper compares the performance of
-   executives and students in managing the simulated Moro
-   system. Executives performed better, indicating that experience and
-   skill play a role in managing complex systems.
-6. Common Mistakes: Humans often make mistakes like neglecting
-   long-term effects, failing to coordinate different measures, and
-   not checking the outcomes of their actions.
-7. Psychological Background: The paper explores the psychological
-   reasons behind these mistakes, such as the limited capacity for
-   conscious information processing and the tendency to guard one's
-   own competence.
-
-Recommendations: The paper suggests that one should not only focus on
-current problems but also consider possible future developments and
-the long-term effects of actions.
-
-** What are complex problems?
-
-Complex systems are made up of constituents. The complexity of the
-whole system may elude us - we need a measure (like maximum entropy in
-the article by Golan and Harte, 2022), but that implies an
-abstraction.
-
-Dörner says: let's keep all variables and characterize them
-instead. His checklist requires all of these at once:
-1) Problem is [[https://en.wikipedia.org/wiki/Polytely][polytelic]] (characterized by multiple simultaneous
-   goals).
-2) The variables evolve dynamically (that is they change over time).
-3) The variables are interdependent and compounded (they consist of
-   different concatenated parts like a name = first name + last name).
-4) There is no clear (mathematical) problem definition.
-5) There is no single (known) cause and effect.
-
-*** Exercise
-
-Test Dörner's list on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ideaboardz]]):
-- The development of AI
-- Handling Covid
-- Handling Climate Change
-- Handling Capitalism
-- Handling Communism
-- Introducing Electric cars
-- Fighting zombies
-
-Example AI:
-1) Polytely: AI's advocates have simultaneous, different final goals -
-   some want to replace humanity by a superintelligence, others only
-   want to augment humanity for dirty work, and some fear for
-   humanity.
-2) Variables relevant to the development of AI evolve dynamically,
-   e.g. the capabilities of hardware and software algorithms.
-3) Variables are interdependent (e.g. human abilities vs. machine
-   abilities), and compounded (e.g. intelligence itself).
-4) No clear problem definition: coming up with an intelligence that
-   either is or behaves like a human is a clear problem though it
-   cannot (yet) be formulated mathematically (in absence of a formula
-   for intelligence).
-5) No single cause and effect: what drives AI development is not clear
-   but since machines do not program themselves, the clear single
-   cause of AI development is man and its development is the only
-   (direct) effect.
 
 * Modeling framework
 #+attr_latex: :width 300px
