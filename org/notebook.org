@@ -208,21 +208,97 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
 - Dot operator ~.~ to access methods and attributes, for example
   ~pd.unique~ (method) or ~df.shape~ (attribute).
 - Origin of ~NameError~: name of object is not defined.
-- Replacing values in data frame with ~df.replace(to_replace,value)~
+- Replacing values in data frame, for example with
+  ~df.replace(to_replace,value)~
 - Difference between positional and keyword function arguments
 - Creating a barplot with ~plotly.express.bar~.
 - Creating a barplot with ~matplotlib.pyplot.bar~.
 - Customizing ~plt~ barplot with title, labels, gridlines.
-- Accessing all contents of a module with ~dir~, e.g. ~dir(plt.bar)~.
+- Accessing all contents of a module with ~dir~, for example with
+  ~dir(plt.bar)~.
 - Using auto-completion in IPython to see what's available.
 
 [[https://app.datacamp.com/workspace/w/54035cd7-348d-43b9-b951-5a7c94725477][Completed notebook from the class.]]
 
 * Sep-5
 
-** Review of last week:
+** Review of last week (practice)/test preview:
 
-*** Python / data science
+*** Test 1
+
+- What is Git?
+- What is Literate Programming
+  #+begin_quote
+  In interactive notebooks, doc + code can be tangled and woven, but
+  that's not the key purpose. In "classical litprog", this is the
+  purpose.
+
+  In interactive notebooks, doc + code + output is assembled to allow
+  telling a story with the data.
+  #+end_quote
+- What does the AI assistant in workspace NOT do?
+  #+begin_quote
+  1) answer general questions (except "what's the meaning of life?")
+  2) Propose code and run it (it only proposes, you run it)
+  #+end_quote
+
+*** Review
+
+1. What's the format of your final project?
+   #+begin_quote
+   Essay or notebook with references, no less than 2,500 words.
+   #+end_quote
+2. What's a paradigm?
+   #+begin_quote
+   A widely accepted framework of theories and practices that guides a
+   field of study - like "Classical mechanics" for physics.
+
+   Don't mix it up with: trend, an anomaly (deviation/outlier), or a
+   fad/fashion.
+   #+end_quote
+3. Can you predict motion of objects in a chaotic system?
+   #+begin_quote
+   Yes, but only for small times, not for large times.
+   #+end_quote
+4. What's the nature of a prediction in complex systems?
+   #+begin_quote
+   Probabilistic (distributions) rather than deterministic (exact).
+   #+end_quote
+5. What's a data frame?
+   #+begin_quote
+   A tabular (rectangular) format to store CSV files, a data structure
+   in Python's ~pandas~ library, and a class with methods (like ~unique~)
+   and attributes (like ~shape~).
+   #+end_quote
+6. What do these errors mean: ~SyntaxError~, ~NameError~, ~ValueError~, and
+   ~TypeError~?
+   1) ~SyntaxError~: using a reserved keyword as a variable name.
+      #+begin_src python :results silent
+        x = import
+      #+end_src
+   2) ~NameError~: a variable name is not defined.
+      #+begin_src python :results silent
+        print(x)
+      #+end_src
+   3) ~ValueError~:
+      #+begin_src python :results silent
+        int("a")
+      #+end_src
+   4) ~TypeError~: applying a function to the wrong object.
+      #+begin_src python :results silent
+        x = 1
+        x()
+      #+end_src
+7. How can you extract all rows of column 3 from the dataframe ~df~?
+   #+begin_example python
+     df[,3]
+   #+end_example
+8. What do you need to do before you can use the function ~plt.bar~?
+   #+begin_src python
+     import matplotlib.pyplot as plt
+   #+end_src
+
+*** Problem
 
 Let's look at the test results (5/7) using Python:
 1) Create a new Python notebook.
@@ -230,6 +306,8 @@ Let's look at the test results (5/7) using Python:
 3) Create a list of test values called ~test~ (using ~[]~).
 4) Plot the list as a histogram (using ~plt.hist~).
 5) Add x and y labels and a title.
+
+*** Solution
 
 The solution notebook is [[https://app.datacamp.com/workspace/w/adcb3d21-4098-4613-8444-2ce29cfaae4e][here]].
 
@@ -245,13 +323,11 @@ The code is here:
 #+end_src
 
 
-** Dörner's definition of complexity
+** Dorner's Logic of Failure (reading/exercise)
 
 ** Modeling framework (lecture/discussion)
 
-** Falling Penny Myth (Practice)
-
-** Test 2 will be available shortly
+** Falling Penny Myth (practice)
 
 * References
 
