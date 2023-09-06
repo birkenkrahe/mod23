@@ -242,6 +242,10 @@ that you must complete there, or vice versa.
 ** Review of last week (practice)/test preview:
 *** Test 1
 - What is Git?
+  #+begin_quote
+  THE version control program created by Linus Torvalds also creator
+  of the Linux kernel and head of the Linux software project.
+  #+end_quote
 - What is Literate Programming
   #+begin_quote
   In interactive notebooks, doc + code can be tangled and woven, but
@@ -341,6 +345,25 @@ The code is here:
 
 ** Modeling framework (lecture & discussion)
 
+- Models are formal structures that help us understand the world
+  through mathematical and/or diagrammatic (visual) representation.
+- The standard modeling workflow goes:
+  1) from system via abstraction to model.
+  2) from model via analysis and simulation to prediction.
+  3) from prediction to data for validation (and back).
+  4) from system to data through measurements.
+
+- An alternative (mathematical) modeling flow:
+  1) real world data are simplified and produce a
+  2) model, which is analysed to obtain
+  3) mathematical conclusions which we interpret to get
+  4) predictions (future) or explanations (past), which are
+  5) verified through real-world data.
+
+- Examples of model scenarios: weather forecasts, stock market
+  predictions, and epidemic process predictions.
+
+* Sep-7
 ** Falling Penny Myth (practice & exercise)
 
 Question: Would a penny dropped from the top of the Empire State
@@ -349,7 +372,7 @@ it hit a person would it break their skull?
 
 [[https://app.datacamp.com/workspace/w/e58a55dd-9bfb-4490-b357-e237728e036b][Solution notebook (published)]]
 
-Video with experiments (YouTube)
+[[https://youtu.be/1Vjd_FhrohE?si=a5BBujesR1CjHKJE][Video with experiments (YouTube)]]
   
 * References
 
