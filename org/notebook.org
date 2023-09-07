@@ -344,9 +344,11 @@ The code is here:
 #+end_src
 
 ** Modeling framework (lecture & discussion)
+** Summary
 
 - Models are formal structures that help us understand the world
   through mathematical and/or diagrammatic (visual) representation.
+
 - The standard modeling workflow goes:
   1) from system via abstraction to model.
   2) from model via analysis and simulation to prediction.
@@ -364,6 +366,176 @@ The code is here:
   predictions, and epidemic process predictions.
 
 * Sep-7
+** Dorner "Logic of Failure" (1990)
+#+options: toc:nil num:nil
+- Deep reading of Dörner's article.
+- Comparison of Dörner's and Parisi's approach to complexity.
+- Apply Dörner's criteria to different systems.
+
+Questions and Answers:
+1. *What has Dörner primarily investigated?*
+   #+begin_quote
+   Dorner investigated "the manner in which humans deal with the
+   unexpected and with uncertainty", in other words: planning.
+
+   Later in the course, we'll look at another approach to planning for
+   uncertainty, 'scenario planning' ([[https://youtu.be/yVgxZnRT54E?si=Qc2u4ZnA6IQo3Le4][see video]]).
+
+   More specifically, he investigated "the action strategies
+   implemented by persons in coping with extremely complex, dynamic,
+   intransparent and uncertain systems."
+   #+end_quote
+2. *How has he carried out his investigations?*
+   #+begin_quote
+   He used computer-simulated scenarios with a large number of feature
+   variables. The scenario was the "Moro region in West Africa (Bukina
+   Faso)", which you won't find on a map. The language or implementation
+   used for these simulations was not shared.
+
+   There is, and always have been, many simulation software
+   packages. Here is a list from Wikipedia - most of these are for
+   engineering not economic or system-wide simulations. Someone
+   interested in simulation could ask Prof Staples who's most likely to
+   know more about this.
+
+   Dörner calls these simulations "experiments". *What are the
+   implications?* - Experiments are controlled, repeatable, and
+   generalizable. Only the last aspect is highlighted here.
+
+   Dörner's experiments were also quantitative - he presents a
+   multitude of graphs and data points. This, however, was not an
+   experiment on the subject of the simulation but on the people!
+   #+end_quote
+3. *What is his definition of a complex system?*
+   #+begin_quote
+   "A system is extremely complex when it consists of a great variety
+   of variables [that are] closely tied to one another, mutually
+   affect one another, and constitute a network of interdependencies."
+
+   See figure 3 (p.4) for an illustration:
+
+   [[../img/dorner.png]]
+
+   Why these three characterisations?
+   *Variables are closely tied*: they are in the same part of the
+   systemic action diagram (though not necessarily directly
+   connected - degrees of separation). E.g. "birth rate" and
+   "mortality" or "groundwater" and "cattle".
+
+   This concept is used in "graph databases", a NoSQL database that
+   uses graph theory to store, map and query
+   relationships. Applications: power grids, disease transmission,
+   computer circuitry, search engine ranking. See also: "Six
+   degrees of separation" theory and "small world" research
+   ([[https://hbr.org/2003/02/the-science-behind-six-degrees][see also: The science behind six degrees, HBR 2003]]).
+
+   *Variables mutually affect each other*: variables are coupled so
+   that a change in one variable changes another variable, e.g. an
+   increase in "birth rate" increases, and an increase in
+   "mortality" decreases the population.
+
+   *Variables constitute a network of interdependencies*: there is a
+   path from any variable to any other, no matter how far the
+   distance across the network. (One could attach weights to the
+   edges of the graph to make use of this fact.) A "neural network"
+   algorithm is a more regular (mathematically closed) form of this
+   type of network.
+
+   "The uncertainty of the Moro system means that the acting
+   subject has no complete knowledge about the system, about its
+   variables and their interdependencies."
+
+   #+end_quote
+4. *How did his subjects deal with complex systems?*
+   #+begin_quote
+   He distinguishes between demands and actual behavior of the test
+   subjects. The demands for regulation are visible in a process
+   diagram (a so-called "happy path" or high-level choreography
+   because there are no decisions modeled).
+
+   [[../img/dornerdemands.png]]
+
+   Two groups of participants are contrasted: 45 executives and
+   students simulated the system over a period of 20 years.
+
+   The executives did far better than the students.
+
+   Observations:
+   - Insufficient goal elaboration.
+   - Insufficient formation of hypotheses about the structure of the
+     system.
+   - Insufficient ideas about the behavior of the system in time
+     (blind linear extrapolation).
+   - Insufficient coordination of different measures.
+   - "Ballistic" action (not waiting and observing).
+   - No self-reflection (not checking out the results of measures).
+   #+end_quote
+5. *What is the psychological background of this behavior?*
+   #+begin_quote
+   "Faulty modes of behavior" which sometimes serve humans well:
+   - Low capacity of conscious information-processing
+   - Tendency to guard one's feeling of competence
+   - Too much weight on the actual problems (neglect side effects)
+   - Forgetting (no memory of process over time, no model/map)
+   #+end_quote
+6. Which behaviors are successful in the long term?
+   #+begin_quote
+   "Strategic flexibility":
+   1) Make plans before you act.
+   2) Carry out plans and monitor success.
+   3) Watch your data and your variables.
+   4) Sometimes, don't plan and just trust yourself.
+
+   Identify a best fit between the situation and the thinking/planning
+   instead of using only one model/action plan.
+   
+   Is this useful for you as well?
+   #+end_quote
+7. What is Dorner's final message?
+   #+begin_quote
+   It is possible to learn strategic flexibility but it is difficult
+   to teach it.
+
+   You have to learn a lot of small, local rules applicable only in a
+   small area.
+
+   Simile: "The point is not to learn how to drive a steamroller with
+   which one can flatten all problems in the same way, but to learn
+   the adroitness of the puppeteer, who at one time holds many strings
+   in his hands and who is able to adapt his movements to the given
+   circumstances in the most sophisticated ways."
+   #+end_quote
+** Pair exercise
+
+Dörner's criteria:
+1) Problem is polytelic (multiple simultaneous goals)
+2) There is a great number of relevant variables
+3) Variables are interdependent and we don't know how
+4) Variables evolve dynamically and we don't know how
+5) ?
+
+After identifying Dörner's list of criteria for complex systems, apply
+test it on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ideaboardz]]):
+- The development of AI
+- Handling Covid
+- Handling Climate Change
+- Handling Capitalism
+- Handling Communism
+- Introducing Electric cars
+- Fighting zombies
+
+When applying the criteria, make sure that you can name evidence, for
+example in the form of a historical anecdote or fact.
+
+** Planning for the future with scenarios
+
+- [[https://youtu.be/yVgxZnRT54E?si=Qc2u4ZnA6IQo3Le4][Teaser film on YouTube (4 min)]]
+- If there's time we may be practicing this method.
+- You can also dive into it as part of your solo project.
+
+* Sep-11
+
+** 
 ** Falling Penny Myth (practice & exercise)
 
 Question: Would a penny dropped from the top of the Empire State
@@ -373,7 +545,7 @@ it hit a person would it break their skull?
 [[https://app.datacamp.com/workspace/w/e58a55dd-9bfb-4490-b357-e237728e036b][Solution notebook (published)]]
 
 [[https://youtu.be/1Vjd_FhrohE?si=a5BBujesR1CjHKJE][Video with experiments (YouTube)]]
-  
+
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
