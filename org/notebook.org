@@ -478,7 +478,7 @@ Questions and Answers:
    - Too much weight on the actual problems (neglect side effects)
    - Forgetting (no memory of process over time, no model/map)
    #+end_quote
-6. Which behaviors are successful in the long term?
+6. *Which behaviors are successful in the long term?*
    #+begin_quote
    "Strategic flexibility":
    1) Make plans before you act.
@@ -491,7 +491,7 @@ Questions and Answers:
    
    Is this useful for you as well?
    #+end_quote
-7. What is Dorner's final message?
+7. *What is Dorner's final message?*
    #+begin_quote
    It is possible to learn strategic flexibility but it is difficult
    to teach it.
@@ -505,6 +505,7 @@ Questions and Answers:
    in his hands and who is able to adapt his movements to the given
    circumstances in the most sophisticated ways."
    #+end_quote
+
 ** Pair exercise
 
 Dörner's criteria:
@@ -512,7 +513,8 @@ Dörner's criteria:
 2) There is a great number of relevant variables
 3) Variables are interdependent and we don't know how
 4) Variables evolve dynamically and we don't know how
-5) ?
+5) When handling the problem, "faulty modes of planning" were employed
+   (like: 'ballistic' action instead of 'wait and monitor' etc.)
 
 After identifying Dörner's list of criteria for complex systems, apply
 test it on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ideaboardz]]):
@@ -527,15 +529,8 @@ test it on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ide
 When applying the criteria, make sure that you can name evidence, for
 example in the form of a historical anecdote or fact.
 
-** Planning for the future with scenarios
-
-- [[https://youtu.be/yVgxZnRT54E?si=Qc2u4ZnA6IQo3Le4][Teaser film on YouTube (4 min)]]
-- If there's time we may be practicing this method.
-- You can also dive into it as part of your solo project.
-
 * Sep-11
 
-** 
 ** Falling Penny Myth (practice & exercise)
 
 Question: Would a penny dropped from the top of the Empire State
@@ -545,6 +540,7 @@ it hit a person would it break their skull?
 [[https://app.datacamp.com/workspace/w/e58a55dd-9bfb-4490-b357-e237728e036b][Solution notebook (published)]]
 
 [[https://youtu.be/1Vjd_FhrohE?si=a5BBujesR1CjHKJE][Video with experiments (YouTube)]]
+
 
 * References
 
