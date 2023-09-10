@@ -5,7 +5,7 @@
 - Notes usually based on whiteboard screenshots ([[https://drive.google.com/drive/folders/1VzxUI_fhy2fXkzjfHHUtEK9NuRYLatij?usp=sharing][GDrive]]).
 - Includes further reading, watching and comments
 
-* Aug-22
+* 1.1 Aug-22
 
 - How to read a paper (objective/subjective/reflective)
 - Version control differences with Git
@@ -16,7 +16,7 @@
   source code + (woven) documentation
 - Notebooks: doc + code + output = story
 
-* Aug-24
+* 1.2 Aug-24
 
 - Assigned: complex systems: paper by Parisi (2013)
 - Lattice Gauge Theory (discretized particle theory)
@@ -30,7 +30,7 @@
   print, Jupyter, modSim
 - Using the AI (GPT-4?) to fix errors and suggest coding solutions
 
-* Aug-29
+* 2.1 Aug-29
 ** 1st sprint review and solo project ([[https://lyon.instructure.com/courses/1443/pages/solo-modeling-project][sign in]])
 
 *Sources for your projects:*
@@ -196,7 +196,7 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
   of large samples over long periods of time yields insights in the
   properties of the whole system instead of only its constituents.
 
-* Aug-31
+* 2.2 Aug-31
 
 ** Summary
 
@@ -220,7 +220,7 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
 
 [[https://app.datacamp.com/workspace/w/54035cd7-348d-43b9-b951-5a7c94725477][Completed notebook from the class.]]
 
-* Sep-5
+* 3.1 Sep-5
 ** Term project: 1st sprint review approaching!
 
 Remember that you can double up with other courses by using projects
@@ -365,7 +365,7 @@ The code is here:
 - Examples of model scenarios: weather forecasts, stock market
   predictions, and epidemic process predictions.
 
-* Sep-7
+* 3.2 Sep-7
 ** Dorner "Logic of Failure" (1990)
 #+options: toc:nil num:nil
 - Deep reading of Dörner's article.
@@ -529,7 +529,7 @@ test it on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ide
 When applying the criteria, make sure that you can name evidence, for
 example in the form of a historical anecdote or fact.
 
-* Sep-11
+* NEXT 4.1 Sep-11
 
 ** Falling Penny Myth (practice & exercise)
 
@@ -540,7 +540,6 @@ it hit a person would it break their skull?
 [[https://app.datacamp.com/workspace/w/e58a55dd-9bfb-4490-b357-e237728e036b][Solution notebook (published)]]
 
 [[https://youtu.be/1Vjd_FhrohE?si=a5BBujesR1CjHKJE][Video with experiments (YouTube)]]
-
 
 * References
 
