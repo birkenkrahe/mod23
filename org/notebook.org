@@ -529,7 +529,20 @@ test it on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ide
 When applying the criteria, make sure that you can name evidence, for
 example in the form of a historical anecdote or fact.
 
-* NEXT 4.1 Sep-11
+* NEXT 4.1 Sep-12
+
+** Vote for Lyon College this week!
+
+Put this in your daily calendar for daily vote through September 15!
+From Lyon marketing:
+#+begin_quote
+Lyon College is a finalist for best four-year college in the AMP
+(Arkansas Money and Politics) Best of 2023!
+
+You can vote once per day through Sept. 15! Go Scots!
+
+https://arkansasmoneypolitics.secondstreetapp.com/og/e404fba6-f03f-4d70-939a-b72afd1dcb42/gallery/396819790
+#+end_quote
 
 ** Falling Penny Myth (practice & exercise)
 
@@ -540,6 +553,7 @@ it hit a person would it break their skull?
 [[https://app.datacamp.com/workspace/w/e58a55dd-9bfb-4490-b357-e237728e036b][Solution notebook (published)]]
 
 [[https://youtu.be/1Vjd_FhrohE?si=a5BBujesR1CjHKJE][Video with experiments (YouTube)]]
+
 
 * References
 
