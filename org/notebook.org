@@ -506,7 +506,7 @@ Questions and Answers:
    circumstances in the most sophisticated ways."
    #+end_quote
 
-** Pair exercise
+** SOMEDAY Pair exercise
 
 Dörner's criteria:
 1) Problem is polytelic (multiple simultaneous goals)
@@ -529,7 +529,7 @@ test it on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ide
 When applying the criteria, make sure that you can name evidence, for
 example in the form of a historical anecdote or fact.
 
-* NEXT 4.1 Sep-12
+* 4.1 Sep-12
 
 ** Vote for Lyon College this week!
 
@@ -543,6 +543,10 @@ You can vote once per day through Sept. 15! Go Scots!
 
 https://arkansasmoneypolitics.secondstreetapp.com/og/e404fba6-f03f-4d70-939a-b72afd1dcb42/gallery/396819790
 #+end_quote
+
+** Projects - review
+
+Let's discuss!
 
 ** Falling Penny Myth (practice & exercise)
 
