@@ -565,6 +565,41 @@ it hit a person would it break their skull?
 - You'll also get a few simple exercises to be completed by next
   Tuesday (in the form of a notebook - submission via link).
 
+* 4.2 Sep-14 - NO CLASS (SPRINT REVIEW)
+* NEXT 4.3 Sep-19
+
+** IN PROGRESS Monthly summary
+
+What was your personal highlight this last month?
+
+What did you learn that you didn't know before and wouldn't want to
+live without? (In other words: knowledge that shook your world.)
+#+begin_quote
+My highlights: Getting used to DataCamp workspace, analyzing the
+articles by Parisi and Dorner, and using Python for modeling.
+#+end_quote
+
+*Concepts*
+
+*Media*
+
+*Papers*
+
+** Challenge: "Fun to imagine"
+
+What does our difficulty conceiving of large and small objects
+mentioned by Feynman [[https://x.com/PhysInHistory/status/1703233323173319122?s=20][in this video]] mean for modeling phenomena at very
+large and at very small distances, like atoms or stars?
+#+begin_quote
+It means, as Feynman does it throughout the video that we have to
+translate findings to retain some intuition ("Anschauung" in German,
+which is part of the English word "Weltanschauung" or "world
+view"). These translations in the form of similes or metaphors are
+meta-models. Meta-models are the elements of [[https://en.wikipedia.org/wiki/Web_Ontology_Language][OWL]], the Ontology Web
+Language family for representing web content using classes.
+#+end_quote
+
+
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
