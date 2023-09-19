@@ -66,5 +66,6 @@ Ciaburrio G. Hands-On Simulation Modeling with Python
 (2e). Packt; 2022. [[https://www.packtpub.com/product/hands-on-simulation-modeling-with-python/9781838985097][packtpub.com]]
 
 Python Software Foundation. Python (Version 3.8.10). Python Software
-Foundation. Published 2021. Accessed August 19, 2023. [[https://www.python.org][python.org]]
+Foundation. Published 2021. Accessed August
+19, 2023. [[https://www.python.org][python.org]]
 
