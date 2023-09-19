@@ -613,21 +613,27 @@ articles by Parisi and Dorner, and using Python for modeling.
    Sciences" (Wigner, 1960)
 4. Replica Studios Smart NPC Demo (TmarTn2, 2023)
 
-** Challenge: "Fun to imagine"
+** Review: exercise 1
 
-What does our difficulty conceiving of large and small objects
-mentioned by Feynman [[https://x.com/PhysInHistory/status/1703233323173319122?s=20][in this video]] mean for modeling phenomena at very
-large and at very small distances, like atoms or stars?
-#+begin_quote
-It means, as Feynman does it throughout the video that we have to
-translate findings to retain some intuition ("Anschauung" in German,
-which is part of the English word "Weltanschauung" or "world
-view"). These translations in the form of similes or metaphors are
-meta-models. Meta-models are the elements of [[https://en.wikipedia.org/wiki/Web_Ontology_Language][OWL]], the Ontology Web
-Language family for representing web content using classes.
-#+end_quote
+You got to be able to do this to follow the course.
+
+You can submit your solution(s) later for 50% of the points.
+
+In the exercises, you practiced:
+- Load mathematical functions from NumPy
+- Trigger Python errors on purpose
+- Falling penny myth with 10-foot pole
+- Combining three models for the falling penny
+- Using SI units
 
 ** Lecture and practice: Simulation model
+
+- Introduction to simulation
+- Simulation vs. modeling
+- Install ~modsim~
+- Exiting gracefully from Python errors
+- Simulating a bike share system (part 1)
+  
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
