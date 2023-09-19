@@ -8,8 +8,8 @@
 - Decision making workflow model
 - Differences between modeling and simulation
 - Simulation modeling terminology
-- Simple example: bike sharing simulation model
-- Python support for simulation
+- Simple example: bike sharing simulation
+- Python support for simulations
 
 * Decision making workflow model
 
@@ -57,6 +57,8 @@ Cons:
 7. Sensitivity: degree to which model outputs are affected by input.
 8. Validation: verification of the accuracy of the model.
 
+* Simple example: bike sharing simulation
+* Python support for simulations
 * References
 
 Downey AB. Modeling and Simulation in Python. NoStarch
