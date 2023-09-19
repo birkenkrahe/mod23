@@ -164,7 +164,7 @@ Falsification here means: if I make a claim (the myth), and I can find
 one empirical example that it is not true, my claim has lost its
 generality and will no longer be scientifically valid.
 
-** Computation in Python
+* Computation in Python
 
 Create a variable ~a~ to represent acceleration in meters per second
 squared:
@@ -281,6 +281,156 @@ Let's do it with a higher precision ~pi~ using ~NumPy~:
 #+RESULTS:
 : 0.0002850229569923425
 : 2.85
+
+* Computation with Units
+
+When we set ~h = 381~ and ~a = 9.81~, we left out the units. This can be
+expensive, as the loss of the Mars Climate Orbiter in 1998 at a total
+price of several hundred million dollars: different software computed
+the thrust in different units leading to the loss of the orbiter in
+the Mars atmosphere.
+
+To represent units, we us the ~Pint~ library ([[https://pint.readthedocs.io/en/stable/][doc]]) and initialize a
+~UnitRegistry()~ object. Without parameters, it contains a [[https://github.com/hgrecco/pint/blob/master/pint/default_en.txt][default list]]
+of units and prefixes.
+#+name: units
+#+begin_src python
+  from pint import UnitRegistry
+  units = UnitRegistry()
+#+end_src
+
+In DataCamp workspace, ~pint~ is not installed. Go to the Environment
+tab to search for it, and then you're offered to ~Add to notebook~. The
+installation will be added as a cell at the top of the notebook.
+
+The object ~units~ contains pretty much every unit you've ever heard of:
+#+begin_src python
+  <<units>>
+  print(units.leagues)
+  print(units.fortnight)
+#+end_src
+
+#+RESULTS:
+: league
+: fortnight
+
+You can list all units - how many are there altogether?
+#+begin_example python
+  len(list(units._units.keys())) # output: 953
+  #+end_example
+
+More importantly, Pint contains standard [[https://www.nist.gov/pml/owm/metric-si/si-units][SI units]] (International
+System of Units) like meter and second:
+#+name: meter_second
+#+begin_src python
+  <<units>>
+  meter = units.meter
+  second = units.second
+  print(meter, second)
+#+end_src
+
+#+RESULTS: meter_second
+: meter second
+
+We can use ~meter~ and ~second~ to create a variable ~a~ and give it the
+value of acceleration due to gravity:
+#+begin_src python
+  a = 9.8 * meter / second**2
+  print(a)
+#+end_src
+
+#+RESULTS:
+: 9.8 meter / second ** 2
+
+The object ~a~ is a quantity with two parts, ~magnitude~ and ~units~:
+#+begin_src python
+  print(a.magnitude)
+  print(a.units)
+#+end_src
+
+#+RESULTS:
+: 9.8
+: meter / second ** 2
+
+Create a quantity that represents 3.4s:
+#+begin_src python
+  t = 3.4 * second
+  print(t)
+#+end_src
+
+#+RESULTS:
+: 3.4 second
+
+Compute the distance a penny would fall after ~t~ seconds with constant
+acceleration ~a~:
+#+begin_src python
+  print(a * t**2 / 2)
+#+end_src
+
+#+RESULTS:
+: 56.644 meter
+
+If we create a quantity to represent the height of the Empire State
+Building ~h~, we can compute the time the penny would take to reach the
+sidewalk:
+#+begin_src python
+  from numpy import sqrt
+  h = 381 * meter
+  t = sqrt(2 * h / a)
+  print(t)
+#+end_src
+
+#+RESULTS:
+: 8.817885349720552 second
+
+And finally the velocity of the penny on impact:
+#+begin_src python
+  v = a * t
+  print(v)
+#+end_src
+
+#+RESULTS:
+: 86.41527642726142 meter / second
+
+If we want to convert this to imperial (US) units, we establish ~mile~
+and ~hour~:
+#+begin_src python
+  mile = units.mile
+  hour = units.hour
+
+  print(v.to(mile/hour))
+#+end_src
+
+#+RESULTS:
+: 193.30546802805432 mile / hour
+
+To get help on the ~to~ function you can just enter ~v.to~ but the help is
+highly obscure - typical Python. The online documentation might be
+more useful:
+#+begin_src python
+  help(v.to)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Help on method to in module pint.facets.plain.quantity:
+
+to(other: 'Optional[QuantityOrUnitLike]' = None, *contexts, **ctx_kwargs) -> 'PlainQuantity' method of pint.Quantity instance
+    Return PlainQuantity rescaled to different units.
+    
+    Parameters
+    ----------
+    other : pint.PlainQuantity, str or dict
+        destination units. (Default value = None)
+    ,*contexts : str or pint.Context
+        Contexts to use in the transformation.
+    ,**ctx_kwargs :
+        Values for the Context/s
+    
+    Returns
+    -------
+    pint.PlainQuantity
+#+end_example
 
 * References
 

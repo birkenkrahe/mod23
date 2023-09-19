@@ -1,0 +1,70 @@
+#+title: Simulation - Modeling a Bike Share System
+#+startup: overview hideblocks indent inlineimages
+#+property: header-args:R :results output :noweb yes
+#+property: header-args:python :results output :noweb yes
+#+options: toc:1 num:1
+* README
+
+- Decision making workflow model
+- Differences between modeling and simulation
+- Simulation modeling terminology
+- Simple example: bike sharing simulation model
+- Python support for simulation
+
+* Decision making workflow model
+
+In decision-making processes, the starting point is identifying the
+problem that requires a change and therefore a decision.
+
+A formal model is built that allows the simulation of the system to
+understand its behavior and identify decisions to be made.
+
+#+attr_latex: :width 400px
+[[../img/decisionmodel.jpg]]
+
+* Comparing modeling and simulation
+
+A model is a representation of a physical system. Modeling is a design
+process.
+
+Simulation is the process of seeing how a model-based system would
+work under certain conditions. Simulation is an operative process.
+
+* Pros and cons of simulation modeling
+
+Pros:
+- System behavior that cannot be directly experienced is reproduced
+- Real complex systems are represented with sources of uncertainty
+- Limited data resources are required
+- Experimentation in limited time is possible
+- Resulting models are easily interpretable
+
+Cons:
+- Simulation provides indications but not exact results
+- Analysis of the output can be complex
+- Implementation of a simulation model can be laborious
+- Results that are returned depend on the input data quality
+- Simulation complexity depends on system complexity
+
+* Simulation modeling terminology
+
+1. System: a set of interacting elements with a boundary.
+2. State variables: e.g. for weather, the temperature.
+3. Events: causes state variables to change instantaneously.
+4. Parameters: adjustable values that determine model behavior.
+5. Calibration: adjusting paramters to obtain maximum accuracy.
+6. Accuracy: degree of correspondence of simulation and actual data.
+7. Sensitivity: degree to which model outputs are affected by input.
+8. Validation: verification of the accuracy of the model.
+
+* References
+
+Downey AB. Modeling and Simulation in Python. NoStarch
+Press; 2023. [[https://allendowney.github.io/ModSimPy/][allendowney.github.io]]
+
+Ciaburrio G. Hands-On Simulation Modeling with Python
+(2e). Packt; 2022. [[https://www.packtpub.com/product/hands-on-simulation-modeling-with-python/9781838985097][packtpub.com]]
+
+Python Software Foundation. Python (Version 3.8.10). Python Software
+Foundation. Published 2021. Accessed August 19, 2023. [[https://www.python.org][python.org]]
+

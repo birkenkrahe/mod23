@@ -197,7 +197,6 @@ See also : [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][Introduction to M
   properties of the whole system instead of only its constituents.
 
 * 2.2 Aug-31
-
 ** Summary
 
 - Import CSV data as pandas data frame.
@@ -566,9 +565,9 @@ it hit a person would it break their skull?
   Tuesday (in the form of a notebook - submission via link).
 
 * 4.2 Sep-14 - NO CLASS (SPRINT REVIEW)
-* NEXT 4.3 Sep-19
 
-** IN PROGRESS Monthly summary
+* 5.1 Sep-19
+** Monthly summary
 
 What was your personal highlight this last month?
 
@@ -580,10 +579,39 @@ articles by Parisi and Dorner, and using Python for modeling.
 #+end_quote
 
 *Concepts*
+1. How to read a paper, and how to write a paper
+2. Business Process Model and Notation (BPMN) models
+3. Literate programming with interactive notebooks and IPython
+4. Network flow ("Sankey") diagrams
+5. Using generative AI to fix errors and suggestion solutions
+6. Frameworks for modeling physical systems
+7. Modeling complex systems stochastically à la Parisi
+8. Importing and working with data frames in Python
+9. Plotting in Python
+10. Python libraries
+11. Modeling decisions in complex situations à la Dorner
+12. Modeling the Falling Penny Myth in three different ways
+13. Python errors
+14. Computation with units in Python
 
-*Media*
+*Mixed Media*: Images, Videos, Games, Books
+1. Charles Minard's Infographic of Napoleon's Invasion of Russia
+2. The Raft of the Medusa by Theodore Gericault (1818)
+3. Anabasis by Xenophon
+4. Python Data Science Handbook by Jake Vanderplas
+5. In a Flight of Starlings by Giorgio Parisi (2023)
+6. What is Life by Erwin Schrodinger (1944)
+7. The Model Thinker by Scott Page (2021)
+8. The GNU Octave simulation programming language
+9. Cities Skylines (ShhNowI'mPlaying, 2015)
+10. San Francisco Bay model (Tom Scott, 2017)
 
 *Papers*
+1. "Complex Systems - A Physicist's Viewpoint" (Parisi, 2003)
+2. "The Logic of Failure" (Dorner, 1999)
+3. "The Unreasonable Effectiveness of Mathematics in the Natural
+   Sciences" (Wigner, 1960)
+4. Replica Studios Smart NPC Demo (TmarTn2, 2023)
 
 ** Challenge: "Fun to imagine"
 
@@ -599,7 +627,7 @@ meta-models. Meta-models are the elements of [[https://en.wikipedia.org/wiki/Web
 Language family for representing web content using classes.
 #+end_quote
 
-
+** Lecture and practice: Simulation model
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
