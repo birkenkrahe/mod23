@@ -583,7 +583,7 @@ articles by Parisi and Dorner, and using Python for modeling.
 2. Business Process Model and Notation (BPMN) models
 3. Literate programming with interactive notebooks and IPython
 4. Network flow ("Sankey") diagrams
-5. Using generative AI to fix errors and suggestion solutions
+5. Using generative AI to fix errors and suggest solutions
 6. Frameworks for modeling physical systems
 7. Modeling complex systems stochastically à la Parisi
 8. Importing and working with data frames in Python
@@ -615,9 +615,8 @@ articles by Parisi and Dorner, and using Python for modeling.
 
 ** Review: exercise 1
 
-You got to be able to do this to follow the course.
-
-You can submit your solution(s) later for 50% of the points.
+You can submit your solution(s) later for 50% of the points (as long
+as we've not discussed the solution in class in detail).
 
 In the exercises, you practiced:
 - Load mathematical functions from NumPy
@@ -633,7 +632,14 @@ In the exercises, you practiced:
 - Install ~modsim~
 - Exiting gracefully from Python errors
 - Simulating a bike share system (part 1)
-  
+
+* 5.3 Sept-21
+
+- Review batch of exercise 1
+- Defining functions
+- Simulating customers
+- 
+
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
