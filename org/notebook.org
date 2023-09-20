@@ -635,10 +635,16 @@ In the exercises, you practiced:
 
 * 5.3 Sept-21
 
+The basis of the interactive notebook is IPython, not DataCamp
+workspace. Today we'll continue to work on the Bike Share simulation
+using this partially filled notebook in Google Colaboratory.
+
 - Review batch of exercise 1
 - Defining functions
 - Simulating customers
-- 
+- Adding simulation parameters
+- Loops and TimeSeries
+- Plotting
 
 * References
 
