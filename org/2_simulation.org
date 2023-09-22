@@ -10,6 +10,7 @@
 - Simulation modeling terminology
 - Simple example: bike sharing simulation
 - Python support for simulations
+- Based on Ciaburrio (2022), and Downey (2023).
 
 * Decision making workflow model
 
@@ -57,8 +58,650 @@ Cons:
 7. Sensitivity: degree to which model outputs are affected by input.
 8. Validation: verification of the accuracy of the model.
 
-* Simple example: bike sharing simulation
-* Python support for simulations
+* Exiting gracefully from an error
+
+You can make Python exit gracefully if you prepare for well-known
+errors, e.g. an ~ImportError~ if a library is not installed. The code
+below will only work in IPython - otherwise you need a
+#+begin_example python :results silent
+  # Install pint if necessary
+  try:
+      import pint
+  except ImportError:
+      !pip install pint
+#+end_example
+
+* Download and install ~modsim~
+
+The ~download~ function loads a Python file from ~url~. It also will exit
+gracefully if there is no file at the URL. We then call the function
+on the location of ~modsim~ and import its functions:
+#+begin_src python :results silent
+  # download modsim.py if necessary
+  from os.path import basename, exists
+
+  def download(url):
+      filename = basename(url)
+      if not exists(filename):
+          from urllib.request import urlretrieve
+          local, _ = urlretrieve(url, filename)
+          print('Downloaded ' + local)
+
+  # call function for download
+  download('https://raw.githubusercontent.com/AllenDowney/' +
+           'ModSimPy/master/modsim.py')
+
+  # import functions from modsim
+  from modsim import *
+#+end_src
+
+Modify this last command so that Python exits in case ~modsim~ is not
+installed:
+#+begin_src python :results silent
+  # Install pint if necessary
+  try:
+      import modsim
+  except ImportError:
+      print("modsim is not installed.")
+#+end_src
+
+* Bike sharing model
+** The simulation sandbox
+
+Consider a bike sharing system for students traveling between two
+sites, LEAP on Lyon's campus, and the Batesville City Community Centre
+on 20th Street.
+[[../img/bikeshare_locations.png]]
+
+** System description
+
+The *system* contains 12 bikes as *elements* and 2 bike racks each with a
+capacity to hold 12 bikes.
+
+*State* changes in either location are caused by students checking out
+bikes at one and riding to the other location.
+
+In the *simulation*, we keep track on where the bikes are using the
+~modsim.State~ function:
+1) import the ~modsim~ library
+2) look at the ~help~ for ~State~
+#+begin_src python :results silent
+  import modsim
+  # help(State)
+#+end_src
+
+** More about the ~State~ function
+
+~State~ is defined with ~**variables~ as argument, which means that any
+keyword arguments passed to that function will be collected into a
+dictionary called ~variables~.
+
+This means that you can initialize ~State~ with any number of keyword
+variables. For example, you could use the function to represent a
+simple bank account:
+#+begin_src python
+  from modsim import State
+  bank_account = State(balance=100,interest_rate=0.05)
+  print(f'You have ${bank_account.balance} in your \
+  {int(bank_account.interest_rate*100)}% interest bank account.')
+#+end_src
+
+#+RESULTS:
+: You have $100.0 in your 5% interest bank account.
+
+When you check the ~type~ of ~modsim.State()~, you can see that it is
+based on a ~pandas~ ~Series~ object, or one-dimensional ~numpy~ array, or a
+vector ([[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html][see doc]]):
+#+begin_src python
+  print(type(bank_account))
+#+end_src
+
+#+RESULTS:
+: <class 'pandas.core.series.Series'>
+
+You can also use ~source_code~ to see the code for the function:
+#+begin_src python 
+  modsim.source_code(modsim.State)
+#+end_src
+
+#+RESULTS:
+: def State(**variables):
+:     """Contains the values of state variables."""
+:     return pd.Series(variables, name='state')
+
+~Series~ objects provide their own ~plot~ function, ~Series.plot()~.
+
+Let's look at this function ~source_code~:
+#+begin_src python
+modsim.source_code(modsim.source_code)
+#+end_src
+
+#+RESULTS:
+: def source_code(obj):
+:     """Prints the source code for a given object.
+: 
+:     obj: function or method object
+:     """
+:     print(inspect.getsource(obj))
+
+** Using ~State~ to describe the system
+
+We store the state of the bike sharing system in a state ~bikeshare~,
+with the number of bike in either location:
+#+begin_src python :results silent
+  bikeshare = State(leap=10, city=2)
+#+end_src
+
+We can now get the value of the state variables ~leap~ and ~city~:
+#+begin_src python
+  print(f'Bikes at LEAP: {bikeshare.leap}')
+  print(f'Bikes at Community Center: {bikeshare.city}')
+#+end_src
+
+#+RESULTS:
+: Bikes at LEAP: 10
+: Bikes at Community Center: 2
+
+To see all state variables and their values, just enter the object's
+name (this is better formatted in IPython):
+#+begin_src python
+  print(bikeshare)
+#+end_src
+
+#+RESULTS:
+: leap    10
+: city     2
+: Name: state, dtype: int64
+
+** Updating the state of the system
+
+To update the system, we can either assign new values to the state
+variables, or we can use C-style update operators ~+=~ and ~-=~:
+#+begin_src python
+  bikeshare.leap = 9
+  bikeshare.city = 3
+  print(bikeshare)
+#+end_src
+
+#+RESULTS:
+: leap    9
+: city    3
+: Name: state, dtype: int64
+
+We use the update operators to return the system to the previous state:
+#+begin_src python
+  bikeshare.leap += 1
+  bikeshare.city -= 1
+  print(bikeshare)
+#+end_src
+
+#+RESULTS:
+: leap    10
+: city     2
+: Name: state, dtype: int64
+
+The last line of the printout are ~Series~ metadata. To lose them but
+retain the tabular format, loop over the items:
+#+begin_src python
+  print(f'     {bikeshare.name}')
+  for index, value in bikeshare.items():
+      print(f'{index}     {value}')
+#+end_src
+
+#+RESULTS:
+:      state
+: leap     10
+: city     2
+
+The function ~items~ allows you to iterate over iterable tuples whose
+elements consist of an index and a value stored with that index: 
+#+begin_src python
+  print(modsim.source_code(bikeshare.items))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+<class 'pandas.core.series.Series'>
+    def items(self) -> Iterable[tuple[Hashable, Any]]:
+        """
+        Lazily iterate over (index, value) tuples.
+
+        This method returns an iterable tuple (index, value). This is
+        convenient if you want to create a lazy iterator.
+
+        Returns
+        -------
+        iterable
+            Iterable of tuples containing the (index, value) pairs from a
+            Series.
+
+        See Also
+        --------
+        DataFrame.items : Iterate over (column name, Series) pairs.
+        DataFrame.iterrows : Iterate over DataFrame rows as (index, Series) pairs.
+
+        Examples
+        --------
+        >>> s = pd.Series(['A', 'B', 'C'])
+        >>> for index, value in s.items():
+        ...     print(f"Index : {index}, Value : {value}")
+        Index : 0, Value : A
+        Index : 1, Value : B
+        Index : 2, Value : C
+        """
+        return zip(iter(self.index), iter(self))
+
+None
+#+end_example
+
+** Defining functions
+
+To be able to reuse code, we put it into functions. In Python, the
+template to create a function named ~foo~ (without arguments) that
+returns nothing looks like this:
+#+begin_example python
+  def foo():
+      # do something
+      return #something
+#+end_example
+
+A simple example is this 'hello world' function:
+#+begin_src python
+  # define function
+  def hello():
+      print("Hello, world!")
+
+  # call function
+  hello()
+#+end_src
+
+#+RESULTS:
+: Hello, world!
+
+As usual, functions are subroutines or encapsulated procedures: all
+variables inside the function are local, and if you want to return
+something to the calling routine, you need to add ~return~.
+
+The following function returns a string ~msg~, which we can only access
+by saving the function result in a variable:
+#+begin_src python
+  # define function with return value
+  def hello_again():
+      msg = "Greeting complete."
+      print("hello again")
+      return msg
+
+  # call function and print return value
+  returned_msg = hello_again()
+  print(returned_msg)
+  try:
+      print(msg)
+  except NameError:
+      print("*** NameError: Cannot print local variable ***")
+#+end_src
+
+#+RESULTS:
+: hello again
+: Greeting complete.
+: *** NameError: Cannot print local variable ***
+
+Add a statement at the very end to print ~msg~ itself. This will lead to
+a ~NameError~. Fix this by wrapping ~print(msg)~ in a ~try:...except
+NameError:~ exception statement!
+
+Finally, run the code through pythontutor.com to see what happens
+([[https://pythontutor.com/render.html#code=%23%20define%20function%20with%20return%20value%0Adef%20hello_again%28%29%3A%0A%20%20%20%20msg%20%3D%20%22Greeting%20complete.%22%0A%20%20%20%20print%28%22hello%20again%22%29%0A%20%20%20%20return%20msg%0A%0A%23%20call%20function%20and%20print%20return%20value%0Areturned_msg%20%3D%20hello_again%28%29%0Aprint%28returned_msg%29%0Atry%3A%0A%20%20%20%20print%28msg%29%0Aexcept%20NameError%3A%0A%20%20%20%20print%28%22***%20NameError%3A%20Cannot%20print%20local%20variable%20***%22%29&cumulative=false&curInstr=13&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false][solution]]).
+
+** Defining an updating function
+
+Rather than repeat the update every time a bike moves, define a
+function that reflects a move of a bike from LEAP to the Community
+Center, ~bike_to_city~:
+#+begin_src python :results silent
+  def bike_to_city():
+      bikeshare.leap -= 1
+      bikeshare.city += 1
+#+end_src
+
+Now print the current state, then update it using the new function,
+then print the new state:
+#+begin_src python
+  print(bikeshare)
+  bike_to_city()
+  print(bikeshare)
+#+end_src
+
+#+RESULTS:
+: leap    9
+: city    3
+: Name: state, dtype: int64
+: leap    8
+: city    4
+: Name: state, dtype: int64
+
+There's nothing that keeps our bike share state variables from going
+outside of the [0,12] range, which is a hard physical boundary. Let's
+fix this.
+
+1) Write a function ~reset~ that restores a particular state, e.g. with
+   6 bikes in either location.
+2) The function should print the old and the new state.
+3) The function should announce itself "System reset".
+4) Run ~bike_to_city~ a few times until the values are wrong.
+5) Restore the steady state using your new function.
+#+begin_src python :results silent
+  def reset():
+      print("System reset. Old state:")
+      print(bikeshare)
+      bikeshare.leap = 6
+      bikeshare.city = 6
+      print("New state:")
+      print(bikeshare)
+#+end_src
+Testing:
+#+begin_src python
+  print(bikeshare)
+  bike_to_city()
+  bike_to_city()
+  bike_to_city()
+  bike_to_city()
+  bike_to_city()
+  reset()
+#+end_src
+
+#+RESULTS:
+#+begin_example
+leap   -42
+city    54
+Name: state, dtype: int64
+System reset. Old state:
+leap   -47
+city    59
+Name: state, dtype: int64
+New state:
+leap    6
+city    6
+Name: state, dtype: int64
+#+end_example
+
+Alter the ~bike_to_city~ function and print out "Moving bike to city"
+every time the function is called, test the function, and then move
+the system back to the steady state.
+#+begin_src python
+  def bike_to_city():
+      print("Moving bike to city.")
+      bikeshare.leap -= 1
+      bikeshare.city += 1
+
+  bike_to_city()
+  reset()
+#+end_src
+
+#+RESULTS:
+: Moving bike to city.
+: System reset. Old state:
+: leap    5
+: city    7
+: Name: state, dtype: int64
+: New state:
+: leap    6
+: city    6
+: Name: state, dtype: int64
+
+** Pseudorandom number generator
+
+As a simple model of customer behavior within the system, we use a
+/pseudorandom number generator/ to determine when customers arrive at
+each bike station.
+
+The function ~modsim.flip~ generates random coin tosses, i.e. it
+simulates tosses of a fair coin with default probability 0.5 for
+either side, and returns a Boolean value, ~True~ or ~False~.
+
+It is based on NumPy's ~random~ function:
+#+begin_src python
+  from modsim import source_code,flip
+  print(source_code(flip))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+def flip(p=0.5):
+    """Flips a coin with the given probability.
+
+    p: float 0-1
+
+    returns: boolean (True or False)
+    """
+    return np.random.random() < p
+
+None
+#+end_example
+
+The statement ~np.random.random() < p~ generates a Boolean value.
+
+Call the function with a probability between 0 and 1, e.g. 70%. On
+average, it will return ~True~ with probability 70% or ~False~ with
+probability 30%:
+#+begin_src python
+  for _ in range(10):
+      print(flip(0.7),end=" ")
+#+end_src
+
+#+RESULTS:
+: True True True True True True True True False True
+
+To control program behavior with Boolean values, we use conditional
+statements. The general form of such a statement is as follows:
+#+begin_example python
+  if condition:
+      # do something if condition is True
+  else:
+      # do something else if condition is False
+#+end_example
+
+The following program simulates a fair coin: it prints "heads" if the
+~flip~ results in ~True~, and "tails" if it results in ~False~.
+#+begin_src python
+  if flip(0.5):
+      print("heads")
+  else:
+      print("tails")
+#+end_src
+
+#+RESULTS:
+: heads
+
+For the particular argument 0.5 we could have left the argument out
+since ~flip~ is defined as ~flip(p=0.5)~ as we saw earlier, with ~p=0.5~ as
+the (named) default parameter.
+
+** Simulating customers as coin tosses
+
+We can use ~flip~ to simulate the arrival of customers who want to
+borrow a bike: If customers arrive at the LEAP station every two
+minutes on average (that is with certainty, or 100%), then the chance
+of an arrival during any one-minute period is 100%/2 = 50%:
+#+begin_src python
+  if flip(0.5):
+      bike_to_city()
+#+end_src
+
+#+RESULTS:
+: Moving bike to city.
+
+If customers arrive at the Community Center station every three
+minutes on average, the chance of an arrival during any one-minute
+period is 100%/3 = 33%:
+#+begin_src python
+  if flip(0.33):
+      bike_to_city()
+#+end_src
+
+#+RESULTS:
+
+Both of these snippets together with functions that change the state
+of the system can be used to simulate a time interval - in this case
+one minute:
+#+begin_src python :results silent
+  def step():
+      if flip(0.5):
+          bike_to_city()
+      if flip(0.33):
+          bike_to_leap()
+#+end_src
+
+Depending on the random results from ~flip~, a ~step~ moves a bike to the
+Community Centre or to the LEAP bike station, or neither, or both.
+
+Before you can try it, you need to remember how to move a bike and
+create the function ~bike_to_leap()~ to move bikes back to LEAP:
+#+begin_src python :results silent
+  def bike_to_leap():
+      print("Moving bike to LEAP.")
+      bikeshare.leap += 1
+      bikeshare.city -= 1
+#+end_src
+
+Simulating customers and bikes:
+#+begin_src python
+  step()
+#+end_src
+
+#+RESULTS:
+: Moving bike to city.
+
+In reality, we'd need a smarter ~reset()~ function that is responsive to
+the fact that we only have 12 bikes and moves bikes automatically once
+the supply runs out at either end. 
+
+** Adding simulation parameters
+
+The previous version of ~step~ is fine if the arrival probabilities
+never change but in reality they vary over time.
+
+To account for that, we can exchange the constant values by /parameters/:
+#+begin_src python :results silent
+  def step(p1, p2):
+      if flip(p1):
+          bike_to_city()
+      if flip(p2):
+          bike_to_leap()
+#+end_src
+
+Now call the function with the previous values ~p1=0.5~ and ~p2=0.33~ as
+arguments:
+#+begin_src python
+  step(0.5,0.33)
+#+end_src
+
+The parameters can be named or unnamed - if they're not named, you
+pass /positional/ arguments relying on Python to know where to put them,
+but if you name them then you can decide the order. This is something
+to try in pythontutor.com ([[https://pythontutor.com/render.html#code=def%20step%28p1,%20p2%29%3A%0A%20%20%20%20if%20flip%28p1%29%3A%0A%20%20%20%20%20%20%20%20bike_to_city%28%29%0A%20%20%20%20if%20flip%28p2%29%3A%0A%20%20%20%20%20%20%20%20bike_to_leap%28%29%0A%0Astep%28p2%3D0.33,p1%3D0.5%29&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false][example]]).
+
+You can now run the same function many times with different parameters
+each time - e.g. to distinguish different times of day.
+
+** Looping
+
+To repeat a chunk of code, use a ~for~ loop:
+#+begin_src python
+  for _ in range(3):
+      print(_, end=": ")
+      bike_to_city()
+#+end_src
+
+#+RESULTS:
+: 0: Moving bike to city.
+: 1: Moving bike to city.
+: 2: Moving bike to city.
+
+Here, ~range~ is used to control the number of times the loop runs, and
+~_~ is a convenient choice for a dummy loop variable that serves no
+other purpose than counting.
+
+** ~TimeSeries~
+
+The ~modsim~ library provides a ~TimeSeries~ object to save results for
+later analysis: a ~TimeSeries~ is an event log. It contains a sequence
+of timestamps (labels) and their corresponding quantities (values).
+
+1) Start a new ~State~ object (a system state).
+2) Create a new, empty ~TimeSeries~ as ~results~.
+3) Print ~results~ (still empty).
+3) Add a quantity (for example ~bikeshare.leap~) to ~results~.
+4) Print ~results~ again (now containing a labelled quantity)
+#+begin_src python
+  bikeshare = State(leap=10,city=2)
+  results = TimeSeries()
+  print(results)
+  results[0] = bikeshare.leap
+  print(results)
+#+end_src
+
+You can use ~TimeSeries~ in a loop to store the simulation results:
+#+begin_src python
+  for i in range(3):
+      print(i)
+      step(0.6,0.6)
+      results[i+1] = bikeshare.leap
+#+end_src
+
+#+RESULTS:
+: 0
+: Moving bike to city.
+: 1
+: Moving bike to city.
+: Moving bike to LEAP.
+: 2
+: Moving bike to city.
+
+We can display the ~TimeSeries~ with the ~modsim.show~ command:
+#+begin_src python
+  from modsim import show
+  print(show(results))
+#+end_src
+
+#+RESULTS:
+:       Quantity
+: Time          
+: 0           10
+: 1            9
+: 2            9
+: 3            8
+
+Recap: What does ~0.6~ mean again in terms of customer arrivals?
+
+** Plotting simulation results
+
+The ~Series~ objects in ~pandas~ provide a function called ~plot~ that we
+can use to plot the results. ~modsim~ provides ~decorate~ to minimally
+customize the plot with axis labels and title:
+#+begin_src python :results output graphics
+  from modsim import decorate
+  results.plot()
+
+  decorate(title='LEAP-Community Center bikeshare',
+           xlabel='Time step (min)',
+           ylabel='Number of bikes [0,12]')
+#+end_src
+
+For three iterations, this is not very interesting - therefore next
+stop: iterative modeling!
+
+* Summary
+
+- A system is constituted by elements and their relationships
+  surrounded by a boundary.
+- A simulation is the process of iterating over the State variables of
+  a model-based system.
+- Tools to develop and run a simulation include: State variables,
+  update functions, random number generator and plots for
+  visualization.
+- Python tools include loops to repeat code, functions to write
+  reusable procedures, and conditional statements to control flow.
+  
 * References
 
 Downey AB. Modeling and Simulation in Python. NoStarch
