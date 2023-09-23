@@ -644,8 +644,15 @@ using this partially filled notebook in Google Colaboratory.
 - Simulating customers
 - Adding simulation parameters
 - Loops and TimeSeries
-- Plotting
+- Plotting 
 
+* 6.1 Tue-Sept-26  
+
+- New exercise batch: remember to submit a *published* notebook
+- Review/preview: test 3
+- Codealong lecture: Iterative modeling (bikeshare system II)
+- Next sprint review: literature review (who else) and method (how to)
+  
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
