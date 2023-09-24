@@ -1,7 +1,7 @@
 #+title: Simulation - Modeling a Bike Share System
 #+startup: overview hideblocks indent inlineimages
 #+property: header-args:R :results output :noweb yes
-#+property: header-args:python :results output :noweb yes
+#+property: header-args:python :results output :noweb yes :session *Python*
 #+options: toc:1 num:1
 * README
 
@@ -243,15 +243,15 @@ We use the update operators to return the system to the previous state:
 The last line of the printout are ~Series~ metadata. To lose them but
 retain the tabular format, loop over the items:
 #+begin_src python
-  print(f'     {bikeshare.name}')
+  print(f'{bikeshare.name:>11}')
   for index, value in bikeshare.items():
-      print(f'{index}     {value}')
+      print(f'{index}{value:>7}')
 #+end_src
 
 #+RESULTS:
-:      state
+:       state
 : leap     10
-: city     2
+: city      2
 
 The function ~items~ allows you to iterate over iterable tuples whose
 elements consist of an index and a value stored with that index: 
@@ -261,8 +261,7 @@ elements consist of an index and a value stored with that index:
 
 #+RESULTS:
 #+begin_example
-<class 'pandas.core.series.Series'>
-    def items(self) -> Iterable[tuple[Hashable, Any]]:
+>>>     def items(self) -> Iterable[tuple[Hashable, Any]]:
         """
         Lazily iterate over (index, value) tuples.
 
@@ -372,11 +371,11 @@ then print the new state:
 #+end_src
 
 #+RESULTS:
+: leap    10
+: city     2
+: Name: state, dtype: int64
 : leap    9
 : city    3
-: Name: state, dtype: int64
-: leap    8
-: city    4
 : Name: state, dtype: int64
 
 There's nothing that keeps our bike share state variables from going
@@ -411,12 +410,12 @@ Testing:
 
 #+RESULTS:
 #+begin_example
-leap   -42
-city    54
+leap    9
+city    3
 Name: state, dtype: int64
 System reset. Old state:
-leap   -47
-city    59
+leap    4
+city    8
 Name: state, dtype: int64
 New state:
 leap    6
@@ -489,7 +488,7 @@ probability 30%:
 #+end_src
 
 #+RESULTS:
-: True True True True True True True True False True
+: >>> False True False False False False True False False True
 
 To control program behavior with Boolean values, we use conditional
 statements. The general form of such a statement is as follows:
@@ -528,7 +527,6 @@ of an arrival during any one-minute period is 100%/2 = 50%:
 #+end_src
 
 #+RESULTS:
-: Moving bike to city.
 
 If customers arrive at the Community Center station every three
 minutes on average, the chance of an arrival during any one-minute
@@ -569,7 +567,7 @@ Simulating customers and bikes:
 #+end_src
 
 #+RESULTS:
-: Moving bike to city.
+: >>>
 
 In reality, we'd need a smarter ~reset()~ function that is responsive to
 the fact that we only have 12 bikes and moves bikes automatically once
@@ -594,6 +592,9 @@ arguments:
 #+begin_src python
   step(0.5,0.33)
 #+end_src
+
+#+RESULTS:
+: Moving bike to LEAP.
 
 The parameters can be named or unnamed - if they're not named, you
 pass /positional/ arguments relying on Python to know where to put them,
@@ -640,6 +641,12 @@ of timestamps (labels) and their corresponding quantities (values).
   print(results)
 #+end_src
 
+#+RESULTS:
+: Series([], Name: Quantity, dtype: float64)
+: Time
+: 0    10
+: Name: Quantity, dtype: int64
+
 You can use ~TimeSeries~ in a loop to store the simulation results:
 #+begin_src python
   for i in range(3):
@@ -651,11 +658,13 @@ You can use ~TimeSeries~ in a loop to store the simulation results:
 #+RESULTS:
 : 0
 : Moving bike to city.
+: Moving bike to LEAP.
 : 1
 : Moving bike to city.
 : Moving bike to LEAP.
 : 2
 : Moving bike to city.
+: Moving bike to LEAP.
 
 We can display the ~TimeSeries~ with the ~modsim.show~ command:
 #+begin_src python
@@ -667,9 +676,9 @@ We can display the ~TimeSeries~ with the ~modsim.show~ command:
 :       Quantity
 : Time          
 : 0           10
-: 1            9
-: 2            9
-: 3            8
+: 1           10
+: 2           10
+: 3           10
 
 Recap: What does ~0.6~ mean again in terms of customer arrivals?
 
@@ -686,6 +695,8 @@ customize the plot with axis labels and title:
            xlabel='Time step (min)',
            ylabel='Number of bikes [0,12]')
 #+end_src
+
+#+RESULTS:
 
 For three iterations, this is not very interesting - therefore next
 stop: iterative modeling!
