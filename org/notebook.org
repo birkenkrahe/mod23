@@ -648,12 +648,13 @@ using this partially filled notebook in Google Colaboratory.
 
 * 6.1 Tue-Sept-26  
 
-- New exercise 2 batch: remember to submit a *published* notebook
-- Review: test 3
+- Exercise 2 batch: remember to submit a *published* notebook (Thu)
+- Review: test 3 (results aren't great - why?)
 - Review: 1st sprint review (proposal) - what're you proud of?
 - Next sprint review: literature review (who else) and method (how to)
-- Codealong lecture: Iterative modeling (bikeshare system II)
-  
+- Codealong lecture: Iterative modeling (bikeshare system part II)
+- Next: incremental modeling (bikeshare system part III)
+
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,

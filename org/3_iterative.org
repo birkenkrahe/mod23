@@ -1,0 +1,35 @@
+#+title: Iterative modeling
+#+startup: overview hideblocks indent inlineimages
+#+property: header-args:R :results output :noweb yes
+#+property: header-args:python :results output :noweb yes :session *Python*
+#+options: toc:1 num:1
+* README
+
+- Iterating the bike share model
+- Using more than one ~State~ object
+- Adding docstrings
+- Dealing with negative bikes
+- Introducing comparison operators
+- Introducing metrics
+  
+* Summary
+
+- We added a parameter, ~state~, so we can work with more than one ~State~
+  object.
+- We added a docstring that explains how to use a function and a
+  comment that explains how it works.
+- We used a conditional operator, ~==~, to check whether a bike is
+  available, in order to avoid negative bikes.
+- We added a state variable, ~city_empty~, to count the number of
+  unhappy customers, which is a metric we’ll use to quantify how well
+  the system works.
+  
+* References
+
+Downey AB. Modeling and Simulation in Python. NoStarch
+Press; 2023. [[https://allendowney.github.io/ModSimPy/][allendowney.github.io]]
+
+Python Software Foundation. Python (Version 3.8.10). Python Software
+Foundation. Published 2021. Accessed August
+19, 2023. [[https://www.python.org][python.org]]
+
