@@ -648,12 +648,11 @@ using this partially filled notebook in Google Colaboratory.
 
 * 6.1 Tue-Sept-26  
 
-- New exercise batch: remember to submit a *published* notebook
+- New exercise 2 batch: remember to submit a *published* notebook
 - Review: test 3
-- Review: 1st sprint review (proposal)
-- Preview: 2nd sprint review (literature review / methodology)
-- Codealong lecture: Iterative modeling (bikeshare system II)
+- Review: 1st sprint review (proposal) - what're you proud of?
 - Next sprint review: literature review (who else) and method (how to)
+- Codealong lecture: Iterative modeling (bikeshare system II)
   
 * References
 
