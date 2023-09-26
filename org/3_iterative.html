@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-09-26 Tue 14:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Iterative modeling</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Iterative modeling</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org8b1a596">1. README</a></li>
+<li><a href="#orgaa80fcd">2. Iterative modeling</a></li>
+<li><a href="#orgfda7779">3. Using more than one <code>State</code> object</a></li>
+<li><a href="#org9350010">4. Adding docstrings</a></li>
+<li><a href="#org304bab8">5. Scope and keyword parameter</a></li>
+<li><a href="#org5f85b0f">6. Dealing with negative bikes</a></li>
+<li><a href="#orgf7d9d24">7. Using comparison operators</a></li>
+<li><a href="#orgf583721">8. Defining simulation metrics</a></li>
+<li><a href="#org9802591">9. Measuring the number of unhappy customers</a></li>
+<li><a href="#org793a24d">10. Concept and code summary</a></li>
+<li><a href="#org6b768ed">11. References</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b1a596" class="outline-2">
+<h2 id="org8b1a596"><span class="section-number-2">1.</span> README</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Improving quality of the code and quality of the model.
+</p>
+
+<ul class="org-ul">
+<li>Iterating the bike share model</li>
+<li>Using more than one <code>State</code> object</li>
+<li>Adding docstrings</li>
+<li>Dealing with negative bikes</li>
+<li>Introducing comparison operators</li>
+<li>Introducing metrics</li>
+<li>Summary and exercises</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaa80fcd" class="outline-2">
+<h2 id="orgaa80fcd"><span class="section-number-2">2.</span> Iterative modeling</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Iterative modeling means starting with a simple model, identifying the
+most important issues for the problem setting, and making gradual
+improvements.
+</p>
+
+<p>
+What assumptions is the bike share model based on? In which ways is it
+unrealistic - what are the differences between the model and the real
+world?
+</p>
+
+<ol class="org-ol">
+<li>Customer arrival probability varies over time.</li>
+<li>Travel time between bike stations is not zero.</li>
+<li>Bike availability is not guaranteed.</li>
+<li>LEAP and Community Centre look completely different.</li>
+<li>There are more customers at the Community Centre.</li>
+<li>Customers come in different types.</li>
+<li>Bikes come in different types.</li>
+<li>Checking out bikes might cost money.</li>
+</ol>
+
+<p>
+Are any of these more relevant than others? Relevance depends on the
+purpose for the modeling simulation. What is our likely purpose?
+</p>
+
+<ul class="org-ul">
+<li>Understand the system with its elements, relationships, boundary and
+the resulting states.</li>
+</ul>
+
+<p>
+For this purpose, specific details about the elements (e.g. type of
+bike or type of customer) could be important once we've understood the
+basic dynamics (i.e. evolution over time).
+</p>
+
+<p>
+The different looks (and location in town) of our stations might
+affect the arrival/checkout probability: more students at LEAP but
+more people overall at the Community Centre.
+</p>
+
+<p>
+Types of customer is important if we're trying to make a prediction by
+customer type - like "which age group is most likely to check out a
+bike?" Same for the bike type - which bikes should we buy?
+</p>
+
+<p>
+The first assumption (time dependency) can be neglected if we simulate
+over a short period of time (like one hour).
+</p>
+
+<p>
+The second assumption (travel time between stations) might not affect
+the results very much depending on the distance between stations - but
+if we're after the impact of this feature on the dynamic of the model,
+we have to add it.
+</p>
+
+<p>
+The third assumption is important because negative bike numbers are an
+obvious violation of the physical laws and just don't make sense.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfda7779" class="outline-2">
+<h2 id="orgfda7779"><span class="section-number-2">3.</span> Using more than one <code>State</code> object</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+What if there is more than one bike share system, or if we want to run
+more than one simulation? We need to be able to define more than one
+set of state variables.
+</p>
+
+<p>
+Import <code>modsim</code>, then redefine the update functions:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">import State from modsim</span>
+<span style="color: #b6a0ff; font-weight: bold;">from</span> modsim <span style="color: #b6a0ff; font-weight: bold;">import</span> State, show, source_code, flip, TimeSeries
+
+<span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">redefine `bike_to_city()` to take the argument `state`</span>
+<span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">bike_to_city</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>:
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span><span style="color: #79a8ff;">"Moving bike to city Community Center."</span><span style="color: #ffffff;">)</span>
+    state.<span style="color: #00d3d0;">leap</span> -= 1
+    state.<span style="color: #00d3d0;">city</span> += 1
+
+<span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">redefine `bike_to_city()` to take the argument `state`</span>
+<span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">bike_to_leap</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>:
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span><span style="color: #79a8ff;">"Moving bike to Lyon's LEAP."</span><span style="color: #ffffff;">)</span>
+    state.<span style="color: #00d3d0;">leap</span> += 1
+    state.<span style="color: #00d3d0;">city</span> -= 1
+</pre>
+</div>
+
+<p>
+The value of <code>state</code> could be any <code>State</code> object not just <code>bikeshare</code>. When
+we now update the bike stations, we need to supply a <code>State</code> object:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">Initialize a `bikeshare` State</span>
+<span style="color: #00d3d0;">bikeshare</span> = State<span style="color: #ffffff;">(</span>city=10,leap=2<span style="color: #ffffff;">)</span>
+
+<span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">Move a bike to city</span>
+bike_to_city<span style="color: #ffffff;">(</span>bikeshare<span style="color: #ffffff;">)</span>
+
+<span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">Show the state of `bikeshare`</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+Moving bike to city Community Center.
+      state
+city     11
+leap      1
+</pre>
+
+
+<p>
+The update call has the same effect as:
+</p>
+<pre class="example" id="org8436fa9">
+state = bikeshare
+state.leap -= 1
+state.city += 1
+</pre>
+
+<p>
+Notice the difference between the <code>state</code> parameter in the update
+function, and the <code>State</code> function, which defines a <code>state</code>.
+</p>
+
+<p>
+Now we can create as many <code>State</code> objects as we want, and update them
+independently:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">define two states, `bikeshare1` and `bikeshare2`</span>
+<span style="color: #00d3d0;">bikeshare1</span> = State<span style="color: #ffffff;">(</span>city=10,leap=2<span style="color: #ffffff;">)</span>
+<span style="color: #00d3d0;">bikeshare2</span> = State<span style="color: #ffffff;">(</span>city=2,leap=10<span style="color: #ffffff;">)</span>
+
+<span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">Move a bike to city in both states and show them</span>
+bike_to_city<span style="color: #ffffff;">(</span>bikeshare1<span style="color: #ffffff;">)</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare1<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+bike_to_city<span style="color: #ffffff;">(</span>bikeshare2<span style="color: #ffffff;">)</span>  
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare2<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+Moving bike to city Community Center.
+      state
+city     11
+leap      1
+Moving bike to city Community Center.
+      state
+city      3
+leap      9
+</pre>
+
+
+<p>
+Changes in either state do not affect the other. Now we can simulate
+different bike share systems (e.g. different initial conditions), or
+run multiple simulations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9350010" class="outline-2">
+<h2 id="org9350010"><span class="section-number-2">4.</span> Adding docstrings</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+There are two types of in-program documentation:
+</p>
+<ol class="org-ol">
+<li>comments (use liberally) after <code>#</code></li>
+<li>docstrings (use strategically) between <code>"""</code></li>
+</ol>
+
+<p>
+In IPython, you get the docstring when asking for help with <code>?</code>.
+</p>
+
+<p>
+Add the following documentation to the update functions by printing
+the text between two sets of <code>"""</code> marks on the next line after the <code>def</code>
+line, then print the docstring:
+</p>
+<pre class="example" id="org7d82b83">
+"""Move one bike from [station1] to [station2]
+   state: bikeshare State object
+"""
+</pre>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">bike_to_city</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>:
+    <span style="color: #9ac8e0;">"""Move one bike from LEAP to city community center.</span>
+
+<span style="color: #9ac8e0;">    state: bikeshare State object</span>
+<span style="color: #9ac8e0;">    """</span>
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span><span style="color: #79a8ff;">"Moving bike to city Community Center."</span><span style="color: #ffffff;">)</span>
+    state.<span style="color: #00d3d0;">leap</span> -= 1
+    state.<span style="color: #00d3d0;">city</span> += 1
+
+<span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">bike_to_leap</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>:
+    <span style="color: #9ac8e0;">"""Move one bike from city community center to LEAP.</span>
+
+<span style="color: #9ac8e0;">    state: bikeshare State object</span>
+<span style="color: #9ac8e0;">    """</span>
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span><span style="color: #79a8ff;">"Moving bike to Lyon's LEAP."</span><span style="color: #ffffff;">)</span>
+    state.<span style="color: #00d3d0;">leap</span> += 1
+    state.<span style="color: #00d3d0;">city</span> -= 1
+</pre>
+</div>
+
+<p>
+Calling the help with <code>help</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #f78fe7; font-weight: bold;">help</span><span style="color: #ffffff;">(</span>bike_to_city<span style="color: #ffffff;">)</span>
+<span style="color: #f78fe7; font-weight: bold;">help</span><span style="color: #ffffff;">(</span>bike_to_leap<span style="color: #ffffff;">)</span>  
+</pre>
+</div>
+
+<pre class="example" id="org975f1d2">
+Help on function bike_to_city in module __main__:
+
+bike_to_city(state)
+    Move one bike from LEAP to city community center.
+    
+    state: bikeshare State object
+
+Help on function bike_to_leap in module __main__:
+
+bike_to_leap(state)
+    Move one bike from city community center to LEAP.
+    
+    state: bikeshare State object
+</pre>
+
+<p>
+What happens if you enter <code>help(bike_to_city())</code> and
+<code>help(bike_to_city(state))</code> - explain the errors!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org304bab8" class="outline-2">
+<h2 id="org304bab8"><span class="section-number-2">5.</span> Scope and keyword parameter</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+You can call the function <code>updateState</code> without argument because the
+function definition has a default value.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #b6a0ff; font-weight: bold;">from</span> modsim <span style="color: #b6a0ff; font-weight: bold;">import</span> State, show
+
+<span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">updateState</span><span style="color: #ffffff;">(</span>state=State<span style="color: #ff66ff;">(</span>variable=10<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>:
+    state.<span style="color: #00d3d0;">variable</span> -= 1
+    <span style="color: #b6a0ff; font-weight: bold;">return</span> <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>state<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+
+updateState<span style="color: #ffffff;">()</span>
+</pre>
+</div>
+
+<pre class="example">
+          state
+variable      9
+</pre>
+
+
+<p>
+If you return <code>state</code> from within the function, it will not be known
+outside unless
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #b6a0ff; font-weight: bold;">from</span> modsim <span style="color: #b6a0ff; font-weight: bold;">import</span> State, show
+
+<span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">updateState</span><span style="color: #ffffff;">(</span>state=State<span style="color: #ff66ff;">(</span>variable=10<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>:
+    state.<span style="color: #00d3d0;">variable</span> -= 1
+    <span style="color: #b6a0ff; font-weight: bold;">return</span> state
+
+<span style="color: #00d3d0;">Zustand</span> = updateState<span style="color: #ffffff;">()</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>Zustand<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+<span style="color: #b6a0ff; font-weight: bold;">try</span>:
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>
+<span style="color: #b6a0ff; font-weight: bold;">except</span> <span style="color: #6ae4b9; font-weight: bold;">NameError</span>:
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span><span style="color: #79a8ff;">"`state` is not known"</span><span style="color: #ffffff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+          state
+variable      9
+`state` is not known
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5f85b0f" class="outline-2">
+<h2 id="org5f85b0f"><span class="section-number-2">6.</span> Dealing with negative bikes</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+To account for negative bikes, add a conditional statement to the
+update function and test if the update would lead to a negative
+<code>state.leap</code>, the state at the LEAP station:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">bike_to_city</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>:
+    <span style="color: #b6a0ff; font-weight: bold;">if</span> state.leap == 0:
+        <span style="color: #b6a0ff; font-weight: bold;">return</span>
+    state.<span style="color: #00d3d0;">city</span> += 1
+    state.<span style="color: #00d3d0;">leap</span> -= 1
+</pre>
+</div>
+
+<p>
+Test this function for zero and non-zero values of <code>state.city</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff9f80;">## </span><span style="color: #ff9f80;">ten bikes at city, 2 bikes at leap</span>
+<span style="color: #00d3d0;">bikeshare1</span> = State<span style="color: #ffffff;">(</span>city=10,leap=2<span style="color: #ffffff;">)</span>
+bike_to_city<span style="color: #ffffff;">(</span>bikeshare1<span style="color: #ffffff;">)</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare1<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+<span style="color: #ff9f80;">## </span><span style="color: #ff9f80;">all bikes at city, no bikes at leap</span>
+<span style="color: #00d3d0;">bikeshare2</span> = State<span style="color: #ffffff;">(</span>city=12,leap=0<span style="color: #ffffff;">)</span>
+bike_to_city<span style="color: #ffffff;">(</span>bikeshare2<span style="color: #ffffff;">)</span>  <span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">this would lead to leap = -1</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare2<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+      state
+city     11
+leap      1
+      state
+city     12
+leap      0
+</pre>
+
+
+<p>
+When a function encounters a <code>return</code> statement with or without return
+value, it ends immediately ignoring the remainder of its statements.
+</p>
+
+<p>
+No more negative bikes at LEAP. Write an update function so that at
+the city community center we will also never have negative bikes:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">bike_to_leap</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>:
+    <span style="color: #b6a0ff; font-weight: bold;">if</span> state.city == 0:
+        <span style="color: #b6a0ff; font-weight: bold;">return</span>
+    state.<span style="color: #00d3d0;">leap</span> += 1
+    state.<span style="color: #00d3d0;">city</span> -= 1
+</pre>
+</div>
+<p>
+Test the function <code>bike_to_leap</code> for negative bikes at LEAP:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff9f80;">## </span><span style="color: #ff9f80;">7 bikes at leap, 5 bikes at city</span>
+<span style="color: #00d3d0;">bikeshare1</span> = State<span style="color: #ffffff;">(</span>leap=7,city=5<span style="color: #ffffff;">)</span>
+bike_to_leap<span style="color: #ffffff;">(</span>bikeshare1<span style="color: #ffffff;">)</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare1<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+<span style="color: #ff9f80;">## </span><span style="color: #ff9f80;">all bikes at leap, no bikes at city</span>
+<span style="color: #00d3d0;">bikeshare2</span> = State<span style="color: #ffffff;">(</span>leap=12,city=0<span style="color: #ffffff;">)</span>
+bike_to_leap<span style="color: #ffffff;">(</span>bikeshare2<span style="color: #ffffff;">)</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare2<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+      state
+leap      8
+city      4
+      state
+leap     12
+city      0
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf7d9d24" class="outline-2">
+<h2 id="orgf7d9d24"><span class="section-number-2">7.</span> Using comparison operators</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Don't confuse the assignment operator <code>=</code> with the comparison operator
+<code>==</code>. The former distributes computer memory to variables and spits out
+nothing while the latter checks equality and spits out a Boolean
+value.
+</p>
+
+<p>
+The assignment operator does, the comparison operator does not change
+the value of its left hand side argument:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #00d3d0;">x</span> = 5  <span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">changes value of x</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>x<span style="color: #ffffff;">)</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>x == 5<span style="color: #ffffff;">)</span>  <span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">does not change value of x</span>
+</pre>
+</div>
+
+<pre class="example">
+5
+True
+</pre>
+
+
+<p>
+What error do you get if you mess this up in a conditional statement?
+</p>
+<ol class="org-ol">
+<li>Set x to 5, check <code>if</code> it is 5 and <code>print</code> "x is 5" (use an f-string).</li>
+<li>Now set x to 5 in the conditional statement and run it again.</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #00d3d0;">x</span> = 5
+<span style="color: #b6a0ff; font-weight: bold;">if</span> x == 5:
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>f<span style="color: #79a8ff;">'x is </span>{x}<span style="color: #79a8ff;">'</span><span style="color: #ffffff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+x is 5
+</pre>
+
+
+<p>
+Write a conditional statement that checks if x is NOT 5 using the
+comparison operator <code>!=</code>. Set x to 6 and print "x is not 5 but 6".
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #00d3d0;">x</span> = 6
+<span style="color: #00d3d0;">y</span> = 5
+<span style="color: #b6a0ff; font-weight: bold;">if</span> x != y:
+    <span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>f<span style="color: #79a8ff;">'x is not </span>{y}<span style="color: #79a8ff;"> but </span>{x}<span style="color: #79a8ff;">'</span><span style="color: #ffffff;">)</span> 
+</pre>
+</div>
+
+<pre class="example">
+&gt;&gt;&gt; x is not 5 but 6
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf583721" class="outline-2">
+<h2 id="orgf583721"><span class="section-number-2">8.</span> Defining simulation metrics</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Our current model is <i>stochastic</i> because the arrival of customers is
+dictated by a randomized draw with varying probabilities - it's
+different every time.
+</p>
+
+<p>
+The opposite extreme would be a <i>deterministic</i> model that does the same
+thing every time the model runs. Mathematical models that are based on
+evaluating closed mathematical expressions are deterministic by nature.
+</p>
+
+<p>
+What would make the model better for the customer? For example knowing
+the probability of finding an available bike (to minimize the chance
+of not getting one, or maximize the chance of getting one).
+</p>
+
+<p>
+What would make the model better for the owner? For example knowing if
+a customer got a bike or not (to minimize the number of customers who
+don't get a bike or maximize the number of bikes in use).
+</p>
+
+<p>
+Statistics that quantify how well the system works are simulation
+<i>metrics</i>. "How well" is relative to the purpose of the
+simulation. Applying metrics boils down to optimization.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9802591" class="outline-2">
+<h2 id="org9802591"><span class="section-number-2">9.</span> Measuring the number of unhappy customers</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Here is a version of <code>bike_to_leap</code> that keeps track of the number of
+unhappy customers, measured in the number of customers who arrive at a
+station with no bikes:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #b6a0ff; font-weight: bold;">def</span> <span style="color: #feacd0;">bike_to_leap</span><span style="color: #ffffff;">(</span>state<span style="color: #ffffff;">)</span>:
+    <span style="color: #b6a0ff; font-weight: bold;">if</span> state.city == 0:
+        state.<span style="color: #00d3d0;">city_empty</span> += 1  <span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">add one unhappy customer</span>
+        <span style="color: #b6a0ff; font-weight: bold;">return</span>
+    state.<span style="color: #00d3d0;">leap</span> += 1
+    state.<span style="color: #00d3d0;">city</span> -= 1
+</pre>
+</div>
+<p>
+We have essentially added another state variable to our system. We
+need to add it whenever we create a <code>State</code> object:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #00d3d0;">bikeshare</span> = State<span style="color: #ffffff;">(</span>leap = 12,
+                  city = 0,
+                  city_empty = 0<span style="color: #ffffff;">)</span>  <span style="color: #ff9f80;"># </span><span style="color: #ff9f80;">initialize with 0 unhappy customers</span>
+</pre>
+</div>
+<p>
+We test it by calling <code>bike_to_leap</code> (withdrawing a bike from <code>city</code>):
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+bike_to_leap<span style="color: #ffffff;">(</span>bikeshare<span style="color: #ffffff;">)</span>
+<span style="color: #f78fe7; font-weight: bold;">print</span><span style="color: #ffffff;">(</span>show<span style="color: #ff66ff;">(</span>bikeshare<span style="color: #ff66ff;">)</span><span style="color: #ffffff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+            state
+leap           12
+city            0
+city_empty      0
+            state
+leap           12
+city            0
+city_empty      1
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org793a24d" class="outline-2">
+<h2 id="org793a24d"><span class="section-number-2">10.</span> Concept and code summary</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Concept:
+</p>
+<ul class="org-ul">
+<li>Iterative modeling means starting with a simple model, identifying
+the most important issues for the problem setting, and making
+gradual improvements.</li>
+<li>Variables are local to functions, and parameters can have defaults
+when using keywords for them.</li>
+<li><i>Stochastic</i> models produce different outcomes each time they are run,
+<i>deterministic</i> models produce the same outcome each time they're run.</li>
+<li>Statistics that measure how well the system works are called <i>metrics</i>.</li>
+</ul>
+
+<p>
+Code:
+</p>
+<ul class="org-ul">
+<li>We used a conditional operator, <code>==</code>, to check whether a bike is
+available, in order to avoid negative bikes.</li>
+<li>We added a parameter, <code>state</code>, so we can work with more than one <code>State</code>
+object.</li>
+<li>We added a docstring that explains how to use a function and a
+comment that explains how it works.</li>
+<li>We added a state variable, <code>city_empty</code>, to count the number of
+unhappy customers, which is a metric we’ll use to quantify how well
+the system works.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6b768ed" class="outline-2">
+<h2 id="org6b768ed"><span class="section-number-2">11.</span> References</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Downey AB. Modeling and Simulation in Python. NoStarch
+Press; 2023. <a href="https://allendowney.github.io/ModSimPy/">allendowney.github.io</a>
+</p>
+
+<p>
+Python Software Foundation. Python (Version 3.8.10). Python Software
+Foundation. Published 2021. Accessed August
+19, 2023. <a href="https://www.python.org">python.org</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2023-09-26 Tue 14:06</p>
+</div>
+</body>
+</html>

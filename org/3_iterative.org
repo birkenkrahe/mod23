@@ -1,9 +1,11 @@
 #+title: Iterative modeling
 #+startup: overview hideblocks indent inlineimages
 #+property: header-args:R :results output :noweb yes
-#+property: header-args:python :results output :noweb yes :session *Python*
+#+property: header-args:python :results output :noweb yes :session *Python* :exports both
 #+options: toc:1 num:1
 * README
+
+Improving quality of the code and quality of the model.
 
 - Iterating the bike share model
 - Using more than one ~State~ object
@@ -11,19 +13,429 @@
 - Dealing with negative bikes
 - Introducing comparison operators
 - Introducing metrics
-  
-* Summary
+- Summary and exercises
 
+* Iterative modeling
+
+Iterative modeling means starting with a simple model, identifying the
+most important issues for the problem setting, and making gradual
+improvements.
+
+What assumptions is the bike share model based on? In which ways is it
+unrealistic - what are the differences between the model and the real
+world?
+
+1. Customer arrival probability varies over time.
+2. Travel time between bike stations is not zero.
+3. Bike availability is not guaranteed.
+4. LEAP and Community Centre look completely different.
+5. There are more customers at the Community Centre.
+6. Customers come in different types.
+7. Bikes come in different types.
+8. Checking out bikes might cost money.
+
+Are any of these more relevant than others? Relevance depends on the
+purpose for the modeling simulation. What is our likely purpose?
+
+- Understand the system with its elements, relationships, boundary and
+  the resulting states.
+
+For this purpose, specific details about the elements (e.g. type of
+bike or type of customer) could be important once we've understood the
+basic dynamics (i.e. evolution over time).
+
+The different looks (and location in town) of our stations might
+affect the arrival/checkout probability: more students at LEAP but
+more people overall at the Community Centre.
+
+Types of customer is important if we're trying to make a prediction by
+customer type - like "which age group is most likely to check out a
+bike?" Same for the bike type - which bikes should we buy?
+
+The first assumption (time dependency) can be neglected if we simulate
+over a short period of time (like one hour).
+
+The second assumption (travel time between stations) might not affect
+the results very much depending on the distance between stations - but
+if we're after the impact of this feature on the dynamic of the model,
+we have to add it.
+
+The third assumption is important because negative bike numbers are an
+obvious violation of the physical laws and just don't make sense.
+
+* Using more than one ~State~ object
+
+What if there is more than one bike share system, or if we want to run
+more than one simulation? We need to be able to define more than one
+set of state variables.
+
+Import ~modsim~, then redefine the update functions:
+#+begin_src python :results silent
+  # import State from modsim
+  from modsim import State, show, source_code, flip, TimeSeries
+
+  # redefine `bike_to_city()` to take the argument `state`
+  def bike_to_city(state):
+      print("Moving bike to city Community Center.")
+      state.leap -= 1
+      state.city += 1
+
+  # redefine `bike_to_city()` to take the argument `state`
+  def bike_to_leap(state):
+      print("Moving bike to Lyon's LEAP.")
+      state.leap += 1
+      state.city -= 1
+#+end_src
+
+The value of ~state~ could be any ~State~ object not just ~bikeshare~. When
+we now update the bike stations, we need to supply a ~State~ object:
+#+begin_src python
+  # Initialize a `bikeshare` State
+  bikeshare = State(city=10,leap=2)
+
+  # Move a bike to city
+  bike_to_city(bikeshare)
+
+  # Show the state of `bikeshare`
+  print(show(bikeshare))
+#+end_src
+
+#+RESULTS:
+: Moving bike to city Community Center.
+:       state
+: city     11
+: leap      1
+
+The update call has the same effect as:
+#+begin_example python
+  state = bikeshare
+  state.leap -= 1
+  state.city += 1
+#+end_example
+
+Notice the difference between the ~state~ parameter in the update
+function, and the ~State~ function, which defines a ~state~.
+
+Now we can create as many ~State~ objects as we want, and update them
+independently:
+#+begin_src python
+  # define two states, `bikeshare1` and `bikeshare2`
+  bikeshare1 = State(city=10,leap=2)
+  bikeshare2 = State(city=2,leap=10)
+
+  # Move a bike to city in both states and show them
+  bike_to_city(bikeshare1)
+  print(show(bikeshare1))
+  bike_to_city(bikeshare2)  
+  print(show(bikeshare2))
+  #+end_src
+
+#+RESULTS:
+: Moving bike to city Community Center.
+:       state
+: city     11
+: leap      1
+: Moving bike to city Community Center.
+:       state
+: city      3
+: leap      9
+
+Changes in either state do not affect the other. Now we can simulate
+different bike share systems (e.g. different initial conditions), or
+run multiple simulations.
+
+* Adding docstrings
+
+There are two types of in-program documentation:
+1) comments (use liberally) after ~#~
+2) docstrings (use strategically) between ~"""~ 
+
+In IPython, you get the docstring when asking for help with ~?~.
+
+Add the following documentation to the update functions by printing
+the text between two sets of ~"""~ marks on the next line after the ~def~
+line, then print the docstring:
+#+begin_example
+  """Move one bike from [station1] to [station2]
+     state: bikeshare State object
+  """
+#+end_example
+#+begin_src python :results silent
+  def bike_to_city(state):
+      """Move one bike from LEAP to city community center.
+
+      state: bikeshare State object
+      """
+      print("Moving bike to city Community Center.")
+      state.leap -= 1
+      state.city += 1
+
+  def bike_to_leap(state):
+      """Move one bike from city community center to LEAP.
+
+      state: bikeshare State object
+      """
+      print("Moving bike to Lyon's LEAP.")
+      state.leap += 1
+      state.city -= 1
+#+end_src
+
+Calling the help with ~help~:
+#+begin_src python
+  help(bike_to_city)
+  help(bike_to_leap)  
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Help on function bike_to_city in module __main__:
+
+bike_to_city(state)
+    Move one bike from LEAP to city community center.
+    
+    state: bikeshare State object
+
+Help on function bike_to_leap in module __main__:
+
+bike_to_leap(state)
+    Move one bike from city community center to LEAP.
+    
+    state: bikeshare State object
+#+end_example
+
+What happens if you enter ~help(bike_to_city())~ and
+~help(bike_to_city(state))~ - explain the errors!
+
+* Scope and keyword parameter
+
+You can call the function ~updateState~ without argument because the
+function definition has a default value.
+#+begin_src python
+  from modsim import State, show
+
+  def updateState(state=State(variable=10)):
+      state.variable -= 1
+      return print(show(state))
+
+  updateState()
+  #+end_src
+
+#+RESULTS:
+:           state
+: variable      9
+
+If you return ~state~ from within the function, it will not be known
+outside unless
+#+begin_src python
+  from modsim import State, show
+
+  def updateState(state=State(variable=10)):
+      state.variable -= 1
+      return state
+
+  Zustand = updateState()
+  print(show(Zustand))
+  try:
+      print(state)
+  except NameError:
+      print("`state` is not known")
+  #+end_src
+
+  #+RESULTS:
+  :           state
+  : variable      9
+  : `state` is not known
+
+* Dealing with negative bikes
+
+To account for negative bikes, add a conditional statement to the
+update function and test if the update would lead to a negative
+~state.leap~, the state at the LEAP station:
+#+begin_src python :results silent
+  def bike_to_city(state):
+      if state.leap == 0:
+          return
+      state.city += 1
+      state.leap -= 1
+#+end_src
+
+Test this function for zero and non-zero values of ~state.city~:
+#+begin_src python
+  ## ten bikes at city, 2 bikes at leap
+  bikeshare1 = State(city=10,leap=2)
+  bike_to_city(bikeshare1)
+  print(show(bikeshare1))
+  ## all bikes at city, no bikes at leap
+  bikeshare2 = State(city=12,leap=0)
+  bike_to_city(bikeshare2)  # this would lead to leap = -1
+  print(show(bikeshare2))
+#+end_src
+
+#+RESULTS:
+:       state
+: city     11
+: leap      1
+:       state
+: city     12
+: leap      0
+
+When a function encounters a ~return~ statement with or without return
+value, it ends immediately ignoring the remainder of its statements.
+
+No more negative bikes at LEAP. Write an update function so that at
+the city community center we will also never have negative bikes:
+#+begin_src python :results silent
+  def bike_to_leap(state):
+      if state.city == 0:
+          return
+      state.leap += 1
+      state.city -= 1
+#+end_src
+Test the function ~bike_to_leap~ for negative bikes at LEAP:
+#+begin_src python
+  ## 7 bikes at leap, 5 bikes at city
+  bikeshare1 = State(leap=7,city=5)
+  bike_to_leap(bikeshare1)
+  print(show(bikeshare1))
+  ## all bikes at leap, no bikes at city
+  bikeshare2 = State(leap=12,city=0)
+  bike_to_leap(bikeshare2)
+  print(show(bikeshare2))
+#+end_src
+
+#+RESULTS:
+:       state
+: leap      8
+: city      4
+:       state
+: leap     12
+: city      0
+
+* Using comparison operators
+
+Don't confuse the assignment operator ~=~ with the comparison operator
+~==~. The former distributes computer memory to variables and spits out
+nothing while the latter checks equality and spits out a Boolean
+value.
+
+The assignment operator does, the comparison operator does not change
+the value of its left hand side argument:
+#+begin_src python
+  x = 5  # changes value of x
+  print(x)
+  print(x == 5)  # does not change value of x
+#+end_src
+
+#+RESULTS:
+: 5
+: True
+
+What error do you get if you mess this up in a conditional statement?
+1) Set x to 5, check ~if~ it is 5 and ~print~ "x is 5" (use an f-string).
+2) Now set x to 5 in the conditional statement and run it again.
+#+begin_src python
+  x = 5
+  if x == 5:
+      print(f'x is {x}')
+#+end_src
+
+#+RESULTS:
+: x is 5
+
+Write a conditional statement that checks if x is NOT 5 using the
+comparison operator ~!=~. Set x to 6 and print "x is not 5 but 6".
+#+begin_src python
+  x = 6
+  y = 5
+  if x != y:
+      print(f'x is not {y} but {x}') 
+#+end_src
+
+#+RESULTS:
+: x is not 5 but 6
+
+* Defining simulation metrics
+
+Our current model is /stochastic/ because the arrival of customers is
+dictated by a randomized draw with varying probabilities - it's
+different every time.
+
+The opposite extreme would be a /deterministic/ model that does the same
+thing every time the model runs. Mathematical models that are based on
+evaluating closed mathematical expressions are deterministic by nature.
+
+What would make the model better for the customer? For example knowing
+the probability of finding an available bike (to minimize the chance
+of not getting one, or maximize the chance of getting one).
+
+What would make the model better for the owner? For example knowing if
+a customer got a bike or not (to minimize the number of customers who
+don't get a bike or maximize the number of bikes in use).
+
+Statistics that quantify how well the system works are simulation
+/metrics/. "How well" is relative to the purpose of the
+simulation. Applying metrics boils down to optimization.
+
+* Measuring the number of unhappy customers
+
+Here is a version of ~bike_to_leap~ that keeps track of the number of
+unhappy customers, measured in the number of customers who arrive at a
+station with no bikes:
+#+begin_src python :results silent
+  def bike_to_leap(state):
+      if state.city == 0:
+          state.city_empty += 1  # add one unhappy customer
+          return
+      state.leap += 1
+      state.city -= 1
+#+end_src
+We have essentially added another state variable to our system. We
+need to add it whenever we create a ~State~ object:
+#+begin_src python :results silent
+  bikeshare = State(leap = 12,
+                    city = 0,
+                    city_empty = 0)  # initialize with 0 unhappy customers
+#+end_src
+We test it by calling ~bike_to_leap~ (withdrawing a bike from ~city~):
+#+begin_src python
+  print(show(bikeshare))
+  bike_to_leap(bikeshare)
+  print(show(bikeshare))
+#+end_src
+
+#+RESULTS:
+:             state
+: leap           12
+: city            0
+: city_empty      0
+:             state
+: leap           12
+: city            0
+: city_empty      1
+
+* Concept and code summary
+
+Concept:
+- Iterative modeling means starting with a simple model, identifying
+  the most important issues for the problem setting, and making
+  gradual improvements.
+- Variables are local to functions, and parameters can have defaults
+  when using keywords for them.
+- /Stochastic/ models produce different outcomes each time they are run,
+  /deterministic/ models produce the same outcome each time they're run.
+- Statistics that measure how well the system works are called /metrics/.
+
+Code:
+- We used a conditional operator, ~==~, to check whether a bike is
+  available, in order to avoid negative bikes.
 - We added a parameter, ~state~, so we can work with more than one ~State~
   object.
 - We added a docstring that explains how to use a function and a
   comment that explains how it works.
-- We used a conditional operator, ~==~, to check whether a bike is
-  available, in order to avoid negative bikes.
 - We added a state variable, ~city_empty~, to count the number of
   unhappy customers, which is a metric we’ll use to quantify how well
   the system works.
-  
+
 * References
 
 Downey AB. Modeling and Simulation in Python. NoStarch

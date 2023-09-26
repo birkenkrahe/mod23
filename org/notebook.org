@@ -648,12 +648,13 @@ using this partially filled notebook in Google Colaboratory.
 
 * 6.1 Tue-Sept-26  
 
-- Exercise 2 batch: remember to submit a *published* notebook (Thu)
-- Review: test 3 (results aren't great - why?)
-- Review: 1st sprint review (proposal) - what're you proud of?
-- Next sprint review: literature review (who else) and method (how to)
+- [[https://lyon.instructure.com/courses/1443/assignments/18924][Exercise 2 batch]]: remember to submit a *published* notebook (Thu)
+- [[https://lyon.instructure.com/courses/1443/assignments/18909][Review: test 3]] (results aren't great - why?)
+- Review: [[https://lyon.instructure.com/courses/1443/assignments/18049][1st sprint review]] (proposal) - what're you proud of?
+- Preview: [[https://lyon.instructure.com/courses/1443/assignments/18947][2nd sprint review]]: lit rev (who else) and method (how to)
 - Codealong lecture: Iterative modeling (bikeshare system part II)
-- Next: incremental modeling (bikeshare system part III)
+- Next: incremental model development (bikeshare system part III)
+- Test 4 and exercise batch 3 coming end of the week for next Tue/Thu
 
 * References
 
