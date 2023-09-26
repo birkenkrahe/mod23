@@ -15,6 +15,9 @@ Improving quality of the code and quality of the model.
 - Introducing metrics
 - Summary and exercises
 
+A practice notebook is available in DataCamp workspace:
+[[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModeling]]
+
 * Iterative modeling
 
 Iterative modeling means starting with a simple model, identifying the

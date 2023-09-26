@@ -656,6 +656,9 @@ using this partially filled notebook in Google Colaboratory.
 - Next: incremental model development (bikeshare system part III)
 - Test 4 and exercise batch 3 coming end of the week for next Tue/Thu
 
+A practice notebook for iterative modeling is available in DataCamp
+workspace: [[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModeling]]
+
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
