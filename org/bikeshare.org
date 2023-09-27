@@ -1,0 +1,91 @@
+#+options: toc:nil num:nil ^:nili
+* Mathematical Formalization of Bikeshare Simulation
+
+** Entities:
+   1. =Bikeshare=: This system includes two locations, =leap= and =city=. Bikes are transferred between these two locations.
+   2. =Bike=: Bikes are the objects being moved between the two locations in the Bikeshare system.
+
+** Processes:
+   1. =Bike Movement=:
+      - A bike moves from =leap= to =city= with a probability \( p_1 \).
+      - A bike moves from =city= to =leap= with a probability \( p_2 \).
+
+** Variables:
+   - \( L \): Number of bikes at =leap=.
+   - \( C \): Number of bikes at =city=.
+   - \( p_1 \): Probability of a bike moving from =leap= to =city= at each time step.
+   - \( p_2 \): Probability of a bike moving from =city= to =leap= at each time step.
+   - \( t \): Time step.
+
+** Equations:
+
+   At each time step \( t \):
+   1. The probability that a bike moves from =leap= to =city= is \( p_1 \). If a bike is moved, then \( L \) is decreased by 1 and \( C \) is increased by 1:
+   \[
+   L_t = L_{t-1} - 1, \quad C_t = C_{t-1} + 1
+   \]
+   2. The probability that a bike moves from =city= to =leap= is \( p_2 \). If a bike is moved, then \( C \) is decreased by 1 and \( L \) is increased by 1:
+   \[
+   C_t = C_{t-1} - 1, \quad L_t = L_{t-1} + 1
+   \]
+
+** Initialization:
+   - Initially, \( L_0 = 6 \) and \( C_0 = 6 \), where \( L_0 \) and \( C_0 \) are the number of bikes at =leap= and =city= at time \( t = 0 \).
+
+** Simulation Steps:
+   For \( t = 1, 2, \ldots, \text{num\_steps} \):
+   1. At each time step \( t \), generate a random number to decide whether a bike moves from =leap= to =city= or from =city= to =leap= based on probabilities \( p_1 \) and \( p_2 \).
+   2. Update \( L_t \) and \( C_t \) based on the movements.
+   3. Store \( L_t \) for each time step \( t \).
+
+** Output:
+   - The simulation will output a time series plot of the number of bikes at =leap= over time steps \( t \).
+
+** Conclusion:
+   This mathematical formalization of the simulation captures the
+   stochastic nature of bike movements between =leap= and =city=, and it
+   models the system dynamics over discrete time steps. The parameters
+   \( p_1 \) and \( p_2 \) can be adjusted to study various scenarios
+   and analyze the system behavior under different conditions.
+
+* Mathematical Basis of Simulation Modeling
+
+The mathematical basis of the formulation for simulation modeling, like the Bikeshare simulation example, usually involves concepts from probability theory, statistics, and discrete mathematics, particularly stochastic processes, discrete event simulation, and Markov chains.
+
+** Probability Theory:
+   - *Role in Simulation:* Helps in the modeling of uncertainties and random processes.
+   - *Example in Bikeshare Simulation:* The probabilities \(p_1\) and \(p_2\) are used to model the likelihood of a bike moving between two locations.
+
+** Stochastic Processes:
+   - *Definition:* A stochastic process is a collection of random variables that represents the evolution of some system of random values over time.
+   - *Role in Simulation:* Used to model systems where there is uncertainty in the future state of the system.
+   - *Example in Bikeshare Simulation:* The number of bikes at each location at each time step is a stochastic process.
+
+** Discrete Event Simulation (DES):
+   - *Definition:* DES is a method to model the behavior of a system as a discrete sequence of events.
+   - *Role in Simulation:* Allows for the modeling of systems where changes occur at discrete points in time.
+   - *Example in Bikeshare Simulation:* Each movement of a bike from one location to another is a discrete event.
+
+** Markov Chains:
+   - *Definition:* A stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event.
+   - *Role in Simulation:* Useful for modeling systems that transition between states with given probabilities.
+   - *Example in Bikeshare Simulation:* If we assume the probability of a bike moving between two locations is only dependent on the current number of bikes at each location and not on past movements, the system can be modeled as a Markov chain.
+
+** Queueing Theory:
+   - *Definition:* The mathematical study of waiting lines, or queues.
+   - *Role in Simulation:* Helps in modeling and analyzing systems that involve waiting lines or service processes.
+   - *Example in Bikeshare Simulation:* Could be extended to analyze the waiting time if there are more customers needing bikes than available bikes at a location.
+
+** System Dynamics:
+   - *Definition:* A method for understanding the nonlinear behavior of complex systems over time using stocks, flows, internal feedback loops, and time delays.
+   - *Role in Simulation:* Useful for modeling and analyzing complex systems and their dynamics.
+   - *Example in Bikeshare Simulation:* Helps in understanding how the number of bikes at each location changes over time.
+
+* Conclusion:
+
+In simulation modeling, mathematical concepts are used to represent
+real-world systems and analyze their behavior under various
+conditions. It allows for the examination of different scenarios,
+prediction of future behavior, and decision-making to optimize system
+performance.
+   
