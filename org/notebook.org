@@ -646,18 +646,33 @@ using this partially filled notebook in Google Colaboratory.
 - Loops and TimeSeries
 - Plotting 
 
-* 6.1 Tue-Sept-26  
+* 6.1 Tue-Sept-26
 
-- [[https://lyon.instructure.com/courses/1443/assignments/18924][Exercise 2 batch]]: remember to submit a *published* notebook (Thu)
-- [[https://lyon.instructure.com/courses/1443/assignments/18909][Review: test 3]] (results aren't great - why?)
-- Review: [[https://lyon.instructure.com/courses/1443/assignments/18049][1st sprint review]] (proposal) - what're you proud of?
-- Preview: [[https://lyon.instructure.com/courses/1443/assignments/18947][2nd sprint review]]: lit rev (who else) and method (how to)
-- Codealong lecture: Iterative modeling (bikeshare system part II)
+- [X] [[https://lyon.instructure.com/courses/1443/assignments/18924][Exercise 2 batch]]: remember to submit a *published* notebook (Thu)
+- [X] [[https://lyon.instructure.com/courses/1443/assignments/18909][Review: test 3]] (results aren't great - why?)
+- [X] Review: [[https://lyon.instructure.com/courses/1443/assignments/18049][1st sprint review]] (proposal) - what're you proud of?
+- [X] Preview: [[https://lyon.instructure.com/courses/1443/assignments/18947][2nd sprint review]]: lit rev (who else) and method (how to)
+- [X] Codealong lecture: Iterative modeling (bikeshare system part II)
 - Next: incremental model development (bikeshare system part III)
 - Test 4 and exercise batch 3 coming end of the week for next Tue/Thu
 
 A practice notebook for iterative modeling is available in DataCamp
 workspace: [[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModeling]]
+* 6.2 Thu-Sept-28
+
+- [ ] Review [[https://app.datacamp.com/workspace/w/4e9ccd88-8b89-4047-8800-e0bdb451ead9/edit][exercise 2 solutions]]
+  1) What is the error for the type in ~bikeshare.leap~?
+  2) What is the meaning of the third state variable =downtown=?
+  3) Simulation parameters: how many functions, how many calls?
+     [[../img/exercise2.png]]
+- [ ] Codealong lecture: [[https://app.datacamp.com/workspace/w/ce6913ec-c807-4fdc-880d-4030170ea142][iterative modeling]] (continued)
+  1. Scope and keyword parameters
+  2. Adding check statement to deal with negative bikes
+  3. Comparison operators and =None=
+  4. Defining simulation metrics - unhappy customers
+- [ ] Available later today: [[https://app.datacamp.com/workspace/w/676a8161-b2be-4318-8be0-e3e34a1944cd/edit][exercise 3]] (deadline Tue 5-Oct)
+- [ ] Available later today: test 4 (deadline Tue 3-Oct)
+- Next: incremental model development (bikeshare system part III)
 
 * References
 
