@@ -660,12 +660,12 @@ A practice notebook for iterative modeling is available in DataCamp
 workspace: [[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModeling]]
 * 6.2 Thu-Sept-28
 
-- [ ] Review [[https://app.datacamp.com/workspace/w/4e9ccd88-8b89-4047-8800-e0bdb451ead9/edit][exercise 2 solutions]]
+- [X] Review [[https://app.datacamp.com/workspace/w/4e9ccd88-8b89-4047-8800-e0bdb451ead9/edit][exercise 2 solutions]]
   1) What is the error for the type in ~bikeshare.leap~?
   2) What is the meaning of the third state variable =downtown=?
   3) Simulation parameters: how many functions, how many calls?
      [[../img/exercise2.png]]
-- [ ] Codealong lecture: [[https://app.datacamp.com/workspace/w/ce6913ec-c807-4fdc-880d-4030170ea142][iterative modeling]] (continued)
+- [X] Codealong lecture: [[https://app.datacamp.com/workspace/w/ce6913ec-c807-4fdc-880d-4030170ea142][iterative modeling]] (continued)
   1. Scope and keyword parameters
   2. Adding check statement to deal with negative bikes
   3. Comparison operators and =None=
