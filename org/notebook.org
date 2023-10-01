@@ -674,6 +674,9 @@ workspace: [[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModelin
 - [ ] Available later today: test 4 (deadline Tue 3-Oct)
 - Next: incremental model development (bikeshare system part III)
 
+* Tue, 17-Oct
+
+Monthly summary
 * References
 
 Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
