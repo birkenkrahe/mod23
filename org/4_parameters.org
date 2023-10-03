@@ -1,0 +1,50 @@
+#+title: Parameters and Metrics
+#+startup: overview hideblocks indent inlineimages
+#+property: header-args:R :results output :noweb yes
+#+property: header-args:python :results output :noweb yes :session *Python* :exports both
+#+options: toc:1 num:1
+* README
+
+To develop our model, we add more advanced programming methods:
+
+- Functions that return values
+- Loops and NumPy arrays
+- Sweeping parameters
+- Incremental model development
+- Summary and exercises
+
+A practice notebook is available in DataCamp workspace:
+[[https://tinyurl.com/iterativeModeling][tinyurl.com/ParametersMetrics]]
+
+* Concept and code summary
+
+Concept:
+- Iterative modeling means starting with a simple model, identifying
+  the most important issues for the problem setting, and making
+  gradual improvements.
+- Variables are local to functions, and parameters can have defaults
+  when using keywords for them.
+- /Stochastic/ models produce different outcomes each time they are run,
+  /deterministic/ models produce the same outcome each time they're run.
+- Statistics that measure how well the system works are called /metrics/.
+
+Code:
+- We used a conditional operator, ~==~, to check whether a bike is
+  available, in order to avoid negative bikes.
+- We added a parameter, ~state~, so we can work with more than one ~State~
+  object.
+- We added a docstring that explains how to use a function and a
+  comment that explains how it works.
+- We added a state variable, ~city_empty~, to count the number of
+  unhappy customers, which is a metric we’ll use to quantify how well
+  the system works.
+
+* References
+
+Downey AB. Modeling and Simulation in Python. NoStarch
+Press; 2023. [[https://allendowney.github.io/ModSimPy/][allendowney.github.io]]
+
+Python Software Foundation. Python (Version 3.8.10). Python Software
+Foundation. Published 2021. Accessed August
+19, 2023. [[https://www.python.org][python.org]]
+

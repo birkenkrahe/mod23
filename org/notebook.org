@@ -670,12 +670,20 @@ workspace: [[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModelin
   2. Adding check statement to deal with negative bikes
   3. Comparison operators and =None=
   4. Defining simulation metrics - unhappy customers
-- [ ] Available later today: [[https://app.datacamp.com/workspace/w/676a8161-b2be-4318-8be0-e3e34a1944cd/edit][exercise 3]] (deadline Tue 5-Oct)
-- [ ] Available later today: test 4 (deadline Tue 3-Oct)
+- [X] Available later today: [[https://app.datacamp.com/workspace/w/676a8161-b2be-4318-8be0-e3e34a1944cd/edit][exercise 3]] (deadline Tue 3-Oct)
+- [X] Available later today: test 4 (deadline Tue 3-Oct)
+  
 - Next: incremental model development (bikeshare system part III)
 
-* Tue, 17-Oct
+* 7.1 Tue-Oct-3
 
+- [ ] Review [[https://lyon.instructure.com/courses/1443/assignments/19163?display=full_width][test 4]] and [[https://app.datacamp.com/workspace/w/1f85d561-1364-44d1-953f-cf4b75add35c/edit][exercise 3]]
+- [ ] Review: what is our bikeshare model still missing?
+- [ ] Lecture/practice: Parameters and Metrics
+- [ ] Thursday: test 5, exercise 4 (deadline Thu-12-Oct)
+- [ ] Challenge exercises (deadline Thu-12-Oct): for extra credit
+
+* Tue, 17-Oct
 Monthly summary
 * References
 
