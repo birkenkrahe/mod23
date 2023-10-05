@@ -677,9 +677,10 @@ workspace: [[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModelin
 
 * 7.1 Tue-Oct-3
 
-- [ ] Review [[https://lyon.instructure.com/courses/1443/assignments/19163?display=full_width][test 4]] and [[https://app.datacamp.com/workspace/w/1f85d561-1364-44d1-953f-cf4b75add35c/edit][exercise 3]]
+- [X] Review [[https://lyon.instructure.com/courses/1443/assignments/19163?display=full_width][test 4]] and [[https://app.datacamp.com/workspace/w/1f85d561-1364-44d1-953f-cf4b75add35c/edit][exercise 3]]
+  Add code for the plot exercise! 6,6 for bike
 - [ ] Review: what is our bikeshare model still missing?
-- [ ] Lecture/practice: Parameters and Metrics
+- [X] Lecture/practice: Parameters and Metrics
 - [ ] Thursday: test 5, exercise 4 (deadline Thu-12-Oct)
 - [ ] Challenge exercises (deadline Thu-12-Oct): for extra credit
 
