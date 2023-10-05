@@ -1,5 +1,5 @@
 #+startup: overview inlineimages indent hideblocks
-#+property: header-args:python :results output
+#+property: header-args:python :results output :session *Python*
 * README
 
 - Notes usually based on whiteboard screenshots ([[https://drive.google.com/drive/folders/1VzxUI_fhy2fXkzjfHHUtEK9NuRYLatij?usp=sharing][GDrive]]).
@@ -683,6 +683,42 @@ workspace: [[https://tinyurl.com/iterativeModeling][tinyurl.com/iterativeModelin
 - [X] Lecture/practice: Parameters and Metrics
 - [ ] Thursday: test 5, exercise 4 (deadline Thu-12-Oct)
 - [ ] Challenge exercises (deadline Thu-12-Oct): for extra credit
+
+* 7.2 Thu-Oct-5
+#+attr_html: :width 400px
+[[../img/linspace.png]]
+
+Review:
+1. What is =linspace=?
+   #+begin_quote
+   =linspace= is a one-dimensional NumPy array (aka vector) of ~num~
+   numbers between the first and the last argument.
+   #+end_quote
+2. If ~arr = linspace(1,10,10)~, what is ~arr[10]~?
+   #+begin_quote
+   An ~IndexError~. Which exception prints the maximum allowed index
+   without knowing its value beforehand?
+   #+end_quote
+   #+begin_src python
+     arr = linspace(1,10,10)
+     try:
+         print(arr[10])
+     except IndexError:
+         print(f'Index value out of bounds: max index is {len(arr)-1}')
+   #+end_src
+
+   #+RESULTS:
+   : Index value out of bounds: max index is 9
+3. How would you loop over the array ~(1,3.25,5.5,7.75,10)~?
+   #+begin_src python
+     for i in linspace(1,10,5): print(i)
+   #+end_src
+
+Continue: parameters and metrics with the bikeshare simulation.
+
+Start exercises.
+
+Challenge exercises and a test will be posted over the next couple of days.
 
 * Tue, 17-Oct
 Monthly summary
