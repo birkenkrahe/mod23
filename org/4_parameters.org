@@ -14,7 +14,7 @@ To develop our model, we add more advanced programming methods:
 - Summary and exercises
 
 A practice notebook is available in DataCamp workspace:
-[[https://tinyurl.com/iterativeModeling][tinyurl.com/ParametersMetrics]]
+[[https://app.datacamp.com/workspace/w/bd527037-2e39-43e5-bc46-e8d9bf495b9b/edit][tinyurl.com/ParametersMetrics]]
 
 * Concept and code summary
 
