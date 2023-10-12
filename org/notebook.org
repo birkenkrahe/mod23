@@ -722,13 +722,16 @@ Challenge exercises and a test will be posted over the next couple of days.
 
 * 8.1 Thu-Oct-12 - Population model
 
-- Review exercise 4 / bonus challenges / test 5
+- Remember the 2nd sprint review (presentation) next Tuesday!
   
+- Review exercise 4 / bonus challenges / test 5
+
 - Building a population model (Downey, ch. 5)
 
 * 9.1 Tue, 17-Oct - 2nd sprint review
 
 - Monthly summary
+
 - Second sprint review
 
 * 10.1 Tue-Oct-24 - Iterating population models
