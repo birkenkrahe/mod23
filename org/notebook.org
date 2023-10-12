@@ -724,9 +724,9 @@ Challenge exercises and a test will be posted over the next couple of days.
 
 - Remember the 2nd sprint review (presentation) next Tuesday!
   
-- Review exercise 4 / bonus challenges / test 5
+- Review exercise 4 / test 5
 
-- Building a population model (Downey, ch. 5)
+- Building a population model (Downey, ch. 5) - part I (data)
 
 * 9.1 Tue, 17-Oct - 2nd sprint review
 
@@ -734,6 +734,10 @@ Challenge exercises and a test will be posted over the next couple of days.
 
 - Second sprint review
 
+- Building a population model - part II (model and simulate)
+
+- Sample solutions bonus challenges (video?)
+  
 * 10.1 Tue-Oct-24 - Iterating population models
 
 - Iterating the population model (Downey, ch. 6)
