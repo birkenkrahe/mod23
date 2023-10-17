@@ -733,7 +733,31 @@ Challenge exercises and a test will be posted over the next couple of days.
 #+attr_latex: :width 400px
 [[../img/2ndSprintReview.png]]
 
-** TODO Monthly summary
+** Bikeshare sample solutions challenges (video)
+
+As promised (to Pedro) I made a video of the solutions to the two
+challenge exercises. I have not got to grading your submissions yet,
+I'm afraid but I'll get to that in the course of the week. Here is the
+[[https://drive.google.com/file/d/1Bd3GbQ9MAzbPPYzjYbmK0G1E18bQTirp/view][link to the 30 minute video]] (using Google Colab).
+
+PS. you can find the [[https://app.datacamp.com/workspace/w/910bcafc-5288-488b-bfe5-054155f9eb61/edit][solution as code]] in the DataCamp solution
+workspace that also contains the solutions to the exercises.
+  
+** Monthly summary
+
+- Defining Python functions
+- Using loops and time series
+- Attributes and functions in =pandas= and =numpy=
+- Plotting and customizing line plots
+- Iterative modeling and arrays (vectors, =Series=)
+- Controlling simulation parameters and metrics
+- Incremental development of a model
+- List comprehensions, data frames
+- Transforming data in data frames
+- Vectorization in Numpy arrays
+- Extracting subvectors using logical flag vectors
+
+** TODO Code summary
 
 ** 2nd sprint review
 
@@ -743,10 +767,15 @@ Challenge exercises and a test will be posted over the next couple of days.
 - Ask *questions* of the product owner and of other teams.
 - *Upload* any material to your project folder in GDrive.
 
+** Research strategy: sources
+
+- Validate your sources
+- Analyse and comment on your sources
+- Pick a spectrum of sources (e.g. blog, commercial, scientific)
+- Cite consistently and completely (not just URLs)
+
 ** TODO Building a population model - part II
 
-** TODO Bikeshare sample solutions challenges (video?)
-  
 * 10.1 Tue-Oct-24 - Iterating population models
 
 - Iterating the population model (Downey, ch. 6)
