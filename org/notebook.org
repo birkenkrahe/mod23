@@ -746,7 +746,7 @@ workspace that also contains the solutions to the exercises.
 ** Monthly summary
 
 - Defining Python functions
-- Using loops and time series
+- Using loops and time series (named vectors)
 - Attributes and functions in =pandas= and =numpy=
 - Plotting and customizing line plots
 - Iterative modeling and arrays (vectors, =Series=)
@@ -757,14 +757,16 @@ workspace that also contains the solutions to the exercises.
 - Vectorization in Numpy arrays
 - Extracting subvectors using logical flag vectors
 
-** TODO Code summary
+** Code summary
+
+
 
 ** 2nd sprint review
 
-- Every team *presents* their project status briefly and informally.
+- Everybody *presents* their project status briefly and informally.
 - Focus on the reviewed *literature* and your method or *approach*.
 - Comment on you general *progress*, pride, change issues.
-- Ask *questions* of the product owner and of other teams.
+- Ask *questions* of the product owner and of other participants.
 - *Upload* any material to your project folder in GDrive.
 
 ** Research strategy: sources
@@ -774,9 +776,9 @@ workspace that also contains the solutions to the exercises.
 - Pick a spectrum of sources (e.g. blog, commercial, scientific)
 - Cite consistently and completely (not just URLs)
 
-** TODO Building a population model - part II
-
 * 10.1 Tue-Oct-24 - Iterating population models
+
+- Building a population model - part II
 
 - Iterating the population model (Downey, ch. 6)
 
