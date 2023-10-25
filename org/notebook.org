@@ -900,6 +900,12 @@ Review of what we've learnt so far (part I):
      print(pop(census.index[-1]))  # shortcut to the last element
    #+end_src
 
+   #+RESULTS:
+   : 2.557628654
+   : 3.712697742
+   : 7.325996709
+   : 7.325996709
+
 Next:
 - Plotting
 - Absolute and relative errors
