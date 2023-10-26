@@ -728,7 +728,7 @@ Challenge exercises and a test will be posted over the next couple of days.
 
 - Building a population model (Downey, ch. 5) - part I (data)
 
-* 9.1 Tue, 17-Oct - 2nd sprint review
+* DONE 9.1 Tue, 17-Oct - 2nd sprint review
 #+caption: Medieval colored woodcut depiction of a castle courtyard. Project teams, dressed in medieval attire, set up booths showcasing their work. One booth has a team presenting wooden contraptions representing their methods. Another booth displays a collection of ancient manuscripts for their literature review. Nobles and common folk alike gather around, engaging in lively discussions about the projects.
 #+attr_latex: :width 400px
 [[../img/2ndSprintReview.png]]
@@ -774,7 +774,7 @@ workspace that also contains the solutions to the exercises.
 - Pick a spectrum of sources (e.g. blog, commercial, scientific)
 - Cite consistently and completely (not just URLs)
 
-* 10.1 Tue-Oct-24 - Iterating population models
+* DONE 10.1 Tue-Oct-24 - Iterating population models
 
 ** Wed, 25-Oct meeting in Derby 209 (via Zoom)
   #+attr_latex: :width 400px
@@ -912,15 +912,23 @@ Next:
 - Modeling and simulating population growth
 - Iterating the population model
 
-#+begin_src python
-  print(tables[2].un.isnull())
-#+end_src
-
-** Next: Iterating the population model
-
 * 10.2 Thu-Oct-26 - Improving population models
 
-Limits to growth - improving the population model (Downey, ch. 7)
+What did you learn so far? Name (at least) one thing -
+1) a fact
+2) a concept
+3) a question
+4) or code
+
+#+begin_quote
+1. Fact: how human population changed over time.
+2. Concept: vectorization simplifies vector operations.
+3. Question: what is the modeling workflow?
+4. Code: how to extract index and value from a =Series= (vector).
+#+end_quote
+
+** Iterating the population model (workspace)
+** Improving the population model (workspace)
 
 * 11.1 Tue-Oct-31 - Validating population models
 
