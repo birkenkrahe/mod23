@@ -927,7 +927,15 @@ What did you learn so far? Name (at least) one thing -
 4. Code: how to extract index and value from a =Series= (vector).
 #+end_quote
 
-** Iterating the population model (workspace)
+...finish building the population model with a simulation (workspace).
+
+** Iterating the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]])
+
+- Add a =System= object to add system parameters to the simulation.
+- Encapsulate previous code in a simulation function.
+- Make a better model with growth proportional to the population.
+- Higher order functions calling functions as parameters.
+
 ** Improving the population model (workspace)
 
 * 11.1 Tue-Oct-31 - Validating population models
