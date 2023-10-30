@@ -912,7 +912,7 @@ Next:
 - Modeling and simulating population growth
 - Iterating the population model
 
-* 10.2 Thu-Oct-26 - Improving population models
+* DONE 10.2 Thu-Oct-26 - Improving population models
 
 What did you learn so far? Name (at least) one thing -
 1) a fact
@@ -940,8 +940,7 @@ What did you learn so far? Name (at least) one thing -
 
 * 11.1 Tue-Oct-31 - Validating population models
 
-Projecting into the future - validating the population model (Downey,
-ch. 8)
+- [[https://lyon.instructure.com/courses/1443/assignments/20197][Third sprint review]] is live: abstract and keywords wanted!
 
 * 11.2 Thu-Nov-2 - Symbolic computation
 
