@@ -936,11 +936,25 @@ What did you learn so far? Name (at least) one thing -
 - Make a better model with growth proportional to the population.
 - Higher order functions calling functions as parameters.
 
-** Improving the population model (workspace)
-
 * 11.1 Tue-Oct-31 - Validating population models
 
 - [[https://lyon.instructure.com/courses/1443/assignments/20197][Third sprint review]] is live: abstract and keywords wanted!
+
+- What did we do with our population model last time?
+  #+begin_quote
+  1. Added a =System= object - why? How?
+  2. What do you get when you =print= a =System= instance?
+  3. Are the =System= variables local or global to a =System= instance?
+  4. Which code does the simulation function contain?
+  5. What does ~plot_estimates~ do?
+  6. Why do we import =matplotlib.pyplot=?
+  7. How do a constant and a proportional growth model differ?
+  8. What's the purpose of refactoring code?
+  #+end_quote
+
+- More code improvements: refactoring / defining an alpha factor
+  
+- Improving the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]])
 
 * 11.2 Thu-Nov-2 - Symbolic computation
 
