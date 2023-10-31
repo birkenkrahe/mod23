@@ -952,9 +952,14 @@ What did you learn so far? Name (at least) one thing -
   8. What's the purpose of refactoring code?
   #+end_quote
 
-- More code improvements: refactoring / defining an alpha factor
+- Sample solution of the last exercise ([[https://app.datacamp.com/workspace/w/946f983b-4260-409a-9752-4fecc8b656dc/edit][workspace notebook]]).
+
+- New exercise for "Iterating the population model" until next
+  Tuesday. It involves extending the growth function by a parameter ~t~.
   
-- Improving the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]])
+- More code improvements: refactoring / defining an alpha factor.
+  
+- Improving the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]]).
 
 * 11.2 Thu-Nov-2 - Symbolic computation
 
