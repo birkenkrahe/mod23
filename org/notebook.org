@@ -4,7 +4,7 @@
 
 - Notes usually based on whiteboard screenshots ([[https://drive.google.com/drive/folders/1VzxUI_fhy2fXkzjfHHUtEK9NuRYLatij?usp=sharing][GDrive]]).
 - Includes further reading, watching and comments
-* Part I
+* Part I - Complexity and model building
 ** 1.1 Aug-22
 
 - How to read a paper (objective/subjective/reflective)
@@ -728,12 +728,13 @@ Challenge exercises and a test will be posted over the next couple of days.
 
 - Building a population model (Downey, ch. 5) - part I (data)
 
-* DONE 9.1 Tue, 17-Oct - 2nd sprint review
+* Part II - Population models and code improvement
+** DONE 9.1 Tue, 17-Oct - 2nd sprint review
 #+caption: Medieval colored woodcut depiction of a castle courtyard. Project teams, dressed in medieval attire, set up booths showcasing their work. One booth has a team presenting wooden contraptions representing their methods. Another booth displays a collection of ancient manuscripts for their literature review. Nobles and common folk alike gather around, engaging in lively discussions about the projects.
 #+attr_latex: :width 400px
 [[../img/2ndSprintReview.png]]
 
-** Bikeshare sample solutions challenges (video)
+*** Bikeshare sample solutions challenges (video)
 
 As promised (to Pedro) I made a video of the solutions to the two
 challenge exercises. I have not got to grading your submissions yet,
@@ -743,7 +744,7 @@ I'm afraid but I'll get to that in the course of the week. Here is the
 PS. you can find the [[https://app.datacamp.com/workspace/w/910bcafc-5288-488b-bfe5-054155f9eb61/edit][solution as code]] in the DataCamp solution
 workspace that also contains the solutions to the exercises.
   
-** Monthly summary
+*** Monthly summary
 
 - Defining Python functions
 - Using loops and time series (named vectors)
@@ -757,9 +758,9 @@ workspace that also contains the solutions to the exercises.
 - Vectorization in Numpy arrays
 - Extracting subvectors using logical flag vectors
 
-** TODO Code summary
+*** TODO Code summary
 
-** 2nd sprint review
+*** 2nd sprint review
 
 - Everybody *presents* their project status briefly and informally.
 - Focus on the reviewed *literature* and your method or *approach*.
@@ -767,16 +768,16 @@ workspace that also contains the solutions to the exercises.
 - Ask *questions* of the product owner and of other participants.
 - *Upload* any material to your project folder in GDrive.
 
-** Research strategy: sources
+*** Research strategy: sources
 
 - Validate your sources
 - Analyse and comment on your sources
 - Pick a spectrum of sources (e.g. blog, commercial, scientific)
 - Cite consistently and completely (not just URLs)
 
-* DONE 10.1 Tue-Oct-24 - Iterating population models
+** DONE 10.1 Tue-Oct-24 - Iterating population models
 
-** Wed, 25-Oct meeting in Derby 209 (via Zoom)
+*** Wed, 25-Oct meeting in Derby 209 (via Zoom)
   #+attr_latex: :width 400px
   [[../img/uams.jpg]]
 
@@ -789,7 +790,7 @@ workspace that also contains the solutions to the exercises.
   https://lyon-edu.zoom.us/j/83316335723 (no passcode) - or you can
   join us in room 209 in the Derby building.
 
-** Building a population model - part II
+*** Building a population model - part II
 
 1. [[https://app.datacamp.com/workspace/w/4ec23129-80ac-4896-bae0-f3e61fa8d4e3/edit][DataCamp workspace practice]] so far
 2. [[https://app.datacamp.com/workspace/w/7f8eec99-456d-48ef-9887-b0a95ac9c190/edit][DataCamp workspace solution]] (complete file)
@@ -912,7 +913,7 @@ Next:
 - Modeling and simulating population growth
 - Iterating the population model
 
-* DONE 10.2 Thu-Oct-26 - Proportional population model
+** DONE 10.2 Thu-Oct-26 - Proportional population model
 
 What did you learn so far? Name (at least) one thing -
 1) a fact
@@ -929,14 +930,14 @@ What did you learn so far? Name (at least) one thing -
 
 ...finish building the population model with a simulation (workspace).
 
-** Iterating the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]])
+*** Iterating the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]])
 
 - Add a =System= object to add system parameters to the simulation.
 - Encapsulate previous code in a simulation function.
 - Make a better model with growth proportional to the population.
 - Higher order functions calling functions as parameters.
 
-* DONE 11.1 Tue-Oct-31 - Refactoring code
+** DONE 11.1 Tue-Oct-31 - Refactoring code
 
 - [[https://lyon.instructure.com/courses/1443/assignments/20197][Third sprint review]] is live: abstract and keywords wanted!
 
@@ -962,55 +963,48 @@ What did you learn so far? Name (at least) one thing -
   
 - Improving the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]]).
 
-* 11.2 Thu-Nov-2 - Quadratic growth function and dysfunctions
+** DONE 11.2 Thu-Nov-2 - Quadratic growth function and dysfunctions
 
 - Adding a quadratic term to the growth function
 - Different types of function errors and mistakes
 
-* 12.1 Tue-Nov-7 - Symbolic computation / Four case studies (lab)
+** NEXT 12.1 Tue-Nov-7 - Projecting into the future
 
-Case studies:
-1) Historical world population
-2) Queuing theory
-3) Predicting salmon populations
-4) Tree growth
+- Generating projections
+- Comparing projects
 
-* 12.2 Thu-Nov-9 - Epidemiology/SIR models
+** 12.2 Thu-Nov-9 - Symbolic computation
+** 13.1 Tue-Nov-14 - Case study: queuing theory
 
-Epidemiology, SIR models, immunization (Downey, ch.11-12)
+- Third sprint review was due on Nov 12
 
-* 13.1 Tue-Nov-14 - Sweeping parameters
+- Case study: Queuing theory
 
-- Third sprint review due
+** 13.2 Thu-Nov-16 - Four case studies II
 
-- Sweeping parameters and non-dimensionalization (Downey, ch. 13-14)
+- Case study: predicting salmon populations
 
-* 13.2 Thu-Nov-16 - Thermal systems I
-
-Thermal systems (Downey, ch. 15)
-
-* 14.1 Tue-Nov-21 - Thermal systems II
-
-Solving the coffee cooling problem (Downey, ch. 16)
-
-* 15.1 Tue-Nov-28 - Interpolation
-
-Modeling blood sugar - interpolation (Downey, ch. 17)
-
-* 15.2 Thu-Nov-30 - Minimal model
-
-Implementing the minimal model (Downey, ch. 18)
-
-* 16.1 Tue-Dec-5 - Presentations I
+* Part III - Statistical and graph models
+** 14.1 Tue-Nov-21 - Monte Carlo simulations
+** 15.1 Tue-Nov-28 - Hidden Markov models
+** 15.2 Thu-Nov-30 - Graph theory models
+** 16.1 Tue-Dec-5 - Presentations I
 
 Presentations
 
-* 16.1 Thu-Dec-8 - Presentations II
+** 16.1 Thu-Dec-8 - Presentations II
 
 Presentations
 
 * References
 
-Maria A. /Introduction to Modeling and Simulation/. In: Andradottir S,
-Healy KJ, Withers DH, Nelson BL, eds. Proceedings of the 1997 Winter
-Simulation Conference; 1997. [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][dl.acm.org/doi/pdf/10.1145/268437.268440]]
+- Downey A.B. /Modeling and Simulation in Python: An Introduction
+  for Scientists and Engineers. NoStarch Press; 2023.
+
+- Kinser J.M. /Modeling and Simulating in Python/. CRC Press; 2022.
+
+- Maria A. /Introduction to Modeling and Simulation/. In:
+  Andradottir S, Healy KJ, Withers DH, Nelson BL,
+  eds. Proceedings of the 1997 Winter Simulation
+  Conference; 1997. [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][dl.acm.org/doi/pdf/10.1145/268437.268440]]
+
