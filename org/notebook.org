@@ -776,7 +776,6 @@ workspace that also contains the solutions to the exercises.
 - Cite consistently and completely (not just URLs)
 
 ** DONE 10.1 Tue-Oct-24 - Iterating population models
-
 *** Wed, 25-Oct meeting in Derby 209 (via Zoom)
   #+attr_latex: :width 400px
   [[../img/uams.jpg]]
@@ -966,6 +965,7 @@ What did you learn so far? Name (at least) one thing -
 ** DONE 11.2 Thu-Nov-2 - Quadratic growth function and dysfunctions
 
 - Adding a quadratic term to the growth function
+
 - Different types of function errors and mistakes
 
 ** NEXT 12.1 Tue-Nov-7 - Projecting into the future
