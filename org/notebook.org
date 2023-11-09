@@ -986,8 +986,9 @@ them with demographic projections.
 
 ** 12.2 Thu-Nov-9 - Projecting into the future
 
+- Review answers to exercises 6 + 7 + population challenge
 - Generating projections
-- Comparing projects
+- Comparing projections
 
 *** =pd.Series.divide=
 
@@ -999,6 +1000,39 @@ consequently, one of the test questions has an incorrect answer.
 - A =State= is defined by system variables, e.g. bikes at LEAP.
 - A =System= is defined by its boundaries (which are not variables),
   e.g. initial time =t_0=
+
+*** Birth and death rates 1950 to 1974
+
+@Jacob Strickland pointed a weakness of exercise 6 out to me: it says
+that the alpha parameters can be an "arbitrary choice". Though they
+should relate to realistic figures. I used alpha1 = 19/1000 and
+alpha2=15/1000. Here are some real data, nicely presentation as an
+animation:
+https://ourworldindata.org/grapher/birth-rate-vs-death-rate?time=1950..1974
+
+Can you make sense of some of the outliers? E.g. the Vatican or Rwanda?
+
+*** Quadratic vs exponential population
+
+An [[https://mail.google.com/mail/u/0/#chat/space/AAAAXpYqkeI][article from 2018]] ("Freisinnige Zeitung" = Libertarians), summary
+by OpenAI's ChatGPT (personal communication, November 9, 2023):
+
+- The document challenges the Malthusian idea of exponential
+  population growth, suggesting quadratic growth is a better fit for
+  historical data.
+- Exponential growth is critiqued as circular reasoning, assuming
+  constant fertility and mortality rates regardless of population
+  size.
+- The author proposes that populations expand in a two-dimensional
+  space, leading to quadratic growth as they settle in larger circles
+  over time.
+- A case study of England from 1815 to 1869 shows quadratic growth
+  fitting the data better than exponential growth.
+- The document argues that populations likely have control over their
+  fertility rates, which contradicts the Malthusian view of inevitable
+  overpopulation.
+- It suggests that population growth will naturally slow down and
+  stabilize, rather than increase indefinitely.
 
 ** 13.1 Tue-Nov-14 - Symbolic computation I
 
@@ -1037,3 +1071,7 @@ Presentations
   eds. Proceedings of the 1997 Winter Simulation
   Conference; 1997. [[https://dl.acm.org/doi/pdf/10.1145/268437.268440][dl.acm.org/doi/pdf/10.1145/268437.268440]]
 
+- OpenAI's ChatGPT. "Summary of 'Quadratic Versus Exponential
+  Population Growth' Article." Personal communication, 9
+  Nov. 2023. URL: [[https://chat.openai.com/share/473d4291-08cf-47e1-8756-08c8882d3b09][chat.openai.com]].
+  
