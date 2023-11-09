@@ -994,6 +994,12 @@ them with demographic projections.
 Jacob found out that [[https://pandas.pydata.org/docs/reference/api/pandas.Series.divide.html][this function exists]] (I did not know):
 consequently, one of the test questions has an incorrect answer.
 
+*** Difference between =System= and =State=
+
+- A =State= is defined by system variables, e.g. bikes at LEAP.
+- A =System= is defined by its boundaries (which are not variables),
+  e.g. initial time =t_0=
+
 ** 13.1 Tue-Nov-14 - Symbolic computation I
 
 - Difference equations
