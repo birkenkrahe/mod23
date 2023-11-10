@@ -984,7 +984,7 @@ population model, building projections for the future and comparing
 them with demographic projections.
 #+end_quote
 
-** 12.2 Thu-Nov-9 - Projecting into the future
+** DONE 12.2 Thu-Nov-9 - Projecting into the future
 
 - Review answers to exercises 6 + 7 + population challenge
 - Generating projections
@@ -998,6 +998,7 @@ consequently, one of the test questions has an incorrect answer.
 *** Difference between =System= and =State=
 
 - A =State= is defined by system variables, e.g. bikes at LEAP.
+
 - A =System= is defined by its boundaries (which are not variables),
   e.g. initial time =t_0=
 
@@ -1007,10 +1008,10 @@ consequently, one of the test questions has an incorrect answer.
 that the alpha parameters can be an "arbitrary choice". Though they
 should relate to realistic figures. I used alpha1 = 19/1000 and
 alpha2=15/1000. Here are some real data, nicely presentation as an
-animation:
-https://ourworldindata.org/grapher/birth-rate-vs-death-rate?time=1950..1974
+[[https://ourworldindata.org/grapher/birth-rate-vs-death-rate?time=1950..1974][animation]].
 
-Can you make sense of some of the outliers? E.g. the Vatican or Rwanda?
+Can you make sense of some of the outliers? E.g. the Vatican or
+Rwanda?
 
 *** Quadratic vs exponential population
 
