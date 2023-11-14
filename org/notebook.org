@@ -1037,12 +1037,14 @@ by OpenAI's ChatGPT (personal communication, November 9, 2023):
 
 ** 13.1 Tue-Nov-14 - Symbolic computation I
 
-- Difference equations
-- Differential equations
-- Analysis and simulation
+- Please make sure to come to the convocation talk (bonus points)
+- 3rd sprint review
 
 ** 13.2 Thu-Nov-16 - Symbolic computation II
 
+- Difference equations
+- Differential equations
+- Analysis and simulation
 - Analysis with Wolfram Alpha
 - Analysis with SymPy
 - Differential equations in SymPy
