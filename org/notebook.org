@@ -4,7 +4,7 @@
 
 - Notes usually based on whiteboard screenshots ([[https://drive.google.com/drive/folders/1VzxUI_fhy2fXkzjfHHUtEK9NuRYLatij?usp=sharing][GDrive]]).
 - Includes further reading, watching and comments
-* Part I - Complexity and model building
+* DONE Part I - Complexity and model building
 ** 1.1 Aug-22
 
 - How to read a paper (objective/subjective/reflective)
@@ -528,6 +528,7 @@ test it on these phenomena ([[https://ideaboardz.com/for/Complexity/5050674][ide
 When applying the criteria, make sure that you can name evidence, for
 example in the form of a historical anecdote or fact.
 
+* DONE Part II - Model simulations
 ** 4.1 Sep-12
 *** Vote for Lyon College this week!
 
@@ -728,8 +729,8 @@ Challenge exercises and a test will be posted over the next couple of days.
 
 - Building a population model (Downey, ch. 5) - part I (data)
 
-* Part II - Population model, refactoring, symbolic computation
-** DONE 9.1 Tue, 17-Oct - 2nd sprint review
+* DONE Part III - Population model, refactoring, symbolic computation
+** 9.1 Tue, 17-Oct - 2nd sprint review
 #+caption: Medieval colored woodcut depiction of a castle courtyard. Project teams, dressed in medieval attire, set up booths showcasing their work. One booth has a team presenting wooden contraptions representing their methods. Another booth displays a collection of ancient manuscripts for their literature review. Nobles and common folk alike gather around, engaging in lively discussions about the projects.
 #+attr_latex: :width 400px
 [[../img/2ndSprintReview.png]]
@@ -775,7 +776,7 @@ workspace that also contains the solutions to the exercises.
 - Pick a spectrum of sources (e.g. blog, commercial, scientific)
 - Cite consistently and completely (not just URLs)
 
-** DONE 10.1 Tue-Oct-24 - Iterating population models
+** 10.1 Tue-Oct-24 - Iterating population models
 *** Wed, 25-Oct meeting in Derby 209 (via Zoom)
   #+attr_latex: :width 400px
   [[../img/uams.jpg]]
@@ -912,7 +913,7 @@ Next:
 - Modeling and simulating population growth
 - Iterating the population model
 
-** DONE 10.2 Thu-Oct-26 - Proportional population model
+** 10.2 Thu-Oct-26 - Proportional population model
 
 What did you learn so far? Name (at least) one thing -
 1) a fact
@@ -936,7 +937,7 @@ What did you learn so far? Name (at least) one thing -
 - Make a better model with growth proportional to the population.
 - Higher order functions calling functions as parameters.
 
-** DONE 11.1 Tue-Oct-31 - Refactoring code
+** 11.1 Tue-Oct-31 - Refactoring code
 
 - [[https://lyon.instructure.com/courses/1443/assignments/20197][Third sprint review]] is live: abstract and keywords wanted!
 
@@ -962,13 +963,13 @@ What did you learn so far? Name (at least) one thing -
   
 - Improving the population model ([[https://app.datacamp.com/workspace/w/16e20767-453d-4896-8835-a6ec3f880e19/edit][workspace]]).
 
-** DONE 11.2 Thu-Nov-2 - Quadratic growth function and dysfunctions
+** 11.2 Thu-Nov-2 - Quadratic growth function and dysfunctions
 
 - Adding a quadratic term to the growth function
 
 - Different types of function errors and mistakes
 
-** DONE 12.1 Tue-Nov-7 - cancelled
+** CANCELED 12.1 Tue-Nov-7 - cancelled
 
 #+begin_quote
 Good evening - There will be no class tomorrow, Tuesday Nov-7. Instead, please:
@@ -984,7 +985,7 @@ population model, building projections for the future and comparing
 them with demographic projections.
 #+end_quote
 
-** DONE 12.2 Thu-Nov-9 - Projecting into the future
+** 12.2 Thu-Nov-9 - Projecting into the future
 
 - Review answers to exercises 6 + 7 + population challenge
 - Generating projections
@@ -1035,23 +1036,37 @@ by OpenAI's ChatGPT (personal communication, November 9, 2023):
 - It suggests that population growth will naturally slow down and
   stabilize, rather than increase indefinitely.
 
-** 13.1 Tue-Nov-14 - Symbolic computation I
+** 13.1 Tue-Nov-14 - 3rd sprint review / abstracts
 
 - Please make sure to come to the convocation talk (bonus points)
 - 3rd sprint review
 
-** 13.2 Thu-Nov-16 - Symbolic computation II
+** CANCELED 13.2 Thu-Nov-16 - cancelled / convocation talk
 
-- Difference equations
-- Differential equations
-- Analysis and simulation
-- Analysis with Wolfram Alpha
-- Analysis with SymPy
-- Differential equations in SymPy
-- Solving the Quadratic Growth model
+#+begin_quote
+Good evening - There will be no class tomorrow, Thursday Nov 16,
+because the speaker, Dr. Prior, will arrive some time during our class
+time and I'll have to welcome him.
 
-* Part III - Statistical and graph models
-** 14.1 Tue-Nov-21 - Monte Carlo simulations
+Please use the available time to make progress with your term
+projects - improve your abstracts based on our detailed discussion on
+Monday etc.
+
+I hope to see you in Nucor auditorium at 4 pm for Dr. Prior's lecture
+instead - check in with the QR code at the entrance to log your bonus
+points.
+#+end_quote
+
+* Part IV - Statistical and graph models / Capstone projects
+** 14.1 Tue-Nov-21 - Monte Carlo method
+
+- Random vectors
+- Rolling dice
+- Hyper-dimensional ball
+- Proper sampling
+- Estimating the area of a star
+- Unequal distributions
+
 ** 15.1 Tue-Nov-28 - Hidden Markov models
 ** 15.2 Thu-Nov-30 - Graph theory models
 ** 16.1 Tue-Dec-5 - Presentations I
