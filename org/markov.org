@@ -1,0 +1,215 @@
+#+startup: overview hideblocks indent inlineimages
+#+property: header-args:python :results output :noweb yes :session *Python*
+* Hidden Markov Models
+** Overview
+
+The Monte Carlo method exploited sampling a space with random
+points. The order of the sampling did not matter, only the
+distribution from which the points were drawn.
+
+Sometimes the sequence of events is critical: consider the meaning of
+a written paragraph, which is born from the sequence of its letters.
+
+The Hidden Markov Model (HMM) is a tool used in analyzing or
+predicting the nature of a sequence. We will review two types of HMM
+and construct the models in Python.
+
+Example applications for HMMs include:
+- Gene sequencing of protein patterns (bioinformatics)
+- Analyzing speech patterns (speech recognition)
+- Predicting stock prices (finance)
+- Intrusion and anomaly detection (cybersecurity)
+
+A typical HMM is a set of connected nodes: the information flows in
+the direction of the arrows from left to right. Probabilities for a
+move from node to node are contained in either the nodes or in the
+connections between the nodes, and they are used to compute the action
+across the network.
+
+We'll discuss:
+1) Emission HMMs whose probabilities are associated with the nodes.
+2) Transition HMMs whose probabilities are associated with the connections.
+3) Recurrent HMMs in which the information can flow in either direction.
+
+There are similarities between neural networks and HMMs, which we will
+not exploit here for lack of time.
+
+** An emission HMM
+
+An emission HMM contains nodes, which can have several states and a
+probability of emission (state change).
+
+For example, one node can have three possible states A, B, C with
+respective probabilities A: 0.3, B: 0.2, C: 0.5, which add up to 1.
+
+A HMM network is built from a collection of nodes, and is capable of
+returning the probability of a particular sequence:
+
+| State | Node 0 | Node 1 | Node 2 |
+|-------+--------+--------+--------|
+| A     |    0.3 |    0.1 |    0.4 |
+| B     |    0.2 |    0.8 |    0.6 |
+| C     |    0.5 |    0.1 |    0.0 |
+|-------+--------+--------+--------|
+| Total |     1. |     1. |     1. |
+#+TBLFM: @5$2=vsum(@2..@4)::@5$3=vsum(@2..@4)::@5$4=vsum(@2..@4)
+
+For example, the sequence BAB would activate the B emission in node 0,
+the A emission in node 1, and the B emission in node 2. The total
+probability for this sequence is: $0.2 \times 0.1 \times 0.6 = 0.012$.
+
+There are $3^3 = 27$ permutations of three states on three nodes given
+that the states are independent from one another - the state space has
+27 different states (from AAA to CCC) - bonus exercise: create a table
+with permutations that looks like this:
+
+| Emission | Probability |
+|----------+-------------|
+| AAA      |       0.012 |
+| AAB      |       0.018 |
+| AAC      |           0 |
+| ...      |         ... |
+| CCA      |       0.020 |
+| CCB      |       0.030 |
+| CCC      |           0 |
+
+Each node contains a data label, a probability, and a connection to a
+subsequent node (or nodes). This suggests a Python data dictionary as
+a suitable data structure, with tuples to establish connections.
+
+The ~system~ function creates this network:
+#+begin_src python :results silent
+  def system():
+      '''Create three-node emission HMM with probabilities A,B,C per
+      node
+      '''
+
+      # initialize empty dictionary
+      hmm = {}
+
+      # define nodes as a tuple: dictionary, next node in sequence
+      hmm[0] = ({'A':0.3,'B':0.2,'C':0.5},1)
+      hmm[1] = ({'A':0.1,'B':0.8,'C':0.1},0)
+      hmm[2] = ({'A':0.4,'B':0.6},-1)
+
+      return hmm
+#+end_src
+
+The ~recall~ function returns the probability ~prb~ of a sequence ~strng~:
+#+begin_src python :results silent
+  def recall(hmm,strng):
+      '''Compute probability `prb` for emission sequence `strng`
+
+      hmm: Emission Hidden Markov Model defined in `system`
+      strng: Three-letter sequence of probabilities A,B,C
+      '''
+      # initialize probability to 1 ('will certainly emit')
+      prb = 1
+
+      # initialize length of node sequence
+      N = len(strng)
+
+      # iterate over node sequence 
+      for i in range(N):
+
+          # select probability from system's dictionary
+          # strng[i] is the prob for a single emission from node i
+          if strng[i] in hmm[i][0]:
+              prb *= hmm[i][0][strng[i]]
+          else:
+              prb = 0
+              break
+      return prb
+#+end_src
+
+Create the network and compute the probability for the sequence BAB:
+#+begin_src python
+  # create the network
+  net = system()
+
+  # compute the probability of a single sequence
+  seq = 'BAB'
+  prob = recall(net,seq)
+
+  # print probability
+  print(f"Probability for '{seq}' is: {prob:.3f}")
+#+end_src
+
+#+RESULTS:
+: Probability for 'BAB' is: 0.012
+
+Bonus exercise: iterate over this last code to produce the table.
+
+*** Bonus problem solution
+
+Write a Python program that computes the probabilities for each
+permutation:
+
+1) Create a data frame with the information from the table.
+2) Create arrays of three elements for each permutation
+3) Compute the respective probabilities for each permutation
+4) Display the results as a table.
+
+Load libraries:
+#+begin_src python :results silent
+  import pandas as pd
+  import numpy as np
+#+end_src
+
+Create a dictionary of emission probabilities:
+#+begin_src python
+  data = {
+      'Node_0': [0.3,0.2,0.5],
+      'Node_1': [0.1,0.8,0.1],
+      'Node_2': [0.4,0.6,0.0]
+  }
+#+end_src
+
+#+RESULTS:
+
+Define data frame:
+#+begin_src python
+  hmm = pd.DataFrame(data,
+                     index = ['A','B','C'])
+  print(hmm)
+#+end_src
+
+#+RESULTS:
+:    Node_0  Node_1  Node_2
+: A     0.3     0.1     0.4
+: B     0.2     0.8     0.6
+: C     0.5     0.1     0.0
+
+Check that the emission totals add up to 1:
+#+begin_src python
+  print(hmm.apply(np.sum,axis=0))
+#+end_src
+
+#+RESULTS:
+: Node_0    1.0
+: Node_1    1.0
+: Node_2    1.0
+: dtype: float64
+
+For example, the probability for the sequence AAA is:
+#+begin_src python
+  AAA = hmm.apply(np.prod,axis=1)[0]
+  print(f'AAA: {AAA}')
+#+end_src
+
+#+RESULTS:
+: AAA: 0.012
+
+Loop over all combinations of row labels (states):
+#+begin_src python
+  for index, row in hmm.itercolumns():
+      print(index)
+
+#+end_src
+
+* References
+
+- Kinser, J. M. (2022). Modeling and Simulation in Python. Chapman &
+  Hall. https://doi.org/10.1201/9781003226581
+- Park S. & Miller, K. (1988). Random number generators: Good ones are
+  hard to find. CACM:1192-1201.
