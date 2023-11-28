@@ -1,0 +1,14 @@
+
+HATS schedule November 30, 2023, 17:00-19:00
+
+| TIME         | STUDENT   | STUDENT |
+|--------------+-----------+---------|
+| 5.00-5.15 pm | Jacey     | Landon  |
+| 5.15-5.30 pm | William   | Connor  |
+| 5.30-5.45 pm | Noah      | Esau    |
+| 5.45-6.00 pm | Erik      | Gabriel |
+| 6.00-6.15 pm | Matilyn   | Olivia  |
+| 6.15-6.30 pm | Alexander | Watson  |
+| 6.30-6.45 pm | Naveon    | Tony    |
+| 6.45-7.00 pm | Jeremy    | Manav   |
+
