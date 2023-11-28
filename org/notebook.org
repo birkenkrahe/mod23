@@ -1058,24 +1058,19 @@ points.
 #+end_quote
 
 * Part IV - Statistical and graph models / Capstone projects
-** 14.1 Tue-Nov-21 - Monte Carlo method
+** Week 14-15 - Monte Carlo method and Hidden Markov Models
 
 - Random vectors
 - Rolling dice
-- Hyper-dimensional ball
-- Proper sampling
-- Estimating the area of a star
-- Unequal distributions
+- Estimating the area below a barrier
+- Estimating the area below a line
 
-** 15.1 Tue-Nov-28 - Hidden Markov models
-** 15.2 Thu-Nov-30 - Graph theory models
-** 16.1 Tue-Dec-5 - Presentations I
+** Final exam on Friday, 15-Dec from 1 pm - 3 pm
 
-Presentations
+- According to the [[https://assets.speakcdn.com/assets/2433/fa23_final_exam_schedule_final.pdf][FA23 Final Exam Schedule]].
+- If this is a problem for you, talk to me.
 
-** 16.1 Thu-Dec-8 - Presentations II
-
-Presentations
+** Week 16 - Project presentations
 
 * References
 
